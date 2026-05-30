@@ -12,6 +12,7 @@ Projects inside of this repo have different names than the originals, mostly bec
 
 Bellow is a table of included projects.
 
-|Project name|Description|
-|------------|-----------|
-|RandomPicker|Representing a simple option picker.|
+|Project name|Description|State|
+|------------|-----------|-----|
+|RandomPicker|Representing a simple option picker.|Finished|
+|Folio|Simple general purpose database.|In development|
