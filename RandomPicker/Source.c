@@ -125,6 +125,18 @@ INT_PTR CALLBACK DialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				case IDC_BTN_REMOVE:
 					return TRUE;
 
+				case IDC_LBX_OPTIONS:
+				{
+					if (HIWORD(wParam) == LBN_SELCHANGE)
+					{
+						int currentSel = (int)SendMessage((HWND)lParam, LB_GETCURSEL, 0, 0);
+						BOOL hasSelection = (currentSel != LB_ERR);
+						EnableWindow(GetDlgItem(hDlg, IDC_BTN_REMOVE), hasSelection);
+					}
+
+					return FALSE;
+				}
+
 				default:
 					return FALSE;
 			}
