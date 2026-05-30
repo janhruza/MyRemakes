@@ -3,6 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="Folio/Folio.vcxproj" />
   <Project Path="RandomPicker/RandomPicker.vcxproj" />
 </Solution>

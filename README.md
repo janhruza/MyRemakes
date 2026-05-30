@@ -15,4 +15,3 @@ Bellow is a table of included projects.
 |Project name|Description|State|
 |------------|-----------|-----|
 |RandomPicker|Representing a simple option picker.|Finished|
-|Folio|Simple general purpose database.|In development|
