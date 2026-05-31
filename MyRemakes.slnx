@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="RandomPicker/RandomPicker.vcxproj" />
+  <Project Path="RandomPicker/RandomPicker.vcxproj" Id="edf08aa4-76bb-43bc-8358-d39d62d29414" />
 </Solution>
