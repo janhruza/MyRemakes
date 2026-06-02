@@ -7,7 +7,15 @@
 
 INT WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	InitCommonControls();
+	INITCOMMONCONTROLSEX icex;
+	icex.dwSize = sizeof(INITCOMMONCONTROLSEX);
+	icex.dwICC = ICC_STANDARD_CLASSES | ICC_LINK_CLASS;
+
+	if (!InitCommonControlsEx(&icex))
+	{
+		return 0;
+	}
+
 	DialogBox(hInst, MAKEINTRESOURCE(IDD_MAIN_WINDOW), NULL, DlgMainWindowProc);
 	return EXIT_SUCCESS;
 }

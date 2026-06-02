@@ -11,9 +11,20 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 			int wmId = LOWORD(wParam);
 			switch (wmId)
 			{
-				case IDC_CREATE_ACCOUNT:
-					MessageBeep(MB_ICONINFORMATION);
+				case IDRETRY:
+				{
+					// clear button clicked
+					HWND hPin = GetDlgItem(hDlg, IDC_PIN);
+					SetWindowText(hPin, TEXT(""));
 					return TRUE;
+				}
+
+				case IDC_BTN_LOGIN:
+				{
+					// login button clicked
+					return TRUE;
+				}
+
 				default: break;
 			}
 
