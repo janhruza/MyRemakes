@@ -1,9 +1,13 @@
 #include "..\..\inc\Dialogs\DlgMainWindow.h"
 #include "..\..\res\resource.h"
+#include <CommCtrl.h>
 
 // custom headers
 #include "..\..\inc\Controls\CtlLoginScr.h"
 #include "..\..\inc\WindowHelper.h"
+
+// dialog handles
+HWND hDlgLoginScr;
 
 INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -18,11 +22,12 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 		case WM_INITDIALOG:
 		{
 			HINSTANCE hInst = GetModuleHandle(NULL);
-			HWND hCtl = CreateDialog(hInst, MAKEINTRESOURCE(IDC_SCR_LOGIN), hDlg, CtlLoginScrProc);
-			ShowWindow(hCtl, SW_SHOW);
+			hDlgLoginScr = CreateDialog(hInst, MAKEINTRESOURCE(IDC_SCR_LOGIN), hDlg, CtlLoginScrProc);
+			SetParent(hDlgLoginScr, hDlg);
+			ShowWindow(hDlgLoginScr, SW_SHOW);
 
 			// adjust window size
-			WhFitContent(hDlg, hCtl);
+			WhFitContent(hDlg, hDlgLoginScr);
 			return TRUE;
 		}
 
