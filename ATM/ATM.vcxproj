@@ -145,12 +145,16 @@
   <ItemGroup>
     <ClCompile Include="Source.c" />
     <ClCompile Include="src\Controls\CtlLoginScr.c" />
+    <ClCompile Include="src\Controls\CtlNewAccount.c" />
+    <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Dialogs\DlgMainWindow.c" />
     <ClCompile Include="src\UserAccount.c" />
     <ClCompile Include="src\WindowHelper.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Controls\CtlLoginScr.h" />
+    <ClInclude Include="inc\Controls\CtlNewAccount.h" />
+    <ClInclude Include="inc\Core.h" />
     <ClInclude Include="inc\Dialogs\DlgMainWindow.h" />
     <ClInclude Include="inc\UserAccount.h" />
     <ClInclude Include="inc\WindowHelper.h" />

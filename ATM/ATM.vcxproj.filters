@@ -30,6 +30,12 @@
     <ClCompile Include="src\UserAccount.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Controls\CtlNewAccount.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="res\resource.h">
@@ -45,6 +51,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\UserAccount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Controls\CtlNewAccount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

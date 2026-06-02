@@ -5,9 +5,9 @@
 // custom headers
 #include "..\..\inc\Controls\CtlLoginScr.h"
 #include "..\..\inc\WindowHelper.h"
+#include "..\..\inc\Core.h"
 
 // dialog handles
-HWND hDlgLoginScr;
 
 INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -21,13 +21,12 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 
 		case WM_INITDIALOG:
 		{
-			HINSTANCE hInst = GetModuleHandle(NULL);
-			hDlgLoginScr = CreateDialog(hInst, MAKEINTRESOURCE(IDC_SCR_LOGIN), hDlg, CtlLoginScrProc);
-			SetParent(hDlgLoginScr, hDlg);
-			ShowWindow(hDlgLoginScr, SW_SHOW);
-
-			// adjust window size
-			WhFitContent(hDlg, hDlgLoginScr);
+			// iniotialize the main window and show the login screen
+			hAppWindow = hDlg;
+			CoInitWindows(hDlg);
+			CoHideAllControls();
+			CoShowControl(hCtlLogin);
+			WhFitContent(hDlg, hCtlLogin);
 			return TRUE;
 		}
 

@@ -2,6 +2,8 @@
 #include "..\..\res\resource.h"
 #include <CommCtrl.h>
 
+#include "..\..\inc\WindowHelper.h"
+
 INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
@@ -41,6 +43,11 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 				if (pnmh->code == NM_CLICK || pnmh->code == NM_RETURN)
 				{
 					// create account link clicked
+					HWND hParent = GetParent(hDlg);
+					ShowWindow(hDlg, SW_HIDE);
+					ShowWindow(hCtlNewAccount, SW_SHOW);
+					WhFitContent(hParent, hCtlNewAccount);
+
 					return TRUE;
 				}
 			}

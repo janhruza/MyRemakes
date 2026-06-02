@@ -4,6 +4,7 @@
 
 #include "res/resource.h"
 #include "inc/Dialogs/DlgMainWindow.h"
+#include "inc/Core.h"
 
 INT WINAPI wWinMain(HINSTANCE hInst, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
