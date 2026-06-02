@@ -144,12 +144,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.c" />
+    <ClCompile Include="src\Controls\CtlLoginScr.c" />
+    <ClCompile Include="src\Dialogs\DlgMainWindow.c" />
+    <ClCompile Include="src\WindowHelper.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Controls\CtlLoginScr.h" />
+    <ClInclude Include="inc\Dialogs\DlgMainWindow.h" />
+    <ClInclude Include="inc\WindowHelper.h" />
     <ClInclude Include="res\resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Resources.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="app.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
