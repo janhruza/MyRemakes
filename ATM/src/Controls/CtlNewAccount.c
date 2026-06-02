@@ -14,6 +14,7 @@ INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 			{
 				case IDCANCEL:
 				{
+					// the 'Cancel' button
 					CoHideAllControls();
 					CoShowControl(hCtlLogin);
 					WhFitContent(hAppWindow, hCtlLogin);
@@ -23,6 +24,7 @@ INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 				case IDOK:
 				{
 					// the 'Create' button
+					CoNotImplemented(hDlg);
 					return TRUE;
 				}
 

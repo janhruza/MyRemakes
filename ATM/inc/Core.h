@@ -11,5 +11,6 @@ extern HWND hCtlNewAccount;
 BOOL CoInitWindows(HWND hDlg);
 BOOL CoHideAllControls(void);
 BOOL CoShowControl(HWND hCtl);
+BOOL CoNotImplemented(HWND hParent);
 
 #endif

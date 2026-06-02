@@ -3,7 +3,7 @@
 // Used by Resources.rc
 //
 #define IDD_MAIN_WINDOW                 9
-#define IDD_NEW_ACCOUNT                 101
+#define IDC_NEW_ACCOUNT                 101
 #define IDC_SCR_LOGIN                   103
 #define IDC_PIN                         1001
 #define IDC_BTN_LOGIN                   1002
