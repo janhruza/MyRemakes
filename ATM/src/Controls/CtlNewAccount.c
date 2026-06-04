@@ -2,6 +2,7 @@
 #include "..\..\inc\WindowHelper.h"
 
 #include "..\..\inc\Core.h"
+#include "..\..\inc\UserAccount.h"
 
 INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
