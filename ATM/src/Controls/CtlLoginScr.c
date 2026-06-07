@@ -24,7 +24,7 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 				case IDRETRY:
 				{
 					// clear button clicked
-					HWND hPin = GetDlgItem(hDlg, IDC_PIN);
+					HWND hPin = GetDlgItem(hDlg, IDC_TXT_PIN);
 					SetWindowText(hPin, TEXT(""));
 					return TRUE;
 				}
@@ -36,6 +36,10 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 					if (UALoginByPin(&acc, GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE)) == TRUE)
 					{
 						// login successful
+						// clear the PIN box
+						SendMessage(hDlg, WM_COMMAND, IDRETRY, 0);
+
+						// show the landing page
 						HWND hParent = GetParent(hDlg);
 						CoHideAllControls();
 						CoShowControl(hCtlLanding);
