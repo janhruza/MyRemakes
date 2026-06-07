@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.c" />
+    <ClCompile Include="src\Controls\CtlLandingPage.c" />
     <ClCompile Include="src\Controls\CtlLoginScr.c" />
     <ClCompile Include="src\Controls\CtlNewAccount.c" />
     <ClCompile Include="src\Core.c" />
@@ -152,6 +153,7 @@
     <ClCompile Include="src\WindowHelper.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Controls\CtlLandingPage.h" />
     <ClInclude Include="inc\Controls\CtlLoginScr.h" />
     <ClInclude Include="inc\Controls\CtlNewAccount.h" />
     <ClInclude Include="inc\Core.h" />

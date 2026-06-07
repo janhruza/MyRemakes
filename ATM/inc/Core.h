@@ -7,6 +7,7 @@
 extern HWND hAppWindow;
 extern HWND hCtlLogin;
 extern HWND hCtlNewAccount;
+extern HWND hCtlLanding;
 
 BOOL CoInitWindows(HWND hDlg);
 BOOL CoHideAllControls(void);

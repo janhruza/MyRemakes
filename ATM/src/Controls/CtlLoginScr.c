@@ -1,5 +1,6 @@
 #include "..\..\inc\Controls\CtlLoginScr.h"
 #include "..\..\res\resource.h"
+#include "..\..\inc\Core.h"
 #include <CommCtrl.h>
 
 #include "..\..\inc\WindowHelper.h"
@@ -34,7 +35,11 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 					UserAccount acc;
 					if (UALoginByPin(&acc, GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE)) == TRUE)
 					{
-						// TODO login successful
+						// login successful
+						HWND hParent = GetParent(hDlg);
+						CoHideAllControls();
+						CoShowControl(hCtlLanding);
+						WhFitContent(hParent, hCtlLanding);
 						return TRUE;
 					}
 
