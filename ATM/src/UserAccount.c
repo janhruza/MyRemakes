@@ -7,7 +7,16 @@ BOOL UACreateAccount(PUserAccount account)
 		return FALSE;
 	}
 
-	return FALSE;
+	CreateDirectory(TEXT(".\\data"), NULL);
+
+	// FIXME temp solution
+	return WritePrivateProfileStruct(
+		TEXT("Accounts"),
+		account->name,
+		account,
+		sizeof(UserAccount),
+		APP_DATA_FILE_NAME
+	);
 }
 
 BOOL UADeleteAccount(PUserAccount account)
@@ -17,7 +26,7 @@ BOOL UADeleteAccount(PUserAccount account)
 		return FALSE;
 	}
 
-	return FALSE;
+	return WritePrivateProfileString(TEXT("Accounts"), account->name, NULL, APP_DATA_FILE_NAME);
 }
 
 BOOL UAUpdateAccount(PUserAccount account)
@@ -27,5 +36,5 @@ BOOL UAUpdateAccount(PUserAccount account)
 		return FALSE;
 	}
 
-	return FALSE;
+	return WritePrivateProfileStruct(TEXT("Accounts"), account->name, account, sizeof(UserAccount), APP_DATA_FILE_NAME);
 }

@@ -3,6 +3,20 @@
 
 #include "..\..\inc\Core.h"
 #include "..\..\inc\UserAccount.h"
+#include "..\..\res\resource.h"
+
+BOOL UICreateUserAccount(HWND hDlg)
+{
+	if (hDlg == NULL) return FALSE;
+
+	WCHAR name[MAX_NAME_LENGTH] = { 0 };
+	GetDlgItemText(hDlg, IDC_TXT_USERNAME, name, MAX_NAME_LENGTH);
+
+	UserAccount acc = { 0 };
+	acc.PIN = GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE);
+	lstrcpy(acc.name, name);
+	return UACreateAccount(&acc);
+}
 
 INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -25,8 +39,25 @@ INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 				case IDOK:
 				{
 					// the 'Create' button
-					CoNotImplemented(hDlg);
-					return TRUE;
+					if (UICreateUserAccount(hDlg) == TRUE)
+					{
+						MessageBox(hDlg, TEXT("Account created successfully!"), TEXT("Success"), MB_OK | MB_ICONINFORMATION);
+						CoHideAllControls();
+						CoShowControl(hCtlLogin);
+						WhFitContent(hAppWindow, hCtlLogin);
+						return TRUE;
+
+					}
+					else
+					{
+						DWORD err = GetLastError();
+
+						WCHAR text[512] = { 0 };
+						FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, err, LANG_USER_DEFAULT, text, 512, NULL);
+
+						MessageBox(hDlg, text, TEXT("Error"), MB_OK | MB_ICONERROR);
+						return TRUE;
+					}
 				}
 
 				default: return FALSE;

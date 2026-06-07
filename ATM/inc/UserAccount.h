@@ -6,9 +6,14 @@
 
 #define MAX_NAME_LENGTH 256
 
+#define APP_DATA_FILE_NAME	TEXT(".\\data\\clients.ini")
+#define KEY_ACCOUNT_NAME	TEXT("Name")
+#define KEY_ACCOUNT_PIN		TEXT("PIN")
+#define KEY_ACCOUNT_BALANCE	TEXT("Balance")
+
 typedef struct tagUserAccount
 {
-	UINT PIN;
+	USHORT PIN;
 	DOUBLE balance;
 	WCHAR name[MAX_NAME_LENGTH];
 } UserAccount, *PUserAccount;
