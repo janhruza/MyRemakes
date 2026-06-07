@@ -3,6 +3,13 @@
 #include <CommCtrl.h>
 
 #include "..\..\inc\WindowHelper.h"
+#include "..\..\inc\UserAccount.h"
+
+static BOOL UIAttemptLogin(HWND hDlg)
+{
+	if (hDlg == NULL) return FALSE;
+	return TRUE;
+}
 
 INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -24,7 +31,18 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 				case IDC_BTN_LOGIN:
 				{
 					// login button clicked
-					return TRUE;
+					UserAccount acc;
+					if (UALoginByPin(&acc, GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE)) == TRUE)
+					{
+						// TODO login successful
+						return TRUE;
+					}
+
+					else
+					{
+						MessageBox(hDlg, TEXT("Invalid PIN. Please try again."), TEXT("Error"), MB_OK | MB_ICONERROR);
+						return FALSE;
+					}
 				}
 
 				default: break;

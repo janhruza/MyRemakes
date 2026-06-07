@@ -10,6 +10,7 @@
 #define KEY_ACCOUNT_NAME	TEXT("Name")
 #define KEY_ACCOUNT_PIN		TEXT("PIN")
 #define KEY_ACCOUNT_BALANCE	TEXT("Balance")
+#define CLIENT_SECTION		TEXT("Accounts")
 
 typedef struct tagUserAccount
 {
@@ -21,5 +22,7 @@ typedef struct tagUserAccount
 BOOL UACreateAccount(PUserAccount account);
 BOOL UADeleteAccount(PUserAccount account);
 BOOL UAUpdateAccount(PUserAccount account);
+BOOL UARetrieveAccount(PUserAccount account, LPWSTR username);
+BOOL UALoginByPin(PUserAccount account, int enteredPin);
 
 #endif // USERACCOUNT_H

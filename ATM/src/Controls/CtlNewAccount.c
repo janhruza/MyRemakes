@@ -5,7 +5,7 @@
 #include "..\..\inc\UserAccount.h"
 #include "..\..\res\resource.h"
 
-BOOL UICreateUserAccount(HWND hDlg)
+static BOOL UICreateUserAccount(HWND hDlg)
 {
 	if (hDlg == NULL) return FALSE;
 
