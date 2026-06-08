@@ -4,6 +4,8 @@
 
 #include <Windows.h>
 
+#define APP_NAME		TEXT("ATM")
+
 extern HWND hAppWindow;
 extern HWND hCtlLogin;
 extern HWND hCtlNewAccount;

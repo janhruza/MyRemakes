@@ -49,7 +49,7 @@ INT_PTR CALLBACK CtlLandingPageProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 
 				case IDHELP:
 				{
-					ShellAbout(hDlg, TEXT("ATM"), TEXT("\x00A9 2026 Jan Hruza"), IDI_APPLICATION);
+					ShellAbout(hDlg, APP_NAME, TEXT("\x00A9 2026 Jan Hruza"), NULL);
 					return TRUE;
 				}
 

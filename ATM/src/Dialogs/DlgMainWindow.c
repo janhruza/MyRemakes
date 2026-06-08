@@ -23,6 +23,7 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 		{
 			// iniotialize the main window and show the login screen
 			hAppWindow = hDlg;
+			SetWindowText(hDlg, APP_NAME);
 			CoInitWindows(hDlg);
 			CoHideAllControls();
 			CoShowControl(hCtlLogin);
