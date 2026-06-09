@@ -28,6 +28,7 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 			CoHideAllControls();
 			CoShowControl(hCtlLogin);
 			WhFitContent(hDlg, hCtlLogin);
+			WhCenterWindow(hDlg);
 			return TRUE;
 		}
 

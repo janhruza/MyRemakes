@@ -44,6 +44,7 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 						CoHideAllControls();
 						CoShowControl(hCtlLanding);
 						WhFitContent(hParent, hCtlLanding);
+						WhCenterWindow(hParent);
 						return TRUE;
 					}
 
