@@ -4,6 +4,8 @@
 
 #include <Windows.h>
 
+#include "UserAccount.h"
+
 #define APP_NAME		TEXT("ATM")
 
 extern HWND hAppWindow;
@@ -15,5 +17,8 @@ BOOL CoInitWindows(HWND hDlg);
 BOOL CoHideAllControls(void);
 BOOL CoShowControl(HWND hCtl);
 BOOL CoNotImplemented(HWND hParent);
+BOOL CoDlgAbout(HWND hDlg);
+BOOL CoUpdateTitle(HWND hDlg, PUserAccount acc);
+BOOL CoResetTitle(HWND hDlg);
 
 #endif

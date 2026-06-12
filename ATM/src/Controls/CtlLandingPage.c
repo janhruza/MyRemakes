@@ -22,6 +22,7 @@ static void UILogout(HWND hDlg)
 	CoShowControl(hCtlLogin);
 	WhFitContent(hParent, hCtlLogin);
 	WhCenterWindow(hParent);
+	CoResetTitle(hParent);
 	return;
 }
 
@@ -51,7 +52,7 @@ INT_PTR CALLBACK CtlLandingPageProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 
 				case IDHELP:
 				{
-					ShellAbout(hDlg, APP_NAME, TEXT("\x00A9 2026 Jan Hruza"), NULL);
+					CoDlgAbout(hDlg);
 					return TRUE;
 				}
 

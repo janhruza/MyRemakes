@@ -7,8 +7,21 @@
 #include "..\..\inc\WindowHelper.h"
 #include "..\..\inc\Core.h"
 
-// dialog handles
+BOOL InitSysMenu(HWND hDlg)
+{
+	if (hDlg == NULL)
+	{
+		return FALSE;
+	}
 
+	HMENU hMenu = GetSystemMenu(hDlg, FALSE);
+	AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
+	AppendMenu(hMenu, MF_STRING, MI_ABOUT, TEXT("About\tF1"));
+
+	return TRUE;
+}
+
+// dialog handles
 INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
@@ -23,6 +36,7 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 		{
 			// iniotialize the main window and show the login screen
 			hAppWindow = hDlg;
+			InitSysMenu(hDlg);
 			SetWindowText(hDlg, APP_NAME);
 			CoInitWindows(hDlg);
 			CoHideAllControls();
@@ -40,6 +54,9 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 				case SC_CLOSE:
 					SendMessage(hDlg, WM_CLOSE, 0, 0);
 					return TRUE;
+
+				case MI_ABOUT:
+					return CoDlgAbout(hDlg);
 
 				// invalid option
 				default: return FALSE;

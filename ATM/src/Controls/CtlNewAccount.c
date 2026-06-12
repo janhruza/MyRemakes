@@ -22,6 +22,16 @@ INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 {
 	switch (uMsg)
 	{
+		case WM_INITDIALOG:
+		{
+			HWND hUserName = GetDlgItem(hDlg, IDC_TXT_USERNAME);
+
+			WCHAR username[MAX_PATH];
+			DWORD size = MAX_PATH;
+			GetUserName(username, &size);
+			return SetWindowText(hUserName, username);
+		}
+
 		case WM_COMMAND:
 		{
 			int wmId = LOWORD(wParam);

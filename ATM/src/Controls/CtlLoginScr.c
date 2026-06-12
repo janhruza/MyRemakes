@@ -45,6 +45,10 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 						CoShowControl(hCtlLanding);
 						WhFitContent(hParent, hCtlLanding);
 						WhCenterWindow(hParent);
+
+						// update window title
+						CoUpdateTitle(hParent, &acc);
+
 						return TRUE;
 					}
 
