@@ -17,9 +17,11 @@ static void UILogout(HWND hDlg)
 {
 	if (hDlg == NULL) return;
 
+	HWND hParent = GetParent(hDlg);
 	CoHideAllControls();
 	CoShowControl(hCtlLogin);
-	WhFitContent(GetParent(hDlg), hCtlLogin);
+	WhFitContent(hParent, hCtlLogin);
+	WhCenterWindow(hParent);
 	return;
 }
 
