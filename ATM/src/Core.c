@@ -16,7 +16,7 @@ HWND hCtlLanding;
 BOOL CoInitWindows(HWND hDlg)
 {
 	HINSTANCE hInst = GetModuleHandle(NULL);
-	
+
 	hCtlLogin = CreateDialog(hInst, MAKEINTRESOURCE(IDC_SCR_LOGIN), hDlg, CtlLoginScrProc);
 	hCtlNewAccount = CreateDialog(hInst, MAKEINTRESOURCE(IDC_NEW_ACCOUNT), hDlg, CtlNewAccountProc);
 	hCtlLanding = CreateDialog(hInst, MAKEINTRESOURCE(IDC_DLG_LANDING_PAGE), hDlg, CtlLandingPageProc);

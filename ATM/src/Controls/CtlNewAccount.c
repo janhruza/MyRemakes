@@ -22,59 +22,59 @@ INT_PTR CALLBACK CtlNewAccountProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 {
 	switch (uMsg)
 	{
-		case WM_INITDIALOG:
-		{
-			HWND hUserName = GetDlgItem(hDlg, IDC_TXT_USERNAME);
+	case WM_INITDIALOG:
+	{
+		HWND hUserName = GetDlgItem(hDlg, IDC_TXT_USERNAME);
 
-			WCHAR username[MAX_PATH];
-			DWORD size = MAX_PATH;
-			GetUserName(username, &size);
-			return SetWindowText(hUserName, username);
+		WCHAR username[MAX_PATH];
+		DWORD size = MAX_PATH;
+		GetUserName(username, &size);
+		return SetWindowText(hUserName, username);
+	}
+
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		switch (wmId)
+		{
+		case IDCANCEL:
+		{
+			// the 'Cancel' button
+			CoHideAllControls();
+			CoShowControl(hCtlLogin);
+			WhFitContent(hAppWindow, hCtlLogin);
+			return TRUE;
 		}
 
-		case WM_COMMAND:
+		case IDOK:
 		{
-			int wmId = LOWORD(wParam);
-			switch (wmId)
+			// the 'Create' button
+			if (UICreateUserAccount(hDlg) == TRUE)
 			{
-				case IDCANCEL:
-				{
-					// the 'Cancel' button
-					CoHideAllControls();
-					CoShowControl(hCtlLogin);
-					WhFitContent(hAppWindow, hCtlLogin);
-					return TRUE;
-				}
+				MessageBox(hDlg, TEXT("Account created successfully!"), TEXT("Success"), MB_OK | MB_ICONINFORMATION);
+				CoHideAllControls();
+				CoShowControl(hCtlLogin);
+				WhFitContent(hAppWindow, hCtlLogin);
+				return TRUE;
 
-				case IDOK:
-				{
-					// the 'Create' button
-					if (UICreateUserAccount(hDlg) == TRUE)
-					{
-						MessageBox(hDlg, TEXT("Account created successfully!"), TEXT("Success"), MB_OK | MB_ICONINFORMATION);
-						CoHideAllControls();
-						CoShowControl(hCtlLogin);
-						WhFitContent(hAppWindow, hCtlLogin);
-						return TRUE;
+			}
+			else
+			{
+				DWORD err = GetLastError();
 
-					}
-					else
-					{
-						DWORD err = GetLastError();
+				WCHAR text[512] = { 0 };
+				FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, err, LANG_USER_DEFAULT, text, 512, NULL);
 
-						WCHAR text[512] = { 0 };
-						FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM, NULL, err, LANG_USER_DEFAULT, text, 512, NULL);
-
-						MessageBox(hDlg, text, TEXT("Error"), MB_OK | MB_ICONERROR);
-						return TRUE;
-					}
-				}
-
-				default: return FALSE;
+				MessageBox(hDlg, text, TEXT("Error"), MB_OK | MB_ICONERROR);
+				return TRUE;
 			}
 		}
 
-		default: break;
+		default: return FALSE;
+		}
+	}
+
+	default: break;
 	}
 	return FALSE;
 }

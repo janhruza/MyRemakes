@@ -16,78 +16,78 @@ INT_PTR CALLBACK CtlLoginScrProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 {
 	switch (uMsg)
 	{
-		case WM_COMMAND:
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		switch (wmId)
 		{
-			int wmId = LOWORD(wParam);
-			switch (wmId)
-			{
-				case IDRETRY:
-				{
-					// clear button clicked
-					HWND hPin = GetDlgItem(hDlg, IDC_TXT_PIN);
-					SetWindowText(hPin, TEXT(""));
-					return TRUE;
-				}
-
-				case IDC_BTN_LOGIN:
-				{
-					// login button clicked
-					UserAccount acc;
-					if (UALoginByPin(&acc, GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE)) == TRUE)
-					{
-						// login successful
-						// clear the PIN box
-						SendMessage(hDlg, WM_COMMAND, IDRETRY, 0);
-
-						// show the landing page
-						HWND hParent = GetParent(hDlg);
-						CoHideAllControls();
-						CoShowControl(hCtlLanding);
-						WhFitContent(hParent, hCtlLanding);
-						WhCenterWindow(hParent);
-
-						// update window title
-						CoUpdateTitle(hParent, &acc);
-
-						return TRUE;
-					}
-
-					else
-					{
-						MessageBox(hDlg, TEXT("Invalid PIN. Please try again."), TEXT("Error"), MB_OK | MB_ICONERROR);
-						return FALSE;
-					}
-				}
-
-				default: break;
-			}
-
-			return FALSE;
+		case IDRETRY:
+		{
+			// clear button clicked
+			HWND hPin = GetDlgItem(hDlg, IDC_TXT_PIN);
+			SetWindowText(hPin, TEXT(""));
+			return TRUE;
 		}
 
-		case WM_NOTIFY:
+		case IDC_BTN_LOGIN:
 		{
-			if (!lParam) return FALSE;
-
-			LPNMHDR pnmh = (LPNMHDR)lParam;
-			if (pnmh->idFrom == IDC_CREATE_ACCOUNT)
+			// login button clicked
+			UserAccount acc;
+			if (UALoginByPin(&acc, GetDlgItemInt(hDlg, IDC_TXT_PIN, NULL, FALSE)) == TRUE)
 			{
-				if (pnmh->code == NM_CLICK || pnmh->code == NM_RETURN)
-				{
-					// create account link clicked
-					HWND hParent = GetParent(hDlg);
-					ShowWindow(hDlg, SW_HIDE);
-					ShowWindow(hCtlNewAccount, SW_SHOW);
-					WhFitContent(hParent, hCtlNewAccount);
+				// login successful
+				// clear the PIN box
+				SendMessage(hDlg, WM_COMMAND, IDRETRY, 0);
 
-					return TRUE;
-				}
+				// show the landing page
+				HWND hParent = GetParent(hDlg);
+				CoHideAllControls();
+				CoShowControl(hCtlLanding);
+				WhFitContent(hParent, hCtlLanding);
+				WhCenterWindow(hParent);
+
+				// update window title
+				CoUpdateTitle(hParent, &acc);
+
+				return TRUE;
 			}
-			return FALSE;
+
+			else
+			{
+				MessageBox(hDlg, TEXT("Invalid PIN. Please try again."), TEXT("Error"), MB_OK | MB_ICONERROR);
+				return FALSE;
+			}
 		}
 
-		// other messages
-		default: return FALSE;
+		default: break;
+		}
+
+		return FALSE;
+	}
+
+	case WM_NOTIFY:
+	{
+		if (!lParam) return FALSE;
+
+		LPNMHDR pnmh = (LPNMHDR)lParam;
+		if (pnmh->idFrom == IDC_CREATE_ACCOUNT)
+		{
+			if (pnmh->code == NM_CLICK || pnmh->code == NM_RETURN)
+			{
+				// create account link clicked
+				HWND hParent = GetParent(hDlg);
+				ShowWindow(hDlg, SW_HIDE);
+				ShowWindow(hCtlNewAccount, SW_SHOW);
+				WhFitContent(hParent, hCtlNewAccount);
+
+				return TRUE;
+			}
+		}
+		return FALSE;
+	}
+
+	// other messages
+	default: return FALSE;
 	}
 	return FALSE;
 }

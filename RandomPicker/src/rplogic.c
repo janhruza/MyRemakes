@@ -7,7 +7,7 @@ BOOL RpAddPickerOption(HWND hEdit, HWND hLbx, LPWSTR lpszOption)
 {
 	if (hEdit == NULL) return FALSE;
 	if (hLbx == NULL) return FALSE;
-	if (lpszOption== NULL || wcslen(lpszOption) == 0) return FALSE;
+	if (lpszOption == NULL || wcslen(lpszOption) == 0) return FALSE;
 
 	LRESULT result = SendMessage(hLbx, LB_ADDSTRING, 0, (LPARAM)lpszOption);
 	if (result == LB_ERR || result == LB_ERRSPACE)

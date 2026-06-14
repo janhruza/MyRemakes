@@ -26,45 +26,45 @@ INT_PTR CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM l
 {
 	switch (uMsg)
 	{
-		case WM_CLOSE:
+	case WM_CLOSE:
+	{
+		EndDialog(hDlg, 0);
+		return TRUE;
+	}
+
+	case WM_INITDIALOG:
+	{
+		// iniotialize the main window and show the login screen
+		hAppWindow = hDlg;
+		InitSysMenu(hDlg);
+		SetWindowText(hDlg, APP_NAME);
+		CoInitWindows(hDlg);
+		CoHideAllControls();
+		CoShowControl(hCtlLogin);
+		WhFitContent(hDlg, hCtlLogin);
+		WhCenterWindow(hDlg);
+		return TRUE;
+	}
+
+	case WM_SYSCOMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		switch (wmId)
 		{
-			EndDialog(hDlg, 0);
+		case SC_CLOSE:
+			SendMessage(hDlg, WM_CLOSE, 0, 0);
 			return TRUE;
+
+		case MI_ABOUT:
+			return CoDlgAbout(hDlg);
+
+			// invalid option
+		default: return FALSE;
 		}
+	}
 
-		case WM_INITDIALOG:
-		{
-			// iniotialize the main window and show the login screen
-			hAppWindow = hDlg;
-			InitSysMenu(hDlg);
-			SetWindowText(hDlg, APP_NAME);
-			CoInitWindows(hDlg);
-			CoHideAllControls();
-			CoShowControl(hCtlLogin);
-			WhFitContent(hDlg, hCtlLogin);
-			WhCenterWindow(hDlg);
-			return TRUE;
-		}
-
-		case WM_SYSCOMMAND:
-		{
-			int wmId = LOWORD(wParam);
-			switch (wmId)
-			{
-				case SC_CLOSE:
-					SendMessage(hDlg, WM_CLOSE, 0, 0);
-					return TRUE;
-
-				case MI_ABOUT:
-					return CoDlgAbout(hDlg);
-
-				// invalid option
-				default: return FALSE;
-			}
-		}
-
-		// other messages
-		default:
-			return FALSE;
+	// other messages
+	default:
+		return FALSE;
 	}
 }

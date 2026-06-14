@@ -17,7 +17,7 @@ typedef struct tagUserAccount
 	USHORT PIN;
 	DOUBLE balance;
 	WCHAR name[MAX_NAME_LENGTH];
-} UserAccount, *PUserAccount;
+} UserAccount, * PUserAccount;
 
 BOOL UACreateAccount(PUserAccount account);
 BOOL UADeleteAccount(PUserAccount account);

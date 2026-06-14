@@ -30,55 +30,55 @@ INT_PTR CALLBACK CtlLandingPageProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 {
 	switch (uMsg)
 	{
-		case WM_INITDIALOG:
+	case WM_INITDIALOG:
+	{
+		InitializeMenu();
+		return TRUE;
+	}
+
+	case WM_GETDLGCODE:
+	{
+		return DLGC_WANTALLKEYS;
+	}
+
+	case WM_COMMAND:
+	{
+		int wmId = LOWORD(wParam);
+		switch (wmId)
 		{
-			InitializeMenu();
+		case IDCANCEL:
+			UILogout(hDlg);
 			return TRUE;
-		}
 
-		case WM_GETDLGCODE:
+		case IDHELP:
 		{
-			return DLGC_WANTALLKEYS;
-		}
-
-		case WM_COMMAND:
-		{
-			int wmId = LOWORD(wParam);
-			switch (wmId)
-			{
-				case IDCANCEL:
-					UILogout(hDlg);
-					return TRUE;
-
-				case IDHELP:
-				{
-					CoDlgAbout(hDlg);
-					return TRUE;
-				}
-
-				default: return FALSE;
-			}
-		}
-
-		case WM_CONTEXTMENU:
-		{
-			int x = LOWORD(lParam);
-			int y = HIWORD(lParam);
-
-			if (x == -1 || y == -1)
-			{
-				RECT rc;
-				GetClientRect(hDlg, &rc);
-				POINT pt = { rc.left + (rc.right / 2), rc.top + (rc.bottom / 2) };
-				ClientToScreen(hDlg, &pt);
-				x = pt.x;
-				y = pt.y;
-			}
-
-			TrackPopupMenu(hMenu, TPM_LEFTALIGN, x, y, NULL, hDlg, NULL);
+			CoDlgAbout(hDlg);
 			return TRUE;
 		}
 
 		default: return FALSE;
+		}
+	}
+
+	case WM_CONTEXTMENU:
+	{
+		int x = LOWORD(lParam);
+		int y = HIWORD(lParam);
+
+		if (x == -1 || y == -1)
+		{
+			RECT rc;
+			GetClientRect(hDlg, &rc);
+			POINT pt = { rc.left + (rc.right / 2), rc.top + (rc.bottom / 2) };
+			ClientToScreen(hDlg, &pt);
+			x = pt.x;
+			y = pt.y;
+		}
+
+		TrackPopupMenu(hMenu, TPM_LEFTALIGN, x, y, NULL, hDlg, NULL);
+		return TRUE;
+	}
+
+	default: return FALSE;
 	}
 }
