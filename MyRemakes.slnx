@@ -3,6 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="AotMarker/AotMarker.vcxproj" Id="04e95a70-530e-4a5c-85b4-a58e58d0af3c" />
   <Project Path="ATM/ATM.vcxproj" Id="16645308-351a-43a1-b92c-d61acf613a8c" />
   <Project Path="RandomPicker/RandomPicker.vcxproj" Id="edf08aa4-76bb-43bc-8358-d39d62d29414" />
 </Solution>
