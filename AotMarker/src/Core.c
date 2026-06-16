@@ -24,3 +24,9 @@ BOOL CoDlgAbout(HWND hDlg)
 {
 	return ShellAbout(hDlg, APP_NAME, TEXT("\x00A9 2026 Jan Hruza"), NULL);
 }
+
+BOOL CoToggleAOT(HWND hWnd, BOOL value)
+{
+	if (hWnd == NULL) return FALSE;
+	return TRUE;
+}

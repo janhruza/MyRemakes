@@ -76,7 +76,7 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 		case WM_COMMAND:
 		{
-			switch (wParam)
+			switch (LOWORD(wParam))
 			{
 				case IDCLOSE:
 				{
@@ -93,6 +93,25 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 				case IDC_BTN_OK:
 				{
+					return TRUE;
+				}
+
+				case IDC_CBX_WINDOW: {
+					if (HIWORD(wParam) == CBN_SELCHANGE)
+					{
+						WCHAR text[MAX_PATH];
+						int idx = (int)SendMessage(hCbx, CB_GETCURSEL, 0, 0);
+
+						if (idx != CB_ERR)
+						{
+							if (SendMessage(hCbx, CB_GETLBTEXT, (WPARAM)idx, (LPARAM)text) != CB_ERR)
+							{
+								WCHAR newText[2 * MAX_PATH];
+								wsprintf(newText, TEXT("Window \'%s\' is selected."), text);
+								SetWindowText(hTxtWindow, newText);
+							}
+						}
+					}
 					return TRUE;
 				}
 
