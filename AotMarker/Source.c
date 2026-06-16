@@ -1,7 +1,9 @@
 #include <Windows.h>
+#include "inc/DlgMainWindow.h"
+#include "res/resource.h"
 
 int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	MessageBox(NULL, TEXT("This works flawlessly."), TEXT("AotMaker"), MB_OK | MB_ICONINFORMATION);
+	DialogBox(hInstance, MAKEINTRESOURCE(IDD_MAINWINDOW), NULL, DlgMainWindowProc);
 	return 0;
 }

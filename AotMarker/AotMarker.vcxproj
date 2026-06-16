@@ -142,9 +142,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.c" />
+    <ClCompile Include="src\Core.c" />
+    <ClCompile Include="src\DlgMainWindow.c" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\Core.h" />
+    <ClInclude Include="inc\DlgMainWindow.h" />
+    <ClInclude Include="res\resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resources.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
