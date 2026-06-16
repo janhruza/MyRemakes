@@ -22,6 +22,7 @@ BOOL CreateContextMenu(void)
 {
 	hCtxMenu = CreatePopupMenu();
 	AppendMenu(hCtxMenu, MF_STRING, ID_REFRESH, TEXT("Refresh\tF5"));
+	AppendMenu(hCtxMenu, MF_STRING, ID_ABOUT, TEXT("About\tF1"));
 	AppendMenu(hCtxMenu, MF_SEPARATOR, 0, NULL);
 	AppendMenu(hCtxMenu, MF_STRING, IDCLOSE, TEXT("Close\tAlt+F4"));
 	return TRUE;
@@ -89,6 +90,11 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 				{
 					GetAllWindows();
 					return TRUE;
+				}
+
+				case ID_ABOUT:
+				{
+					return CoDlgAbout(hDlg);
 				}
 
 				case IDC_BTN_OK:
