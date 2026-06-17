@@ -12,14 +12,14 @@ typedef enum tagMenuIds
 	ID_ABOUT
 } MenuIds;
 
-BOOL InitFields(HWND hDlg)
+static BOOL InitFields(HWND hDlg)
 {
 	hCbx = GetDlgItem(hDlg, IDC_CBX_WINDOW);
 	hTxtWindow = GetDlgItem(hDlg, IDC_TXT_WINDOW);
 	return TRUE;
 }
 
-BOOL CreateContextMenu(void)
+static BOOL CreateContextMenu(void)
 {
 	hCtxMenu = CreatePopupMenu();
 	AppendMenu(hCtxMenu, MF_STRING, ID_REFRESH, TEXT("Refresh\tF5"));
@@ -29,7 +29,7 @@ BOOL CreateContextMenu(void)
 	return TRUE;
 }
 
-BOOL GetAllWindows(void)
+static BOOL GetAllWindows(void)
 {
 	if (hCbx == NULL) return FALSE;
 
@@ -37,11 +37,10 @@ BOOL GetAllWindows(void)
 	SetWindowText(hTxtWindow, TEXT("No window selected."));
 
 	SendMessage(hCbx, CB_RESETCONTENT, 0, 0);
-	CoEnumWindows(hCbx);
-	return TRUE;
+	return CoEnumWindows(hCbx);
 }
 
-BOOL ToggleActiveWindow()
+static BOOL ToggleActiveWindow()
 {
 	if (hSelectedWindow == NULL) return FALSE;
 

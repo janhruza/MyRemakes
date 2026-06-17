@@ -13,6 +13,8 @@ BOOL CALLBACK CoEnumWindowsProc(HWND hWnd, LPARAM lParam)
 		int idx = SendMessage(hCbx, CB_ADDSTRING, 0, (LPCWSTR)text);
 		SendMessage(hCbx, CB_SETITEMDATA, idx, hWnd);
 	}
+
+	return TRUE;
 }
 
 BOOL CoEnumWindows(HWND hCbx)
