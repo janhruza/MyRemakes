@@ -24,9 +24,6 @@
     <ClCompile Include="src\Core.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\dict.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -39,9 +36,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inc\dict.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -143,7 +143,6 @@
   <ItemGroup>
     <ClCompile Include="Source.c" />
     <ClCompile Include="src\Core.c" />
-    <ClCompile Include="src\dict.c" />
     <ClCompile Include="src\DlgMainWindow.c" />
   </ItemGroup>
   <ItemGroup>
@@ -151,7 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Core.h" />
-    <ClInclude Include="inc\dict.h" />
     <ClInclude Include="inc\DlgMainWindow.h" />
     <ClInclude Include="res\resource.h" />
   </ItemGroup>
