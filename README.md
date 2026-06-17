@@ -16,3 +16,4 @@ Bellow is a table of included projects.
 |------------|-----------|-----|
 |RandomPicker|Representing a simple option picker.|Finished|
 |ATM|A simple ATM simulator.|In progress. Paused.|
+|AotMaker|A simple utility for pinning windows on top.|Finished|
