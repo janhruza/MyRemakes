@@ -5,4 +5,5 @@
 
 BOOL CoEnumWindows(HWND hCbx);
 BOOL CoDlgAbout(HWND hDlg);
+BOOL CoIsWindowAOT(HWND hWnd);
 BOOL CoToggleAOT(HWND hWnd, BOOL value);

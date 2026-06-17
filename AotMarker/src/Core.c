@@ -25,8 +25,27 @@ BOOL CoDlgAbout(HWND hDlg)
 	return ShellAbout(hDlg, APP_NAME, TEXT("\x00A9 2026 Jan Hruza"), NULL);
 }
 
+BOOL CoIsWindowAOT(HWND hWnd)
+{
+	if (hWnd == NULL) return FALSE;
+	LONG_PTR exStyle = GetWindowLongPtr(hWnd, GWL_EXSTYLE);
+
+	if ((exStyle & WS_EX_TOPMOST) != 0)
+	{
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
 BOOL CoToggleAOT(HWND hWnd, BOOL value)
 {
 	if (hWnd == NULL) return FALSE;
-	return TRUE;
+	HWND hWndInsertAfter = value ? HWND_TOPMOST : HWND_NOTOPMOST;
+	return SetWindowPos(
+		hWnd,
+		hWndInsertAfter,
+		0, 0, 0, 0,
+		SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE
+	);
 }

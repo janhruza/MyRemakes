@@ -1,9 +1,10 @@
 #include "..\inc/DlgMainWindow.h"
 #include "..\inc\Core.h"
 
-HMENU hCtxMenu;
-HWND hCbx;
-HWND hTxtWindow;
+HMENU hCtxMenu = NULL;
+HWND hCbx = NULL;
+HWND hTxtWindow = NULL;
+HWND hSelectedWindow = NULL;
 
 typedef enum tagMenuIds
 {
@@ -32,10 +33,32 @@ BOOL GetAllWindows(void)
 {
 	if (hCbx == NULL) return FALSE;
 
+	hSelectedWindow = NULL;
+	SetWindowText(hTxtWindow, TEXT("No window selected."));
+
 	SendMessage(hCbx, CB_RESETCONTENT, 0, 0);
 	CoEnumWindows(hCbx);
-	SendMessage(hCbx, CB_SETCURSEL, 0, 0);
 	return TRUE;
+}
+
+BOOL ToggleActiveWindow()
+{
+	if (hSelectedWindow == NULL) return FALSE;
+
+	HWND hParent = GetParent(hTxtWindow);
+
+	BOOL isAot = CoIsWindowAOT(hSelectedWindow);
+	if (CoToggleAOT(hSelectedWindow, !isAot) == TRUE)
+	{
+		MessageBeep(MB_ICONINFORMATION);
+		return TRUE;
+	}
+
+	else
+	{
+		MessageBeep(MB_ICONERROR);
+		return FALSE;
+	}
 }
 
 BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -99,7 +122,11 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 				case IDC_BTN_OK:
 				{
-					return TRUE;
+					// toggle selected window's priority
+					if (ToggleActiveWindow())
+					{
+						GetAllWindows();
+					}
 				}
 
 				case IDC_CBX_WINDOW: {
@@ -112,8 +139,21 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 						{
 							if (SendMessage(hCbx, CB_GETLBTEXT, (WPARAM)idx, (LPARAM)text) != CB_ERR)
 							{
+								hSelectedWindow = SendMessage(hCbx, CB_GETITEMDATA, (WPARAM)idx, 0);
+								WCHAR* isAot;
+
+								if (CoIsWindowAOT(hSelectedWindow))
+								{
+									isAot = TEXT("IS");
+								}
+
+								else
+								{
+									isAot = TEXT("IS NOT");
+								}
+
 								WCHAR newText[2 * MAX_PATH];
-								wsprintf(newText, TEXT("Window \'%s\' is selected."), text);
+								wsprintf(newText, TEXT("Window \'%s\' is selected and %s AoT."), text, isAot);
 								SetWindowText(hTxtWindow, newText);
 							}
 						}
