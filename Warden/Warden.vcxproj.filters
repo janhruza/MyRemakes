@@ -24,6 +24,9 @@
     <ClCompile Include="src\DlgMainWindow.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\DlgHelpWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="res\resource.h">
@@ -33,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\DlgMainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\DlgHelpWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
