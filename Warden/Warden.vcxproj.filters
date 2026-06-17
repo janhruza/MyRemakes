@@ -50,7 +50,4 @@
   <ItemGroup>
     <Manifest Include="app.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="res\html1.htm" />
-  </ItemGroup>
 </Project>
