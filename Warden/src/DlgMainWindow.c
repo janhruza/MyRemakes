@@ -21,9 +21,11 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 			hBtnAdd = GetDlgItem(hDlg, IDC_BTN_ADD);
 			hLbxList = GetDlgItem(hDlg, IDC_LBX_BLACKLIST);
 
+			// customize app menu
 			HMENU hMenu = GetSystemMenu(hDlg, FALSE);
 			AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
 			AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
+
 			return TRUE;
 		}
 
@@ -52,6 +54,23 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 				default: return FALSE;
 			}
 		}
+
+		/*case WM_HOTKEY:
+		{
+			if (hDlg == GetForegroundWindow())
+			{
+				switch (wParam)
+				{
+					case IDHELP:
+						CoDlgAbout(hDlg);
+						return TRUE;
+
+					default: return FALSE;
+				}
+			}
+
+			return FALSE;
+		}*/
 
 		case WM_COMMAND:
 		{
@@ -97,9 +116,19 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 					return TRUE;
 				}
 
+				case IDHELP:
+				{
+					CoDlgAbout(hDlg);
+					return TRUE;
+				}
+
 				default: return FALSE;
 			}
 		}
+
+		case WM_HELP:
+			CoDlgAbout(hDlg);
+			return TRUE;
 
 		default:
 			return FALSE;
