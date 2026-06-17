@@ -47,7 +47,8 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 				case IDHELP:
 				{
-					CoDlgAbout(hDlg);
+					//CoDlgAbout(hDlg);
+					CoDlgHelp(hDlg);
 					return TRUE;
 				}
 
@@ -118,7 +119,8 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 				case IDHELP:
 				{
-					CoDlgAbout(hDlg);
+					//CoDlgAbout(hDlg);
+					CoDlgHelp(hDlg);
 					return TRUE;
 				}
 
@@ -127,7 +129,8 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 		}
 
 		case WM_HELP:
-			CoDlgAbout(hDlg);
+			//CoDlgAbout(hDlg);
+			CoDlgHelp(hDlg);
 			return TRUE;
 
 		default:

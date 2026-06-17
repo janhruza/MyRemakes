@@ -1,4 +1,6 @@
 #include "..\inc\Core.h"
+#include "..\res\Resource.h"
+#include "..\inc\DlgHelpWindow.h"
 
 #include <Windows.h>
 #include <stdio.h>
@@ -40,4 +42,9 @@ BOOL CoMainLoop(WCHAR* blacklist[], int blacklistCount)
 BOOL CoDlgAbout(HWND hParent)
 {
     return ShellAbout(hParent, TEXT("Warden"), TEXT("\x00A9 2026 Jan Hruza"), NULL);
+}
+
+BOOL CoDlgHelp(HWND hParent)
+{
+    return DialogBox(NULL, MAKEINTRESOURCE(IDD_DLGHELP), hParent, DlgHelpWindowProc);
 }
