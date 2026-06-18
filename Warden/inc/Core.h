@@ -20,7 +20,7 @@ typedef struct tagBlacklist
 
 } blacklist;
 
-BOOL CoMainLoop(WCHAR *blacklist[], int blacklistCount);
+BOOL CoMainLoop(WCHAR* blacklist[], int blacklistCount);
 BOOL CoDlgAbout(HWND hParent);
 BOOL CoDlgHelp(HWND hParent);
 

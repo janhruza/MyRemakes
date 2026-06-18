@@ -11,129 +11,129 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 {
 	switch (uMsg)
 	{
-		case WM_GETDLGCODE:
-			return DLGC_WANTALLKEYS;
+	case WM_GETDLGCODE:
+		return DLGC_WANTALLKEYS;
 
-		case WM_INITDIALOG:
+	case WM_INITDIALOG:
+	{
+		// init controls
+		hTxtWord = GetDlgItem(hDlg, IDC_TXT_WORD);
+		hBtnAdd = GetDlgItem(hDlg, IDC_BTN_ADD);
+		hLbxList = GetDlgItem(hDlg, IDC_LBX_BLACKLIST);
+
+		// customize app menu
+		HMENU hMenu = GetSystemMenu(hDlg, FALSE);
+		AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
+		AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
+
+		return TRUE;
+	}
+
+	case WM_CLOSE:
+	{
+		EndDialog(hDlg, wParam);
+		return TRUE;
+	}
+
+	case WM_SYSCOMMAND:
+	{
+		switch (LOWORD(wParam))
 		{
-			// init controls
-			hTxtWord = GetDlgItem(hDlg, IDC_TXT_WORD);
-			hBtnAdd = GetDlgItem(hDlg, IDC_BTN_ADD);
-			hLbxList = GetDlgItem(hDlg, IDC_LBX_BLACKLIST);
-
-			// customize app menu
-			HMENU hMenu = GetSystemMenu(hDlg, FALSE);
-			AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
-			AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
-
+		case SC_CLOSE:
+		{
+			SendMessage(hDlg, WM_CLOSE, IDCLOSE, 0);
 			return TRUE;
 		}
 
-		case WM_CLOSE:
+		case IDHELP:
 		{
-			EndDialog(hDlg, wParam);
-			return TRUE;
-		}
-
-		case WM_SYSCOMMAND:
-		{
-			switch (LOWORD(wParam))
-			{
-				case SC_CLOSE:
-				{
-					SendMessage(hDlg, WM_CLOSE, IDCLOSE, 0);
-					return TRUE;
-				}
-
-				case IDHELP:
-				{
-					//CoDlgAbout(hDlg);
-					CoDlgHelp(hDlg);
-					return TRUE;
-				}
-
-				default: return FALSE;
-			}
-		}
-
-		/*case WM_HOTKEY:
-		{
-			if (hDlg == GetForegroundWindow())
-			{
-				switch (wParam)
-				{
-					case IDHELP:
-						CoDlgAbout(hDlg);
-						return TRUE;
-
-					default: return FALSE;
-				}
-			}
-
-			return FALSE;
-		}*/
-
-		case WM_COMMAND:
-		{
-			switch (LOWORD(wParam))
-			{
-				case IDCANCEL:
-				case IDCLOSE:
-				{
-					SendMessage(hDlg, WM_CLOSE, IDCLOSE, 0);
-					return TRUE;
-				}
-
-				case IDC_TXT_WORD:
-				{
-					switch (HIWORD(wParam))
-					{
-						case EN_CHANGE:
-						{
-							WCHAR text[MAX_PATH];
-							GetWindowText(hTxtWord, text, MAX_PATH);
-
-							BOOL value = lstrlen(text) > 0;
-							EnableWindow(hBtnAdd, value);
-							return TRUE;
-						}
-
-						default: return FALSE;
-					}
-				}
-
-				case IDC_BTN_ADD:
-				{
-					WCHAR text[MAX_PATH];
-					GetWindowText(hTxtWord, text, MAX_PATH);
-
-					if (lstrlen(text) <= 0) return FALSE;
-
-					int idx = SendMessage(hLbxList, LB_ADDSTRING, NULL, (LPARAM)text);
-					if (idx == LB_ERR) return FALSE;
-
-					SendMessage(hLbxList, LB_SETITEMDATA, idx, text);
-					SetWindowText(hTxtWord, NULL);
-					return TRUE;
-				}
-
-				case IDHELP:
-				{
-					//CoDlgAbout(hDlg);
-					CoDlgHelp(hDlg);
-					return TRUE;
-				}
-
-				default: return FALSE;
-			}
-		}
-
-		case WM_HELP:
 			//CoDlgAbout(hDlg);
 			CoDlgHelp(hDlg);
 			return TRUE;
+		}
 
-		default:
-			return FALSE;
+		default: return FALSE;
+		}
+	}
+
+	/*case WM_HOTKEY:
+	{
+		if (hDlg == GetForegroundWindow())
+		{
+			switch (wParam)
+			{
+				case IDHELP:
+					CoDlgAbout(hDlg);
+					return TRUE;
+
+				default: return FALSE;
+			}
+		}
+
+		return FALSE;
+	}*/
+
+	case WM_COMMAND:
+	{
+		switch (LOWORD(wParam))
+		{
+		case IDCANCEL:
+		case IDCLOSE:
+		{
+			SendMessage(hDlg, WM_CLOSE, IDCLOSE, 0);
+			return TRUE;
+		}
+
+		case IDC_TXT_WORD:
+		{
+			switch (HIWORD(wParam))
+			{
+			case EN_CHANGE:
+			{
+				WCHAR text[MAX_PATH];
+				GetWindowText(hTxtWord, text, MAX_PATH);
+
+				BOOL value = lstrlen(text) > 0;
+				EnableWindow(hBtnAdd, value);
+				return TRUE;
+			}
+
+			default: return FALSE;
+			}
+		}
+
+		case IDC_BTN_ADD:
+		{
+			WCHAR text[MAX_PATH];
+			GetWindowText(hTxtWord, text, MAX_PATH);
+
+			if (lstrlen(text) <= 0) return FALSE;
+
+			int idx = SendMessage(hLbxList, LB_ADDSTRING, NULL, (LPARAM)text);
+			if (idx == LB_ERR) return FALSE;
+
+			SendMessage(hLbxList, LB_SETITEMDATA, idx, text);
+			SetWindowText(hTxtWord, NULL);
+			return TRUE;
+		}
+
+		case IDHELP:
+		{
+			//CoDlgAbout(hDlg);
+			CoDlgHelp(hDlg);
+			return TRUE;
+		}
+
+		default: return FALSE;
+		}
+	}
+
+	case WM_HELP:
+		//CoDlgAbout(hDlg);
+		CoDlgHelp(hDlg);
+		return TRUE;
+
+	default:
+		return FALSE;
 	}
 }
