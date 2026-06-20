@@ -1,10 +1,12 @@
-#include "..\inc\DlgMainWindow.h"
 #include <Windows.h>
+#include <strsafe.h>
 
+#include "..\inc\DlgMainWindow.h"
 #include "..\inc\Core.h"
 #include "..\inc\FocusSession.h"
 #include "..\inc\ThreadParams.h"
-#include <strsafe.h>
+#include "..\inc\TrayIcon.h"
+
 
 // window handles
 static HWND hBtnAdd = NULL;
@@ -43,7 +45,6 @@ BOOL InitializeControls(HWND hDlg)
 	// create the listbox menu
 	hLbxMenu = CreatePopupMenu();
 	AppendMenu(hLbxMenu, MF_STRING, MENU_REMOVE, TEXT("Remove\tDEL"));
-
 	return TRUE;
 }
 
@@ -65,6 +66,9 @@ BOOL BeginSession(HWND hDlg)
 	HANDLE hThread = CreateThread(NULL, 0, CoMainLoop, pParams, 0, NULL);
 	if (hThread) CloseHandle(hThread);
 
+	// create the tray icon
+	Tray_AddIcon(hDlg);
+
 	return TRUE;
 }
 
@@ -82,8 +86,20 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 		case WM_CLOSE:
 		{
+			Tray_RemoveIcon(hDlg);
 			EndDialog(hDlg, wParam);
 			return TRUE;
+		}
+
+		case WM_TRAYICON:
+		{
+			if (lParam == WM_LBUTTONDOWN || lParam == WM_RBUTTONDOWN)
+			{
+				Tray_RemoveIcon(hDlg);
+				ShowWindow(hDlg, SW_SHOW);
+			}
+
+			return (INT_PTR)TRUE;
 		}
 
 		case WM_SYSCOMMAND:

@@ -152,6 +152,7 @@
     <ClCompile Include="src\DlgHelpWindow.c" />
     <ClCompile Include="src\DlgMainWindow.c" />
     <ClCompile Include="src\FocusSession.c" />
+    <ClCompile Include="src\TrayIcon.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Core.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="inc\DlgMainWindow.h" />
     <ClInclude Include="inc\FocusSession.h" />
     <ClInclude Include="inc\ThreadParams.h" />
+    <ClInclude Include="inc\TrayIcon.h" />
     <ClInclude Include="res\resource.h" />
   </ItemGroup>
   <ItemGroup>
