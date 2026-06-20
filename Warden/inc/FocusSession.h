@@ -10,7 +10,7 @@ typedef struct tagFocusSession
 {
 	int nCount;
 	WCHAR blacklist[FS_MAX_ITEMS][MAX_PATH];
-} FocusSession, *PFocusSession;
+} FocusSession, * PFocusSession;
 
 PFocusSession FSCreate(void);
 BOOL FSDestroy(PFocusSession pSesh);

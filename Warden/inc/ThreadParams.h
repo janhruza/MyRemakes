@@ -7,8 +7,8 @@
 #include "FocusSession.h"
 
 typedef struct tagThreadParams {
-    HWND hDlg;
-    PFocusSession pSession;
+	HWND hDlg;
+	PFocusSession pSession;
 } ThreadParams, * PThreadParams;
 
 #endif

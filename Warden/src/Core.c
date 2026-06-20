@@ -9,35 +9,35 @@
 
 DWORD WINAPI CoMainLoop(LPVOID lpParam)
 {
-    PThreadParams pParams = (PThreadParams)lpParam;
-    if (pParams == NULL) return 0;
+	PThreadParams pParams = (PThreadParams)lpParam;
+	if (pParams == NULL) return 0;
 
-    while (!IsWindowVisible(pParams->hDlg))
-    {
-        HWND hActiveWnd = GetForegroundWindow();
+	while (!IsWindowVisible(pParams->hDlg))
+	{
+		HWND hActiveWnd = GetForegroundWindow();
 
-        if (hActiveWnd != NULL && hActiveWnd != pParams->hDlg)
-        {
-            WCHAR windowTitle[TITLE_LEN] = { 0 };
-            if (GetWindowTextW(hActiveWnd, windowTitle, TITLE_LEN) > 0)
-            {
-                for (int i = 0; i < pParams->pSession->nCount; i++)
-                {
-                    if (wcsstr(windowTitle, pParams->pSession->blacklist[i]) != NULL)
-                    {
-                        ShowWindow(hActiveWnd, SW_MINIMIZE);
-                        MessageBeep(MB_ICONWARNING);
-                        break;
-                    }
-                }
-            }
-        }
+		if (hActiveWnd != NULL && hActiveWnd != pParams->hDlg)
+		{
+			WCHAR windowTitle[TITLE_LEN] = { 0 };
+			if (GetWindowTextW(hActiveWnd, windowTitle, TITLE_LEN) > 0)
+			{
+				for (int i = 0; i < pParams->pSession->nCount; i++)
+				{
+					if (wcsstr(windowTitle, pParams->pSession->blacklist[i]) != NULL)
+					{
+						ShowWindow(hActiveWnd, SW_MINIMIZE);
+						MessageBeep(MB_ICONWARNING);
+						break;
+					}
+				}
+			}
+		}
 
-        Sleep(FREQUENCY);
-    }
+		Sleep(FREQUENCY);
+	}
 
-    free(pParams);
-    return 0;
+	free(pParams);
+	return 0;
 }
 
 BOOL CoDlgAbout(HWND hParent)
