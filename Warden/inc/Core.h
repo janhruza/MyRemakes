@@ -3,6 +3,7 @@
 #define CORE_H
 
 #include <wtypes.h>
+#include "FocusSession.h"
 
 #define TITLE_LEN	512
 #define FREQUENCY	1000
@@ -20,7 +21,7 @@ typedef struct tagBlacklist
 
 } blacklist;
 
-BOOL CoMainLoop(WCHAR* blacklist[], int blacklistCount);
+DWORD WINAPI CoMainLoop(LPVOID lParam);
 BOOL CoDlgAbout(HWND hParent);
 BOOL CoDlgHelp(HWND hParent);
 

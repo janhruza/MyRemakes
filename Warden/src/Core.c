@@ -1,42 +1,43 @@
 #include "..\inc\Core.h"
 #include "..\res\Resource.h"
 #include "..\inc\DlgHelpWindow.h"
+#include "..\inc\ThreadParams.h"
 
 #include <Windows.h>
 #include <stdio.h>
 #include <string.h>
 
-BOOL CoMainLoop(WCHAR* blacklist[], int blacklistCount)
+DWORD WINAPI CoMainLoop(LPVOID lpParam)
 {
-	while (TRUE)
-	{
-		// check the active window only
-		HWND hActiveWnd = GetForegroundWindow();
+    PThreadParams pParams = (PThreadParams)lpParam;
+    if (pParams == NULL) return 0;
 
-		if (hActiveWnd != NULL)
-		{
-			WCHAR windowTitle[TITLE_LEN] = { 0 };
-			if (GetWindowText(hActiveWnd, windowTitle, TITLE_LEN) > 0)
-			{
-				for (int i = 0; i < blacklistCount; i++)
-				{
-					// search for procrastination
-					if (wcsstr(windowTitle, blacklist[i]) != NULL)
-					{
-						// procrastination detected, minimize window
-						ShowWindow(hActiveWnd, SW_MINIMIZE);
-						MessageBeep(MB_ICONWARNING);
-						break;
-					}
-				}
-			}
-		}
+    while (!IsWindowVisible(pParams->hDlg))
+    {
+        HWND hActiveWnd = GetForegroundWindow();
 
-		// limit CPU usage by iterating only once a second
-		Sleep(FREQUENCY);
-	}
+        if (hActiveWnd != NULL && hActiveWnd != pParams->hDlg)
+        {
+            WCHAR windowTitle[TITLE_LEN] = { 0 };
+            if (GetWindowTextW(hActiveWnd, windowTitle, TITLE_LEN) > 0)
+            {
+                for (int i = 0; i < pParams->pSession->nCount; i++)
+                {
+                    if (wcsstr(windowTitle, pParams->pSession->blacklist[i]) != NULL)
+                    {
+                        ShowWindow(hActiveWnd, SW_MINIMIZE);
+                        MessageBeep(MB_ICONWARNING);
+                        break;
+                    }
+                }
+            }
+        }
 
-	return TRUE;
+        Sleep(FREQUENCY);
+    }
+
+    free(pParams);
+    return 0;
 }
 
 BOOL CoDlgAbout(HWND hParent)
