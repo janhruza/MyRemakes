@@ -1,23 +1,25 @@
 #include "..\inc\WindowHelper.h"
+#include <wtypes.h>
 
-BOOL WhFitContent(HWND hWnd, HWND hCtl)
+BOOL WhFitContent(HWND hParent, HWND hControl)
 {
 	RECT rc;
-	GetWindowRect(hCtl, &rc);
+	GetWindowRect(hControl, &rc);
 
 	int childWidth = rc.right - rc.left;
 	int childHeight = rc.bottom - rc.top;
 	RECT rcClient = { 0, 0, childWidth, childHeight };
-	DWORD dwStyle = (DWORD)GetWindowLongPtr(hWnd, GWL_STYLE);
-	DWORD dwExStyle = (DWORD)GetWindowLongPtr(hWnd, GWL_EXSTYLE);
-	BOOL bHasMenu = (GetMenu(hWnd) != NULL);
+	DWORD dwStyle = (DWORD)GetWindowLongPtr(hParent, GWL_STYLE);
+	DWORD dwExStyle = (DWORD)GetWindowLongPtr(hParent, GWL_EXSTYLE);
+	BOOL bHasMenu = (GetMenu(hParent) != NULL);
 	AdjustWindowRectEx(&rcClient, dwStyle, bHasMenu, dwExStyle);
 
 	int finalWindowWidth = rcClient.right - rcClient.left;
 	int finalWindowHeight = rcClient.bottom - rcClient.top;
 
-	SetWindowPos(hWnd, NULL, 0, 0, finalWindowWidth, finalWindowHeight, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
-	MoveWindow(hCtl, 0, 0, childWidth, childHeight, TRUE);
+	SetWindowPos(hParent, NULL, 0, 0, finalWindowWidth, finalWindowHeight, SWP_NOMOVE | SWP_NOZORDER | SWP_NOACTIVATE);
+	MoveWindow(hControl, 0, 0, childWidth, childHeight, TRUE);
+
 	return TRUE;
 }
 

@@ -152,6 +152,15 @@
   <ItemGroup>
     <Manifest Include="app.manifest" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inc\Dialogs\DlgAbout.h" />
+    <ClInclude Include="inc\WindowHelper.h" />
+    <ClInclude Include="res\resource.h" />
+    <ClInclude Include="src\WindowHelper.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Resources.rc" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
