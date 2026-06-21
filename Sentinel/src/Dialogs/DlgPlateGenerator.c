@@ -1,5 +1,6 @@
 #include "..\..\inc\Dialogs\DlgPlateGenerator.h"
 #include "..\..\res\resource.h"
+#include "..\..\inc\Core.h"
 
 static HBRUSH hBg;
 
@@ -41,6 +42,7 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 				case IDOK:
 				{
 					// plate generation
+					CoNotImplemented(hDlg);
 					return TRUE;
 				}
 

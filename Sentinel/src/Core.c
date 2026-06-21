@@ -8,6 +8,12 @@ BOOL CoDlgAbout(HWND hOwner)
 	return DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DLGABOUT), hOwner, DlgAboutProc);
 }
 
+BOOL CoNotImplemented(HWND hParent)
+{
+	MessageBox(hParent, TEXT("This feature is not implemented at this moment."), TEXT("Not implemented"), MB_OK | MB_ICONSTOP);
+	return TRUE;
+}
+
 BOOL CoDlgPlateGen(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGPLATEGEN, DlgPlateGeneratorProc);

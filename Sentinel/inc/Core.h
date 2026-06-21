@@ -8,6 +8,7 @@
 #define CoShowDialog(hParent, dlgId, lpDlgProc) (DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(dlgId), hParent, lpDlgProc))
 
 BOOL CoDlgAbout(HWND hOwner);
+BOOL CoNotImplemented(HWND hParent);
 
 // dialogs
 BOOL CoDlgPlateGen(HWND hParent);
