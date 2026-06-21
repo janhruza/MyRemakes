@@ -20,6 +20,16 @@ BOOL CALLBACK DlgAboutProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return hBg;
 		}
 
+		case WM_SHOWWINDOW:
+		{
+			if (wParam == TRUE)
+			{
+				MessageBeep(MB_ICONINFORMATION);
+			}
+
+			return TRUE;
+		}
+
 		case WM_INITDIALOG:
 		{
 			hBg = GetSysColorBrush(COLOR_WINDOW);

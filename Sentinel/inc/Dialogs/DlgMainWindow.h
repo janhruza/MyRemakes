@@ -1,10 +1,8 @@
 #pragma once
-
-#ifndef WARDEN_DLGMAINWINDOW_H
-#define WARDEN_DLGMAINWINDOW_H
+#ifndef SENTINEL_DLGMAINWINDOW_H
+#define SENTINEL_DLGMAINWINDOW_H
 
 #include <wtypes.h>
-#include "..\res\Resource.h"
 
 BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

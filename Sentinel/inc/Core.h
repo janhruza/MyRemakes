@@ -4,7 +4,12 @@
 
 #include <wtypes.h>
 
+#define LINK_GITHUB		TEXT("https://www.github.com/janhruza/MyRemakes")
+#define CoShowDialog(hParent, dlgId, lpDlgProc) (DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(dlgId), hParent, lpDlgProc))
+
 BOOL CoDlgAbout(HWND hOwner);
 
+// dialogs
+BOOL CoDlgPlateGen(HWND hParent);
 
 #endif

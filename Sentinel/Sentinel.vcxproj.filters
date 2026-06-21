@@ -24,6 +24,15 @@
     <ClCompile Include="src\Core.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Dialogs\DlgMainWindow.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WindowHelper.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dialogs\DlgPlateGenerator.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -38,10 +47,19 @@
     <ClInclude Include="inc\Dialogs\DlgAbout.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\WindowHelper.c">
+    <ClInclude Include="inc\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="inc\Core.h">
+    <ClInclude Include="inc\Dialogs\DlgMainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Engine\Database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Engine\Person.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Dialogs\DlgPlateGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

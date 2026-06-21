@@ -4,22 +4,35 @@
 //
 #define IDR_MAIN_MENU                   101
 #define IDD_DLGABOUT                    101
+#define IDD_DLGMAINWINDOW               102
 #define IDS_LICENSE_HEADER              103
 #define IDS_LICENSE_COPYRIGHT           104
 #define IDS_LICENSE_TEXT1               105
 #define IDS_LICENSE_TEXT2               106
+#define IDD_DLGPLATEGEN                 106
 #define IDS_LICENSE_TEXT3               107
 #define IDC_LICENSE                     1002
+#define IDC_RBKEEPFORMAT                1017
+#define IDC_RBCUSTOM                    1018
+#define IDC_LIST3                       1019
+#define IDC_HISTORY                     1019
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
+#define ID_PLAYERS_NEWPLAYER            40003
+#define ID_VEHICLES_NEWVEHICLE          40004
+#define ID_WEAPONS_ADDNEWWEAPON         40005
+#define ID_VEHICLES_LICENCEPLATEGENERATOR 40006
+#define ID_TOOLS_IMPORTDATA             40007
+#define ID_TOOLS_EXPORTDATA             40008
+#define ID_HELP_WEBSITE                 40009
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        104
-#define _APS_NEXT_COMMAND_VALUE         40003
-#define _APS_NEXT_CONTROL_VALUE         1003
+#define _APS_NEXT_RESOURCE_VALUE        108
+#define _APS_NEXT_COMMAND_VALUE         40010
+#define _APS_NEXT_CONTROL_VALUE         1020
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
