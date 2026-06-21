@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source.c" />
+    <ClCompile Include="src\Dialogs\DlgAbout.c" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
