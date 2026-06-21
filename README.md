@@ -18,3 +18,4 @@ Bellow is a table of included projects.
 |ATM|A simple ATM simulator.|In progress. Paused.|
 |AotMaker|A simple utility for pinning windows on top.|Finished|
 |Warden|A simple distractions-removal utility.|Finished|
+|Sentinel|Remake of multiple apps combined in one.|In progress|
