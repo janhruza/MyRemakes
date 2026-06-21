@@ -1,8 +1,8 @@
 #include <Windows.h>
-#include "res/resource.h"
-#include "inc/Dialogs/DlgAbout.h"
+#include "inc/Core.h"
 
 int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	return DialogBox(hInstance, MAKEINTRESOURCE(IDD_DLGABOUT), NULL, DlgAboutProc);
+	CoDlgAbout(NULL);
+	return EXIT_SUCCESS;
 }

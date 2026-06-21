@@ -13,6 +13,7 @@ BOOL CALLBACK DlgAboutProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	switch (uMsg)
 	{
 		case WM_CTLCOLORSTATIC:
+		case WM_CTLCOLOREDIT:
 		case WM_CTLCOLORBTN:
 		case WM_CTLCOLORDLG:
 		{
