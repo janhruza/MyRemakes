@@ -193,6 +193,7 @@
     <ClInclude Include="inc\Dialogs\DlgPlateGenerator.h" />
     <ClInclude Include="inc\Engine\Database.h" />
     <ClInclude Include="inc\Engine\Person.h" />
+    <ClInclude Include="inc\Engine\Vehicle.h" />
     <ClInclude Include="inc\WindowHelper.h" />
     <ClInclude Include="res\resource.h" />
     <ClCompile Include="src\Dialogs\DlgMainWindow.c">

@@ -5,12 +5,16 @@
 #include <wtypes.h>
 
 #include "Person.h"
+#include "Vehicle.h"
 
 typedef struct tagDatabase
 {
 	PPerson Persons;
 	int nPersons;
 
-} Database, *PDatabase;
+	PVehicle Vehicles;
+	int nVehicles;
+
+} Database, *PDatabase, *DatabasePtr;
 
 #endif

@@ -62,6 +62,9 @@
     <ClInclude Include="inc\Dialogs\DlgPlateGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Engine\Vehicle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Resources.rc">
