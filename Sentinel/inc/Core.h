@@ -10,6 +10,9 @@
 BOOL CoDlgAbout(HWND hOwner);
 BOOL CoNotImplemented(HWND hParent);
 
+// random generator
+BOOL CoInitRandomness(void);
+
 // dialogs
 BOOL CoDlgPlateGen(HWND hParent);
 

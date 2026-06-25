@@ -3,6 +3,9 @@
 #include "..\inc\Dialogs\DlgPlateGenerator.h"
 #include "..\res\resource.h"
 
+#include <stdlib.h>
+#include <time.h>
+
 BOOL CoDlgAbout(HWND hOwner)
 {
 	return DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_DLGABOUT), hOwner, DlgAboutProc);
@@ -17,4 +20,10 @@ BOOL CoNotImplemented(HWND hParent)
 BOOL CoDlgPlateGen(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGPLATEGEN, DlgPlateGeneratorProc);
+}
+
+BOOL CoInitRandomness(void)
+{
+	srand(time(NULL));
+	return TRUE;
 }

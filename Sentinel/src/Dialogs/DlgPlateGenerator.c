@@ -2,7 +2,40 @@
 #include "..\..\res\resource.h"
 #include "..\..\inc\Core.h"
 
-static HBRUSH hBg;
+static HBRUSH hBg = NULL;
+static HWND hLbxHistory = NULL;
+
+BOOL GeneratePlate(HWND hLbx, BOOL bCustomFormat)
+{
+	if (hLbx == NULL) return FALSE;
+
+	return CoNotImplemented(GetParent(hLbx));
+}
+
+BOOL GeneratePlateWrapper(HWND hDlg)
+{
+	if (hDlg == NULL) return FALSE;
+
+	BOOL bCustom = FALSE;
+
+	if (IsDlgButtonChecked(hDlg, IDC_RBKEEPFORMAT) == TRUE)
+	{
+		bCustom = FALSE;
+	}
+
+	else if (IsDlgButtonChecked(hDlg, IDC_RBCUSTOM) == TRUE)
+	{
+		bCustom = TRUE;
+	}
+
+	else
+	{
+		// no option selected
+		return FALSE;
+	}
+
+	return GeneratePlate(hLbxHistory, bCustom);
+}
 
 BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -11,6 +44,8 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 		case WM_INITDIALOG:
 		{
 			hBg = GetSysColorBrush(COLOR_WINDOW);
+			hLbxHistory = GetDlgItem(hDlg, IDC_HISTORY);
+
 			CheckDlgButton(hDlg, IDC_RBKEEPFORMAT, TRUE);
 			return TRUE;
 		}
@@ -42,8 +77,7 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 				case IDOK:
 				{
 					// plate generation
-					CoNotImplemented(hDlg);
-					return TRUE;
+					return GeneratePlateWrapper(hDlg);
 				}
 
 				default: return FALSE;
