@@ -4,6 +4,8 @@
 
 #include <wtypes.h>
 
+#define PLATE_LEN	8
+
 BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 #endif

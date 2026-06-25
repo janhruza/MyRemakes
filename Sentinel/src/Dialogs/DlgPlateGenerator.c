@@ -5,9 +5,69 @@
 static HBRUSH hBg = NULL;
 static HWND hLbxHistory = NULL;
 
+static WCHAR chars[] = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+static WCHAR numbers[] = L"0123456789";
+static WCHAR all_chars[] = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+WCHAR Rnd_NextChar(void)
+{
+	return chars[rand() % wcslen(chars)];
+}
+
+WCHAR Rnd_NextDigit(void)
+{
+	return numbers[rand() % wcslen(numbers)];
+}
+
 BOOL GeneratePlate(HWND hLbx, BOOL bCustomFormat)
 {
 	if (hLbx == NULL) return FALSE;
+
+	WCHAR plate[PLATE_LEN + 1] = { 0 };
+
+	switch (bCustomFormat)
+	{
+		default:
+		{
+			MessageBox(GetParent(hLbx), TEXT("Invalid generator option."), TEXT("ERROR"), MB_OK | MB_ICONERROR);
+			return FALSE;
+		}
+
+		case FALSE:
+		{
+			// standard plate: 00-AAA-000
+			for (int i = 0; i < 2; i++)
+			{
+				plate[i] = Rnd_NextDigit();
+			}
+
+			for (int i = 2; i < 5; i++)
+			{
+				plate[i] = Rnd_NextChar();
+			}
+
+			for (int i = 5; i < PLATE_LEN; i++)
+			{
+				plate[i] = Rnd_NextDigit();
+			}
+
+			SendMessage(hLbx, LB_ADDSTRING, 0, plate);
+
+			return TRUE;
+		}
+
+		case TRUE:
+		{
+			// custom format (random)
+			for (int i = 0; i < PLATE_LEN; i++)
+			{
+				plate[i] = all_chars[rand() % wcslen(all_chars)];
+			}
+
+			SendMessage(hLbx, LB_ADDSTRING, 0, plate);
+			return TRUE;
+		}
+	}
 
 	return CoNotImplemented(GetParent(hLbx));
 }
