@@ -71,4 +71,8 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="TODO.md" />
+  </ItemGroup>
 </Project>
