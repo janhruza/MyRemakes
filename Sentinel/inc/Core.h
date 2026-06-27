@@ -3,9 +3,7 @@
 #define SENTINEL_CORE_H
 
 #include <wtypes.h>
-
-#include "Engine/Vehicle.h"
-#include "Engine/Person.h"
+#include "Engine/Database.h"
 
 #define LINK_GITHUB		TEXT("https://www.github.com/janhruza/MyRemakes")
 #define CoShowDialog(hParent, dlgId, lpDlgProc) (DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(dlgId), hParent, lpDlgProc))
@@ -34,6 +32,9 @@ typedef struct tagCrimeInfo
 } CrimeInfo, *PCRIME;
 
 #pragma endregion
+
+BOOL CoFileExists(LPCWSTR szPath);
+BOOL CoSetDatabasePtr(PDatabase ptr);
 
 BOOL CoDlgAbout(HWND hOwner);
 BOOL CoNotImplemented(HWND hParent);

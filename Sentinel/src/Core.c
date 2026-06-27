@@ -1,4 +1,5 @@
 #include "..\inc\Core.h"
+#include "..\inc\Globals.h"
 #include "..\inc\Dialogs\DlgAbout.h"
 #include "..\inc\Dialogs\DlgPlateGenerator.h"
 #include "..\inc\Dialogs\DlgNewPerson.h"
@@ -6,6 +7,18 @@
 
 #include <stdlib.h>
 #include <time.h>
+
+BOOL CoFileExists(LPCWSTR szPath)
+{
+	DWORD dwAttrib = GetFileAttributesW(szPath);
+	return (dwAttrib != INVALID_FILE_ATTRIBUTES &&
+		!(dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
+}
+
+BOOL CoSetDatabasePtr(PDatabase ptr)
+{
+	return GlobSetDbPtr(ptr);
+}
 
 BOOL CoDlgAbout(HWND hOwner)
 {

@@ -195,6 +195,7 @@
     <ClInclude Include="inc\Engine\Database.h" />
     <ClInclude Include="inc\Engine\Person.h" />
     <ClInclude Include="inc\Engine\Vehicle.h" />
+    <ClInclude Include="inc\Engine\Weapon.h" />
     <ClInclude Include="inc\Globals.h" />
     <ClInclude Include="inc\WindowHelper.h" />
     <ClInclude Include="res\resource.h" />
@@ -207,6 +208,7 @@
     </ClCompile>
     <ClCompile Include="src\Dialogs\DlgNewPerson.c" />
     <ClCompile Include="src\Dialogs\DlgPlateGenerator.c" />
+    <ClCompile Include="src\Engine\Database.c" />
     <ClCompile Include="src\Globals.c" />
     <ClCompile Include="src\WindowHelper.c">
       <FileType>CppCode</FileType>
