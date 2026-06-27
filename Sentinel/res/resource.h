@@ -11,11 +11,15 @@
 #define IDS_LICENSE_TEXT2               106
 #define IDD_DLGPLATEGEN                 106
 #define IDS_LICENSE_TEXT3               107
+#define IDD_DLGNEWPERSON                108
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
 #define IDC_LIST3                       1019
 #define IDC_HISTORY                     1019
+#define IDC_TXT_USERNAME                1022
+#define IDC_DATETIMEPICKER1             1024
+#define IDC_DTP_REGDATE                 1024
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -30,9 +34,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        108
+#define _APS_NEXT_RESOURCE_VALUE        110
 #define _APS_NEXT_COMMAND_VALUE         40010
-#define _APS_NEXT_CONTROL_VALUE         1020
+#define _APS_NEXT_CONTROL_VALUE         1025
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

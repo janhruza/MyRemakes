@@ -1,6 +1,7 @@
 #include "..\inc\Core.h"
 #include "..\inc\Dialogs\DlgAbout.h"
 #include "..\inc\Dialogs\DlgPlateGenerator.h"
+#include "..\inc\Dialogs\DlgNewPerson.h"
 #include "..\res\resource.h"
 
 #include <stdlib.h>
@@ -26,4 +27,9 @@ BOOL CoInitRandomness(void)
 {
 	srand(time(NULL));
 	return TRUE;
+}
+
+BOOL CoDlgNewPerson(HWND hParent)
+{
+	return CoShowDialog(hParent, IDD_DLGNEWPERSON, DlgNewPersonProc);
 }

@@ -81,6 +81,11 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 					return CoDlgPlateGen(hDlg);
 				}
 
+				case ID_PLAYERS_NEWPLAYER:
+				{
+					return CoDlgNewPerson(hDlg);
+				}
+
 				default: return FALSE;
 			}
 		}

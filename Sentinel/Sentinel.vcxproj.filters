@@ -33,6 +33,12 @@
     <ClCompile Include="src\Dialogs\DlgPlateGenerator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Dialogs\DlgNewPerson.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Globals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -63,6 +69,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Engine\Vehicle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Dialogs\DlgNewPerson.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

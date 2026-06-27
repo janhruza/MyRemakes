@@ -10,6 +10,30 @@
 #define LINK_GITHUB		TEXT("https://www.github.com/janhruza/MyRemakes")
 #define CoShowDialog(hParent, dlgId, lpDlgProc) (DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(dlgId), hParent, lpDlgProc))
 
+#define MAX_CRIMES	MAX_PATH
+
+#pragma region Structs
+
+enum
+{
+	CRIME_MURDER = 0,
+	CRIME_THEFT,
+	CRIME_ROBBERY,
+	CRIME_ASSAULT,
+	CRIME_ASSASSINATION,
+	CRIME_VANDALISM,
+	CRIME_SPEEDING
+};
+
+typedef struct tagCrimeInfo
+{
+	UINT Id;
+	UINT Penalty;
+	WCHAR Name[MAX_PATH];
+} CrimeInfo, *PCRIME;
+
+#pragma endregion
+
 BOOL CoDlgAbout(HWND hOwner);
 BOOL CoNotImplemented(HWND hParent);
 

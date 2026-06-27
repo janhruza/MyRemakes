@@ -5,6 +5,8 @@
 
 #include <wtypes.h>
 
+#define TEXT_LEN	65
+
 // TODO add values
 typedef enum tagCountryFlag
 {
@@ -18,7 +20,7 @@ typedef struct tagPerson
 	DATE LastSeen;
 	DATE CreationDate;
 	Country Nationality;
-	WCHAR Name[32];
+	WCHAR Name[TEXT_LEN];
 	
 } Person, *PPerson, *PersonPtr;
 
