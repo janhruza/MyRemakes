@@ -110,6 +110,12 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 			return TRUE;
 		}
 
+		case WM_SHOWWINDOW:
+		{
+			MessageBeep(MB_ICONINFORMATION);
+			return TRUE;
+		}
+
 		case WM_CTLCOLORDLG:
 		case WM_CTLCOLORBTN:
 		case WM_CTLCOLORSTATIC:

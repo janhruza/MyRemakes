@@ -30,6 +30,7 @@ typedef struct tagCrimeInfo
 	UINT Id;
 	UINT Penalty;
 	WCHAR Name[MAX_PATH];
+
 } CrimeInfo, *PCRIME;
 
 #pragma endregion
