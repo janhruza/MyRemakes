@@ -18,8 +18,9 @@
 #define IDC_LIST3                       1019
 #define IDC_HISTORY                     1019
 #define IDC_TXT_USERNAME                1022
-#define IDC_DATETIMEPICKER1             1024
 #define IDC_DTP_REGDATE                 1024
+#define IDC_COMBO1                      1025
+#define IDC_CBX_COUNTRY                 1025
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -36,7 +37,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        110
 #define _APS_NEXT_COMMAND_VALUE         40010
-#define _APS_NEXT_CONTROL_VALUE         1025
+#define _APS_NEXT_CONTROL_VALUE         1026
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
