@@ -45,6 +45,9 @@
     <ClCompile Include="src\Config.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Controls\CtlDbPersons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Controls\CtlDbPersons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,6 +6,7 @@
 #define IDD_DLGABOUT                    101
 #define IDD_DLGMAINWINDOW               102
 #define IDS_LICENSE_HEADER              103
+#define IDD_CTLPERSONS                  103
 #define IDS_LICENSE_COPYRIGHT           104
 #define IDS_LICENSE_TEXT1               105
 #define IDS_LICENSE_TEXT2               106
@@ -25,6 +26,9 @@
 #define IDC_DTP_REGDATE                 1024
 #define IDC_COMBO1                      1025
 #define IDC_CBX_COUNTRY                 1025
+#define IDC_TXT_FILTER                  1027
+#define IDC_LIST1                       1029
+#define IDC_LBX_RESULTS                 1029
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -40,9 +44,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        109
+#define _APS_NEXT_RESOURCE_VALUE        110
 #define _APS_NEXT_COMMAND_VALUE         40011
-#define _APS_NEXT_CONTROL_VALUE         1026
+#define _APS_NEXT_CONTROL_VALUE         1030
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

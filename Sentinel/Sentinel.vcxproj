@@ -181,6 +181,7 @@
   <ItemGroup>
     <ClCompile Include="Source.c" />
     <ClCompile Include="src\Config.c" />
+    <ClCompile Include="src\Controls\CtlDbPersons.c" />
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Dialogs\DlgAbout.c" />
   </ItemGroup>
@@ -189,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Config.h" />
+    <ClInclude Include="inc\Controls\CtlDbPersons.h" />
     <ClInclude Include="inc\Core.h" />
     <ClInclude Include="inc\Dialogs\DlgAbout.h" />
     <ClInclude Include="inc\Dialogs\DlgMainWindow.h" />

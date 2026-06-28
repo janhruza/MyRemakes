@@ -1,6 +1,8 @@
 #include "..\..\inc\Dialogs\DlgMainWindow.h"
+#include "..\..\inc\Controls\CtlDbPersons.h"
 #include "..\..\inc\Core.h"
 #include "..\..\res\resource.h"
+#include "..\..\inc\WindowHelper.h"
 
 #include <Windows.h>
 
@@ -19,6 +21,12 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 			// set the default bg color
 			hBg = GetSysColorBrush(COLOR_WINDOW);
+
+			// test
+			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLPERSONS), hDlg, CtlDbPersonsProc);
+			WhFitContent(hDlg, hCtl);
+			ShowWindow(hCtl, SW_SHOW);
+
 			return TRUE;
 		}
 

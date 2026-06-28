@@ -8,7 +8,8 @@
 #define TEXT_LEN	65
 #define MAX_COUNTRIES	MAX_PATH
 
-// TODO add values
+// TODO add values and update the
+// corresponding string array (gCountries)
 typedef enum tagCountryFlag
 {
 	COUNTRY_OTHER = 0,
