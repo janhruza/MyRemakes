@@ -6,6 +6,7 @@
 #include "Config.h"
 
 extern CrimeInfo gCrimes[MAX_CRIMES];
+extern WCHAR* gCountries[MAX_COUNTRIES];
 
 BOOL GlobSetDbPtr(PDatabase ptr);
 DatabasePtr GlobGetDbPtr(void);

@@ -8,6 +8,25 @@
 #include <stdlib.h>
 #include <time.h>
 
+BOOL CoInitCountries(void)
+{
+	if (gCountries == NULL)
+	{
+		return FALSE;
+	}
+
+	// list countries
+	gCountries[COUNTRY_OTHER] = TEXT("Other");
+	gCountries[USA] = TEXT("United States of America");
+	gCountries[CAN] = TEXT("Canada");
+	gCountries[GER] = TEXT("Germany");
+	gCountries[CZE] = TEXT("Czechia");
+	gCountries[GBR] = TEXT("Great Britain");
+	gCountries[SPA] = TEXT("Spain");
+
+	return TRUE;
+}
+
 BOOL CoInitializeApp(void)
 {
 	DatabasePtr db = DbCreate();
@@ -40,6 +59,10 @@ BOOL CoInitializeApp(void)
 	GlobSetConfigPtr(cfg);
 
 	CoInitRandomness();
+
+	// initialize countries
+	CoInitCountries();
+
 	return TRUE;
 }
 

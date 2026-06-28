@@ -70,6 +70,8 @@ BOOL CoDlgVehicleInfo(HWND hParent, VehiclePtr vehicle);
 
 BOOL CoDlgPersonInfo(HWND hParent, PersonPtr person);
 
+BOOL CoDlgWeaponInfo(HWND hParent, WeaponPtr weapon);
+
 /// <summary>
 /// Initializes everything the Sentinel app needs before functioning properly.
 /// </summary>

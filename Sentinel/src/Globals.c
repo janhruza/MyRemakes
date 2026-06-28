@@ -4,6 +4,7 @@ DatabasePtr gDatabase = NULL;
 PConfig gConfig = NULL;
 
 CrimeInfo gCrimes[MAX_CRIMES] = { 0 };
+WCHAR* gCountries[MAX_COUNTRIES] = { 0 };
 
 BOOL GlobSetDbPtr(PDatabase ptr)
 {

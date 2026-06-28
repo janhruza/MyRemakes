@@ -6,6 +6,7 @@
 
 #include <CommCtrl.h>
 #include <windowsx.h>
+#include <strsafe.h>
 
 PersonPtr pPerson = NULL;
 
@@ -84,6 +85,13 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 			hDp = GetDlgItem(hDlg, IDC_DTP_REGDATE);
 			hCountry = GetDlgItem(hDlg, IDC_CBX_COUNTRY);
 
+			// load countries
+			for (int i = COUNTRY_OTHER; i < COUNTRY_LAST; i++)
+			{
+				int idx = ComboBox_AddString(hCountry, gCountries[i]);
+				ComboBox_SetItemData(hCountry, idx, (Country)i);
+			}
+
 			ComboBox_SetMinVisible(hCountry, 8);
 
 			Person p;
@@ -129,6 +137,8 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 					SendMessage(hDlg, WM_CLOSE, 0, 0);
 					return TRUE;
 				}
+
+				default: break;
 			}
 
 			return FALSE;
