@@ -18,5 +18,8 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int
 
 	// start the application
 	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DLGMAINWINDOW), NULL, DlgMainWindowProc);
-	return EXIT_SUCCESS;
+
+	// post exit cleanup
+	BOOL ecode = CoAppCleanup();
+	return ecode == TRUE ? EXIT_SUCCESS : EXIT_FAILURE;
 }

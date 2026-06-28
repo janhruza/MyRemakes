@@ -76,4 +76,13 @@ BOOL CoDlgPersonInfo(HWND hParent, PersonPtr person);
 /// <returns>Operation result.</returns>
 BOOL CoInitializeApp(void);
 
+/// <summary>
+/// Performs a post-exit cleanup. Clears all resources and saves all states.
+/// </summary>
+/// <returns>Operation result.</returns>
+BOOL CoAppCleanup(void);
+
+int CoDisplayError(HWND hParent, UINT uUD);
+int CoDisplayMessage(HWND hParent, UINT uMessageId, UINT uMsgParams);
+
 #endif

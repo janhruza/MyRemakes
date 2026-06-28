@@ -43,6 +43,22 @@ BOOL CoInitializeApp(void)
 	return TRUE;
 }
 
+BOOL CoAppCleanup(void)
+{
+	PConfig config = GlobGetConfigPtr();
+	DatabasePtr db = GlobGetDbPtr();
+
+	if (config == NULL || db == NULL)
+	{
+		return FALSE;
+	}
+
+	DbSave(db, GLOBAL_DB_PATH);
+	SaveConfig(config);
+
+	return TRUE;
+}
+
 BOOL CoFileExists(LPCWSTR szPath)
 {
 	DWORD dwAttrib = GetFileAttributesW(szPath);
@@ -80,4 +96,28 @@ BOOL CoInitRandomness(void)
 BOOL CoDlgNewPerson(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGNEWPERSON, DlgNewPersonProc);
+}
+
+int CoDisplayError(HWND hParent, UINT uID)
+{
+	WCHAR text[MAX_PATH];
+	if (LoadString(GetModuleHandle(NULL), uID, text, MAX_PATH) == 0)
+	{
+		// resource not found
+		return FALSE;
+	}
+
+	return MessageBox(hParent, text, TEXT("Error"), MB_OK | MB_ICONERROR);
+}
+
+int CoDisplayMessage(HWND hParent, UINT uMessageId, UINT uMsgParams)
+{
+	WCHAR text[MAX_PATH];
+	if (LoadString(GetModuleHandle(NULL), uMessageId, text, MAX_PATH) == 0)
+	{
+		// resource not found
+		return FALSE;
+	}
+
+	return MessageBox(hParent, text, TEXT("Message"), uMsgParams);
 }

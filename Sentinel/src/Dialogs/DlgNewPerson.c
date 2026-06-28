@@ -23,12 +23,14 @@ BOOL RegisterPerson(HWND hParent)
 	if (GetWindowText(hName, name, TEXT_LEN) == 0)
 	{
 		// no name
+		CoDisplayError(hParent, IDS_MSG_ERR_NAME);
 		return FALSE;
 	}
 
 	if (DateTime_GetSystemtime(hDp, &st) != GDT_VALID)
 	{
 		// error getting date
+		CoDisplayError(hParent, IDS_MSG_ERR_DTP);
 		return FALSE;
 	}
 
@@ -36,6 +38,7 @@ BOOL RegisterPerson(HWND hParent)
 	if (idx == CB_ERR)
 	{
 		// no country selected
+		CoDisplayError(hParent, IDS_MSG_ERR_COUNTRY);
 		return FALSE;
 	}
 
@@ -43,7 +46,13 @@ BOOL RegisterPerson(HWND hParent)
 
 	// create a new person
 	Person p;
-	p.Id = 0;
+	PConfig config = GlobGetConfigPtr();
+	if (config == NULL)
+	{
+		return FALSE;
+	}
+
+	p.Id = config->nPersonId++;
 	p.CreationDate = st;
 	p.LastSeen = st;
 	p.Level = 0;
@@ -117,7 +126,8 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 						return FALSE;
 					}
 
-					return CoNotImplemented(hDlg);
+					SendMessage(hDlg, WM_CLOSE, 0, 0);
+					return TRUE;
 				}
 			}
 

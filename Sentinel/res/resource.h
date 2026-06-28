@@ -13,6 +13,9 @@
 #define IDS_LICENSE_TEXT3               107
 #define IDD_DLGNEWPERSON                108
 #define IDS_MSG_ERR_INIT                108
+#define IDS_MSG_ERR_NAME                109
+#define IDS_MSG_ERR_DTP                 110
+#define IDS_MSG_ERR_COUNTRY             111
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
@@ -37,7 +40,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        110
+#define _APS_NEXT_RESOURCE_VALUE        109
 #define _APS_NEXT_COMMAND_VALUE         40011
 #define _APS_NEXT_CONTROL_VALUE         1026
 #define _APS_NEXT_SYMED_VALUE           101
