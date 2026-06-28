@@ -8,13 +8,13 @@
 #include <windowsx.h>
 #include <strsafe.h>
 
-PersonPtr pPerson = NULL;
+static UINT uPersonId = 0;
 
 static HWND hDp = NULL;
 static HWND hName = NULL;
 static HWND hCountry = NULL;
 
-BOOL RegisterPerson(HWND hParent)
+static BOOL RegisterPerson(HWND hParent)
 {
 	WCHAR name[TEXT_LEN] = { 0 };
 	SYSTEMTIME st = { 0 };
@@ -70,8 +70,8 @@ BOOL RegisterPerson(HWND hParent)
 		return FALSE;
 	}
 
-	// assign the pointer
-	pPerson = &p;
+	// assign the ID
+	uPersonId = p.Id;
 	return TRUE;
 }
 
@@ -93,11 +93,6 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 			}
 
 			ComboBox_SetMinVisible(hCountry, 8);
-
-			Person p;
-			pPerson = &p;
-			memset(pPerson, 0, sizeof(Person));
-
 			return TRUE;
 		}
 
@@ -110,7 +105,7 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 		case WM_CLOSE:
 		{
 			// return the id of the created person
-			EndDialog(hDlg, (INT_PTR)pPerson->Id);
+			EndDialog(hDlg, (INT_PTR)uPersonId);
 			return TRUE;
 		}
 
@@ -121,7 +116,7 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 				case IDCANCEL:
 				{
 					// operation cancelled
-					pPerson->Id = -1;
+					uPersonId = 0;
 					SendMessage(hDlg, WM_CLOSE, 0, 0);
 					return TRUE;
 				}

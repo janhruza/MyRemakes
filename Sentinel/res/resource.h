@@ -27,8 +27,9 @@
 #define IDC_COMBO1                      1025
 #define IDC_CBX_COUNTRY                 1025
 #define IDC_TXT_FILTER                  1027
-#define IDC_LIST1                       1029
 #define IDC_LBX_RESULTS                 1029
+#define IDC_BTN_ADD                     1030
+#define IDC_TXT_LABEL                   1031
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -46,7 +47,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        110
 #define _APS_NEXT_COMMAND_VALUE         40011
-#define _APS_NEXT_CONTROL_VALUE         1030
+#define _APS_NEXT_CONTROL_VALUE         1032
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

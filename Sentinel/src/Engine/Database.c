@@ -53,15 +53,17 @@ BOOL DbAddPerson(DatabasePtr db, Person person)
 		return FALSE;
 	}
 
-	// find free spot
-	// insert it into it
-
+	// find a free spot
 	for (int i = 0; i < MAX_PERSONS; i++)
 	{
 		if (db->Persons[i].Id == 0)
 		{
-			// free position
+			// free position found
 			db->Persons[i] = person;
+
+			// save the DB
+			DbSave(db, GLOBAL_DB_PATH);
+			break;
 		}
 	}
 
