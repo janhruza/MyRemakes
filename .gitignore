@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Warden/res/RCa23232
+/Sentinel/config.bin
+/Sentinel/Database.bin
