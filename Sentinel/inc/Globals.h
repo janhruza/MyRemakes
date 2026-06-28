@@ -3,11 +3,14 @@
 #define GLOBALS_H
 
 #include "Core.h"
+#include "Config.h"
 
-// TODO add array of crimes and misdemeanors
 extern CrimeInfo gCrimes[MAX_CRIMES];
 
 BOOL GlobSetDbPtr(PDatabase ptr);
 DatabasePtr GlobGetDbPtr(void);
+
+BOOL GlobSetConfigPtr(PConfig ptr);
+PConfig GlobGetConfigPtr(void);
 
 #endif

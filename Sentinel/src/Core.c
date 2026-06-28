@@ -8,6 +8,41 @@
 #include <stdlib.h>
 #include <time.h>
 
+BOOL CoInitializeApp(void)
+{
+	DatabasePtr db = DbCreate();
+
+	if (CoFileExists(GLOBAL_DB_PATH) == FALSE)
+	{
+		DbInit(db);
+		DbSave(db, GLOBAL_DB_PATH);
+	}
+
+	else
+	{
+		DbLoad(db, GLOBAL_DB_PATH);
+	}
+
+	GlobSetDbPtr(db);
+
+	PConfig cfg = CreateConfig();
+	if (CoFileExists(CFG_FILENAME) == FALSE)
+	{
+		ResetConfig(cfg);
+		SaveConfig(cfg);
+	}
+
+	else
+	{
+		LoadConfig(cfg);
+	}
+
+	GlobSetConfigPtr(cfg);
+
+	CoInitRandomness();
+	return TRUE;
+}
+
 BOOL CoFileExists(LPCWSTR szPath)
 {
 	DWORD dwAttrib = GetFileAttributesW(szPath);

@@ -17,8 +17,8 @@ typedef struct tagPerson
 {
 	UINT Id;
 	UINT Level;
-	DATE LastSeen;
-	DATE CreationDate;
+	SYSTEMTIME LastSeen;
+	SYSTEMTIME CreationDate;
 	Country Nationality;
 	WCHAR Name[TEXT_LEN];
 	

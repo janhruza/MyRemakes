@@ -70,4 +70,10 @@ BOOL CoDlgVehicleInfo(HWND hParent, VehiclePtr vehicle);
 
 BOOL CoDlgPersonInfo(HWND hParent, PersonPtr person);
 
+/// <summary>
+/// Initializes everything the Sentinel app needs before functioning properly.
+/// </summary>
+/// <returns>Operation result.</returns>
+BOOL CoInitializeApp(void);
+
 #endif

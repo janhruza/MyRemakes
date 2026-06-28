@@ -12,6 +12,7 @@
 #define IDD_DLGPLATEGEN                 106
 #define IDS_LICENSE_TEXT3               107
 #define IDD_DLGNEWPERSON                108
+#define IDS_MSG_ERR_INIT                108
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018

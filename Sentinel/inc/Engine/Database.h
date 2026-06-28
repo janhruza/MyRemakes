@@ -28,4 +28,8 @@ BOOL DbInit(PDatabase ptr);
 BOOL DbLoad(PDatabase ptr, WCHAR* filepath);
 BOOL DbSave(PDatabase ptr, WCHAR* filename);
 
+BOOL DbAddPerson(PDatabase ptr, Person person);
+BOOL DbAddVehicle(PDatabase ptr, Vehicle vehicle);
+BOOL DbAddWeapon(PDatabase ptr, Weapon weapon);
+
 #endif

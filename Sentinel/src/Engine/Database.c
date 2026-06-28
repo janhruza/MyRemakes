@@ -45,3 +45,25 @@ BOOL DbSave(PDatabase ptr, WCHAR* filename)
 	fclose(file);
 	return count > 0 ? TRUE : FALSE;
 }
+
+BOOL DbAddPerson(DatabasePtr db, Person person)
+{
+	if (db == NULL)
+	{
+		return FALSE;
+	}
+
+	// find free spot
+	// insert it into it
+
+	for (int i = 0; i < MAX_PERSONS; i++)
+	{
+		if (db->Persons[i].Id == 0)
+		{
+			// free position
+			db->Persons[i] = person;
+		}
+	}
+
+	return TRUE;
+}
