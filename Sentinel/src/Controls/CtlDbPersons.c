@@ -22,9 +22,11 @@ static BOOL CreatePersonMenu(void)
 
 	hPersonMenu = CreatePopupMenu();
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_DETAILS, TEXT("About"));
-	AppendMenu(hPersonMenu, MF_STRING, PERSON_ADD_RECORD, TEXT("Add Criminal Record"));
 	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
+	AppendMenu(hPersonMenu, MF_STRING, PERSON_ADD_RECORD, TEXT("Add Criminal Record"));
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_REMOVE, TEXT("Delete Person"));
+	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
+	AppendMenu(hPersonMenu, MF_STRING, IDRETRY, TEXT("Refresh"));
 
 	return TRUE;
 }
@@ -38,7 +40,8 @@ static BOOL CreateBlankMenu(void)
 
 	hBlankMenu = CreatePopupMenu();
 	AppendMenu(hBlankMenu, MF_STRING, PERSON_NEW_PERSON, TEXT("Add new Person"));
-
+	AppendMenu(hBlankMenu, MF_SEPARATOR, 0, NULL);
+	AppendMenu(hBlankMenu, MF_STRING, IDRETRY, TEXT("Refresh"));
 	return TRUE;
 }
 
@@ -67,6 +70,28 @@ static BOOL RefreshDbView(void)
 	WCHAR text[MAX_PATH] = { 0 };
 	StringCbPrintf(text, MAX_PATH, TEXT("Showing a total of %d records"), counter);
 	SetWindowText(hLabel, text);
+}
+
+static BOOL RemovePerson(HWND hParent)
+{
+	int idx = ListBox_GetCurSel(hLbx);
+	if (idx == LB_ERR) return FALSE;
+
+	WCHAR name[MAX_PATH];
+	ListBox_GetText(hLbx, idx, name);
+
+	WCHAR message[2 * MAX_PATH];
+	StringCbPrintf(message, 2 * MAX_PATH, TEXT("Do you want to remove \'%s\' from the database? This action is irreversible."), name);
+
+	if (MessageBox(hParent, message, TEXT("Remove Person"), MB_YESNO | MB_ICONWARNING) == IDYES)
+	{
+		// action confirmed
+		DatabasePtr db = GlobGetDbPtr();
+		UINT id = ListBox_GetItemData(hLbx, idx);
+		return DbRemovePerson(db, id);
+	}
+
+	return FALSE;
 }
 
 BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -113,6 +138,14 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				{
 					CoNotImplemented(hCtl);
 					return TRUE;
+				}
+
+				case PERSON_REMOVE:
+				{
+					if (RemovePerson(hCtl) == TRUE)
+					{
+						RefreshDbView();
+					}
 				}
 
 				default: return FALSE;

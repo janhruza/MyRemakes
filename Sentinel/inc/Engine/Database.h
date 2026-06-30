@@ -29,7 +29,12 @@ BOOL DbLoad(PDatabase ptr, WCHAR* filepath);
 BOOL DbSave(PDatabase ptr, WCHAR* filename);
 
 BOOL DbAddPerson(DatabasePtr db, Person person);
+BOOL DbRemovePerson(DatabasePtr db, UINT personId);
+
 BOOL DbAddVehicle(PDatabase ptr, Vehicle vehicle);
+BOOL DbRemoveVehicle(PDatabase db, UINT vehicleId);
+
 BOOL DbAddWeapon(PDatabase ptr, Weapon weapon);
+BOOL DbRemoveWeapon(PDatabase db, UINT weaponId);
 
 #endif

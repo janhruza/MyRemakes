@@ -69,3 +69,20 @@ BOOL DbAddPerson(DatabasePtr db, Person person)
 
 	return TRUE;
 }
+
+BOOL DbRemovePerson(DatabasePtr db, UINT personId)
+{
+	if (db == NULL) return FALSE;
+	if (personId == 0) return FALSE;
+
+	for (int i = 0; i < MAX_PERSONS; i++)
+	{
+		if (db->Persons[i].Id == personId)
+		{
+			memset(&db->Persons[i], 0, sizeof(Person));
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
