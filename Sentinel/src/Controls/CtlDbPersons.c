@@ -140,6 +140,12 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					return TRUE;
 				}
 
+				case PERSON_ADD_RECORD:
+				{
+					CoNotImplemented(hCtl);
+					return TRUE;
+				}
+
 				case PERSON_REMOVE:
 				{
 					if (RemovePerson(hCtl) == TRUE)

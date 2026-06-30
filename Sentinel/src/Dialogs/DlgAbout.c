@@ -6,20 +6,10 @@
 
 #include "..\..\res\resource.h"
 
-HBRUSH hBg = NULL;
-
 BOOL CALLBACK DlgAboutProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
 	{
-		case WM_CTLCOLORSTATIC:
-		case WM_CTLCOLOREDIT:
-		case WM_CTLCOLORBTN:
-		case WM_CTLCOLORDLG:
-		{
-			return hBg;
-		}
-
 		case WM_SHOWWINDOW:
 		{
 			if (wParam == TRUE)
@@ -32,8 +22,6 @@ BOOL CALLBACK DlgAboutProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 		case WM_INITDIALOG:
 		{
-			hBg = GetSysColorBrush(COLOR_WINDOW);
-
 			HINSTANCE hInst = GetModuleHandle(NULL);
 			HWND hEdit = GetDlgItem(hDlg, IDC_LICENSE);
 

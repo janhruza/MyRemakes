@@ -24,12 +24,6 @@
     <ClCompile Include="src\Core.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Dialogs\DlgMainWindow.c">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\WindowHelper.c">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Dialogs\DlgPlateGenerator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -46,6 +40,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Controls\CtlDbPersons.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Dialogs\DlgMainWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WindowHelper.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

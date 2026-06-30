@@ -2,7 +2,6 @@
 #include "..\..\res\resource.h"
 #include "..\..\inc\Core.h"
 
-static HBRUSH hBg = NULL;
 static HWND hLbxHistory = NULL;
 
 static WCHAR chars[] = L"ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -103,7 +102,6 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 	{
 		case WM_INITDIALOG:
 		{
-			hBg = GetSysColorBrush(COLOR_WINDOW);
 			hLbxHistory = GetDlgItem(hDlg, IDC_HISTORY);
 
 			CheckDlgButton(hDlg, IDC_RBKEEPFORMAT, TRUE);
@@ -114,13 +112,6 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 		{
 			MessageBeep(MB_ICONINFORMATION);
 			return TRUE;
-		}
-
-		case WM_CTLCOLORDLG:
-		case WM_CTLCOLORBTN:
-		case WM_CTLCOLORSTATIC:
-		{
-			return (HBRUSH)hBg;
 		}
 
 		case WM_CLOSE:
