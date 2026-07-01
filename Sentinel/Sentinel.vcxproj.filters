@@ -54,6 +54,9 @@
     <ClCompile Include="src\Dialogs\DlgNewWeapon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Engine\Weapon.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />

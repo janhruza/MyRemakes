@@ -4,22 +4,80 @@
 
 #include <wtypes.h>
 
-// TODO add values
-typedef enum tagVehicleClass
-{
-	VC_RESERVED = 0, // first, must be reserved
-	VC_SEDAN,
+#define VC_MODEL_LEN	33	// 32 + null terminator
+
+typedef enum tagVehicleClass {
+	VC_RESERVED = 0,
+	VC_COMPACTS,
+	VC_SEDANS,
+	VC_SUVS,
+	VC_COUPES,
+	VC_MUSCLE,
+	VC_SPORTS,
+	VC_SPORTS_CLASSICS,
+	VC_SUPER,
+	VC_MOTORCYCLES,
+	VC_OFF_ROAD,
+	VC_INDUSTRIAL,
 	VC_UTILITY,
-
-	VC_LAST // must be last, reserved
-
+	VC_VANS,
+	VC_CYCLES,
+	VC_BOATS,
+	VC_HELICOPTERS,
+	VC_PLANES,
+	VC_SERVICE,
+	VC_EMERGENCY,
+	VC_MILITARY,
+	VC_COMMERCIAL,
+	VC_OPEN_WHEEL,
+	VC_LAST
 } VEHICLE_CLASS;
 
-// TODO add values
 typedef enum tagVehicleManufacturer
 {
-	VB_FIRST = 0, // first, must be reserved
-	VB_LAST // last, must be reserved
+	VB_FIRST = 0,    // First, must be reserved
+	VB_ALBANY,
+	VB_ANNIS,
+	VB_BENEFACTOR,
+	VB_BF,
+	VB_BRAVADO,
+	VB_BRUTE,
+	VB_BUCKINGHAM,
+	VB_CANIS,
+	VB_DECLASSE,
+	VB_DEWBAUCHEE,
+	VB_DINKA,
+	VB_DUNDREARY,
+	VB_ENUS,
+	VB_FATHOM,
+	VB_GALLIVANTER,
+	VB_GROTTI,
+	VB_HIJAK,
+	VB_IMPONTE,
+	VB_INVETERO,
+	VB_KARIN,
+	VB_LAMPADATI,
+	VB_MAIBATSU,
+	VB_MAMMOTH,
+	VB_MTL,
+	VB_OBEY,
+	VB_OCELOT,
+	VB_OVERFLOD,
+	VB_PEGASSI,
+	VB_PFISTER,
+	VB_PRINCIPE,
+	VB_PROGEN,
+	VB_RUNE,
+	VB_SCHYSTER,
+	VB_SHITZU,
+	VB_TRUFFADE,
+	VB_UBERMACHT,
+	VB_VAPID,
+	VB_VULCAR,
+	VB_WEENY,
+	VB_WESTERN,
+	VB_ZIRCONIUM,
+	VB_LAST          // Last, must be reserved
 } VEHICLE_BRAND;
 
 // TODO add members
@@ -28,6 +86,7 @@ typedef struct tagVehicle
 	UINT Id;
 	VEHICLE_CLASS Class;
 	VEHICLE_BRAND Manufacturer;
+	WCHAR Model[VC_MODEL_LEN];
 
 } Vehicle, *PVehicle, *VehiclePtr;
 

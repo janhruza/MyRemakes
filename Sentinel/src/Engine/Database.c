@@ -53,6 +53,11 @@ BOOL DbAddPerson(DatabasePtr db, Person person)
 		return FALSE;
 	}
 
+	if (person.Id == 0)
+	{
+		return FALSE;
+	}
+
 	// find a free spot
 	for (int i = 0; i < MAX_PERSONS; i++)
 	{

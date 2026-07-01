@@ -211,6 +211,7 @@
     <ClCompile Include="src\Dialogs\DlgNewWeapon.c" />
     <ClCompile Include="src\Dialogs\DlgPlateGenerator.c" />
     <ClCompile Include="src\Engine\Database.c" />
+    <ClCompile Include="src\Engine\Weapon.c" />
     <ClCompile Include="src\Globals.c" />
     <ClCompile Include="src\WindowHelper.c" />
   </ItemGroup>
