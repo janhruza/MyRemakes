@@ -14,7 +14,7 @@ extern WCHAR* gCountries[MAX_COUNTRIES];
 extern WCHAR* gWeaponNames[W_COUNT];
 
 // global list of weapons
-static const Weapon gWeapons[MAX_WEAPONS];
+extern const Weapon gWeapons[MAX_WEAPONS];
 
 BOOL GlobSetDbPtr(PDatabase ptr);
 DatabasePtr GlobGetDbPtr(void);

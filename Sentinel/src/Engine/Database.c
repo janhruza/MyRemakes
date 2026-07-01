@@ -1,4 +1,5 @@
 #include "..\..\inc\Engine\Database.h"
+#include "..\..\inc\Globals.h"
 
 #include <stdlib.h>
 #include <Windows.h>
@@ -19,7 +20,15 @@ BOOL DbFree(PDatabase ptr)
 
 BOOL DbInit(PDatabase ptr)
 {
+	if (ptr == NULL) return FALSE;
 	memset(ptr, 0, sizeof(Database));
+
+	// set weapons
+	for (int i = 0; i < W_COUNT; i++)
+	{
+		ptr->Weapons[i] = gWeapons[i];
+	}
+
 	return TRUE;
 }
 

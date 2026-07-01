@@ -6,7 +6,7 @@ PConfig gConfig = NULL;
 CrimeInfo gCrimes[MAX_CRIMES] = { 0 };
 WCHAR* gCountries[MAX_COUNTRIES] = { 0 };
 
-static const Weapon gWeapons[MAX_WEAPONS] =
+const Weapon gWeapons[MAX_WEAPONS] =
 {
 	{ W_FIRST, WPT_FIRST, 0, 0 },
 

@@ -24,6 +24,9 @@ static BOOL CreatePersonMenu(void)
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_DETAILS, TEXT("About"));
 	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_ADD_RECORD, TEXT("Add Criminal Record"));
+	AppendMenu(hPersonMenu, MF_STRING, PERSON_REGISTER_VEHICLE, TEXT("Register Vehicle"));
+	AppendMenu(hPersonMenu, MF_STRING, PERSON_REGISTER_WEAPON, TEXT("Register Weapon"));
+	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_REMOVE, TEXT("Delete Person"));
 	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
 	AppendMenu(hPersonMenu, MF_STRING, IDRETRY, TEXT("Refresh"));
@@ -146,6 +149,18 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					return TRUE;
 				}
 
+				case PERSON_REGISTER_VEHICLE:
+				{
+					CoNotImplemented(hCtl);
+					return TRUE;
+				}
+
+				case PERSON_REGISTER_WEAPON:
+				{
+					CoNotImplemented(hCtl);
+					return TRUE;
+				}
+
 				case PERSON_REMOVE:
 				{
 					if (RemovePerson(hCtl) == TRUE)
@@ -187,6 +202,13 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				else
 				{
 					// any item selected, show item related menu
+					int idx = ListBox_GetCurSel(hLbx);
+					WCHAR player[MAX_PATH];
+					ListBox_GetText(hLbx, idx, player);
+					WCHAR text[2 * MAX_PATH];
+					StringCbPrintf(text, 2 * MAX_PATH, TEXT("About %s"), player);
+					ModifyMenu(hPersonMenu, MF_BYCOMMAND | PERSON_DETAILS, MF_STRING, PERSON_DETAILS, text);
+
 					TrackPopupMenu(hPersonMenu, TPM_LEFTALIGN, x, y, 0, hCtl, NULL);
 				}
 

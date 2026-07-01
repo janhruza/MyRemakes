@@ -92,7 +92,6 @@ BOOL CoInitializeApp(void)
 
 	// initialize countries
 	CoInitCountries();
-
 	return TRUE;
 }
 
