@@ -24,6 +24,36 @@ BOOL CoInitCountries(void)
 	gCountries[GBR] = TEXT("Great Britain");
 	gCountries[SPA] = TEXT("Spain");
 
+	gCountries[FRA] = TEXT("France");
+	gCountries[ITA] = TEXT("Italy");
+	gCountries[SVK] = TEXT("Slovakia");
+	gCountries[POL] = TEXT("Poland");
+	gCountries[AUT] = TEXT("Austria");
+	gCountries[CHN] = TEXT("China");
+	gCountries[JPN] = TEXT("Japan");
+	gCountries[IND] = TEXT("India");
+	gCountries[BRA] = TEXT("Brazil");
+	gCountries[MEX] = TEXT("Mexico");
+	gCountries[AUS] = TEXT("Australia");
+	gCountries[KOR] = TEXT("South Korea");
+	gCountries[NED] = TEXT("Netherlands");
+	gCountries[BEL] = TEXT("Belgium");
+	gCountries[SUI] = TEXT("Switzerland");
+	gCountries[SWE] = TEXT("Sweden");
+	gCountries[NOR] = TEXT("Norway");
+	gCountries[FIN] = TEXT("Finland");
+	gCountries[DEN] = TEXT("Denmark");
+	gCountries[POR] = TEXT("Portugal");
+	gCountries[GRE] = TEXT("Greece");
+	gCountries[TUR] = TEXT("Turkey");
+	gCountries[UKR] = TEXT("Ukraine");
+	gCountries[RSA] = TEXT("South Africa");
+	gCountries[ARG] = TEXT("Argentina");
+	gCountries[NZL] = TEXT("New Zealand");
+	gCountries[ISR] = TEXT("Israel");
+	gCountries[SGP] = TEXT("Singapore");
+	gCountries[IRL] = TEXT("Ireland");
+
 	return TRUE;
 }
 
