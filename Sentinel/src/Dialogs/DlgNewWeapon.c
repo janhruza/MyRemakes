@@ -1,3 +1,10 @@
+/*
+* DlgNewWeapon.c
+* Representing the new weapon dialog.
+* This dialog is meant only to register new weapons to the database.
+* This dialog is not meant to add new weapons to a player.
+*/
+
 #include "..\..\inc\Dialogs\DlgNewWeapon.h"
 
 #include <Windows.h>
