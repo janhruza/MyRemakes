@@ -92,7 +92,7 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 				ComboBox_SetItemData(hCountry, idx, (Country)i);
 			}
 
-			ComboBox_SetMinVisible(hCountry, 8);
+			ComboBox_SetMinVisible(hCountry, 10);
 			return TRUE;
 		}
 
