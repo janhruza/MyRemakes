@@ -195,6 +195,8 @@
     <ClInclude Include="inc\Dialogs\DlgAbout.h" />
     <ClInclude Include="inc\Dialogs\DlgMainWindow.h" />
     <ClInclude Include="inc\Dialogs\DlgNewPerson.h" />
+    <ClInclude Include="inc\Dialogs\DlgNewVehicle.h" />
+    <ClInclude Include="inc\Dialogs\DlgNewWeapon.h" />
     <ClInclude Include="inc\Dialogs\DlgPlateGenerator.h" />
     <ClInclude Include="inc\Engine\Database.h" />
     <ClInclude Include="inc\Engine\Person.h" />
@@ -205,6 +207,8 @@
     <ClInclude Include="res\resource.h" />
     <ClCompile Include="src\Dialogs\DlgMainWindow.c" />
     <ClCompile Include="src\Dialogs\DlgNewPerson.c" />
+    <ClCompile Include="src\Dialogs\DlgNewVehicle.c" />
+    <ClCompile Include="src\Dialogs\DlgNewWeapon.c" />
     <ClCompile Include="src\Dialogs\DlgPlateGenerator.c" />
     <ClCompile Include="src\Engine\Database.c" />
     <ClCompile Include="src\Globals.c" />
