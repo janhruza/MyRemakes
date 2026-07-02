@@ -77,11 +77,11 @@ BOOL DbAddPerson(DatabasePtr db, Person person)
 
 			// save the DB
 			DbSave(db, GLOBAL_DB_PATH);
-			break;
+			return TRUE;
 		}
 	}
 
-	return TRUE;
+	return FALSE;
 }
 
 BOOL DbRemovePerson(DatabasePtr db, UINT personId)
@@ -94,6 +94,81 @@ BOOL DbRemovePerson(DatabasePtr db, UINT personId)
 		if (db->Persons[i].Id == personId)
 		{
 			memset(&db->Persons[i], 0, sizeof(Person));
+			DbSave(db, GLOBAL_DB_PATH);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+BOOL DbAddVehicle(PDatabase db, Vehicle vehicle)
+{
+	if (db == NULL) return FALSE;
+	if (vehicle.Id == 0) return FALSE;
+
+	for (int i = 0; i < MAX_VEHICLES; i++)
+	{
+		if (db->Vehicles[i].Id == 0)
+		{
+			db->Vehicles[i] = vehicle;
+
+			// save the DB
+			DbSave(db, GLOBAL_DB_PATH);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+BOOL DbRemoveVehicle(PDatabase db, UINT vehicleId)
+{
+	if (db == NULL) return FALSE;
+	if (vehicleId == 0) return FALSE;
+
+	for (int i = 0; i < MAX_VEHICLES; i++)
+	{
+		if (db->Vehicles[i].Id == vehicleId)
+		{
+			memset(&db->Vehicles[i], 0, sizeof(Vehicle));
+			DbSave(db, GLOBAL_DB_PATH);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+BOOL DbAddWeapon(PDatabase db, Weapon weapon)
+{
+	if (db == NULL) return FALSE;
+	if (weapon.Id == 0) return FALSE;
+
+	for (int i = 0; i < MAX_WEAPONS; i++)
+	{
+		if (db->Weapons[i].Id == 0)
+		{
+			db->Weapons[i] = weapon;
+			DbSave(db, GLOBAL_DB_PATH);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+BOOL DbRemoveWeapon(PDatabase db, UINT weaponId)
+{
+	if (db == NULL) return FALSE;
+	if (weaponId == 0) return FALSE;
+
+	for (int i = 0; i < MAX_WEAPONS; i++)
+	{
+		if (db->Weapons[i].Id == weaponId)
+		{
+			memset(&db->Weapons[i], 0, sizeof(Weapon));
+			DbSave(db, GLOBAL_DB_PATH);
 			return TRUE;
 		}
 	}

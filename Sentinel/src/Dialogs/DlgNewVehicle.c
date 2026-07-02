@@ -8,6 +8,7 @@
 #include "..\..\inc\Dialogs\DlgNewVehicle.h"
 #include "..\..\inc\Core.h"
 #include "..\..\inc\Globals.h"
+#include "..\..\inc\Config.h"
 
 #include <Windows.h>
 #include <windowsx.h>
@@ -16,6 +17,56 @@
 #include "..\..\res\resource.h"
 
 static UINT vehicleId = 0;
+
+BOOL CreateVehicle(HWND hDlg)
+{
+	// get control handles
+	HWND hCbxBrand = GetDlgItem(hDlg, IDC_VEHICLE_BRAND);
+	HWND hCbxClass = GetDlgItem(hDlg, IDC_VEHICLE_CLASS);
+	HWND hEdtPrice = GetDlgItem(hDlg, IDC_VEHICLE_PRICE);
+	HWND hTxtModel = GetDlgItem(hDlg, IDC_VEHICLE_MODEL);
+
+	// get selected brand and class
+	int brandIndex = ComboBox_GetCurSel(hCbxBrand);
+	int classIndex = ComboBox_GetCurSel(hCbxClass);
+	if (brandIndex == CB_ERR || classIndex == CB_ERR)
+	{
+		MessageBox(hDlg, L"Please select a vehicle brand and class.", L"Error", MB_ICONERROR | MB_OK);
+		return FALSE;
+	}
+
+	// get the model
+	WCHAR modelBuffer[VC_MODEL_LEN];
+	GetWindowText(hTxtModel, modelBuffer, sizeof(modelBuffer) / sizeof(WCHAR));
+	if (wcslen(modelBuffer) == 0)
+	{
+		MessageBox(hDlg, L"Please enter a vehicle model.", L"Error", MB_ICONERROR | MB_OK);
+		return FALSE;
+	}
+
+	// get the price
+	WCHAR priceBuffer[32];
+	GetWindowText(hEdtPrice, priceBuffer, sizeof(priceBuffer) / sizeof(WCHAR));
+	int price = _wtoi(priceBuffer);
+	if (price < 0) // 0 is a valid price, but negative values are not
+	{
+		MessageBox(hDlg, L"Please enter a valid vehicle price.", L"Error", MB_ICONERROR | MB_OK);
+		return FALSE;
+	}
+
+	// create the vehicle in the database (not implemented)
+	PConfig config = GlobGetConfigPtr();
+	Vehicle vehicle;
+	vehicle.Id = config->nVehicleId + 1; // increment the vehicle ID
+	vehicle.Manufacturer = brandIndex;
+	vehicle.Class = classIndex;
+	vehicle.Price = price;
+
+	// copy the model to the vehicle struct
+	wcscpy_s(vehicle.Model, sizeof(vehicle.Model) / sizeof(WCHAR), modelBuffer);
+	vehicleId = vehicle.Id; // set the static vehicleId to the new vehicle's ID
+	return TRUE;
+}
 
 BOOL CALLBACK DlgNewVehicleProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
@@ -77,7 +128,11 @@ BOOL CALLBACK DlgNewVehicleProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 				case IDOK:
 				{
 					// the 'register' button
-					CoNotImplemented(hDlg);
+					if (CreateVehicle(hDlg))
+					{
+						SendMessage(hDlg, WM_CLOSE, 0, 0);
+					}
+
 					return TRUE;
 				}
 
