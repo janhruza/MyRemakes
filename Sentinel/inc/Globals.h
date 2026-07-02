@@ -13,6 +13,12 @@ extern WCHAR* gCountries[MAX_COUNTRIES];
 // weapon names
 extern WCHAR* gWeaponNames[W_COUNT];
 
+// vehicle brands
+extern const WCHAR* gVehicleBrands[VB_LAST];
+
+// vehicle classes
+extern const WCHAR* gVehicleClasses[VC_LAST];
+
 // global list of weapons
 extern const Weapon gWeapons[MAX_WEAPONS];
 

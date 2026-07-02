@@ -119,5 +119,8 @@
   <ItemGroup>
     <None Include="README.md" />
     <None Include="TODO.md" />
+    <None Include="res\resource.hm">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

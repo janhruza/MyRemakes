@@ -45,7 +45,8 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 	case WM_HELP:
 	{
-		return CoDlgAbout(hDlg);
+		CoDlgAbout(hDlg);
+		return TRUE;
 	}
 
 	case WM_SYSCOMMAND:
@@ -92,6 +93,16 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 		case ID_PLAYERS_NEWPLAYER:
 		{
 			return CoDlgNewPerson(hDlg);
+		}
+
+		case ID_WEAPONS_ADDNEWWEAPON:
+		{
+			return CoDlgNewWeapon(hDlg);
+		}
+
+		case ID_VEHICLES_NEWVEHICLE:
+		{
+			return CoDlgNewVehicle(hDlg);
 		}
 
 		default: return FALSE;

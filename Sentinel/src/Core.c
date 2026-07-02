@@ -3,6 +3,8 @@
 #include "..\inc\Dialogs\DlgAbout.h"
 #include "..\inc\Dialogs\DlgPlateGenerator.h"
 #include "..\inc\Dialogs\DlgNewPerson.h"
+#include "..\inc\Dialogs\DlgNewVehicle.h"
+#include "..\inc\Dialogs\DlgNewWeapon.h"
 #include "..\res\resource.h"
 
 #include <stdlib.h>
@@ -148,6 +150,16 @@ BOOL CoInitRandomness(void)
 BOOL CoDlgNewPerson(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGNEWPERSON, DlgNewPersonProc);
+}
+
+BOOL CoDlgNewVehicle(HWND hParent)
+{
+	return CoShowDialog(hParent, IDD_DLGNEWVEHICLE, DlgNewVehicleProc);
+}
+
+BOOL CoDlgNewWeapon(HWND hParent)
+{
+	return CoShowDialog(hParent, IDD_DLGNEWWEAPON, DlgNewWeaponProc);
 }
 
 int CoDisplayError(HWND hParent, UINT uID)

@@ -15,11 +15,17 @@ BOOL CALLBACK DlgNewWeaponProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 {
 	switch (uMsg)
 	{
-	case WM_CLOSE:
-	{
-		EndDialog(hDlg, (INT_PTR)weaponId);
-		return TRUE;
-	}
+		case WM_CLOSE:
+		{
+			EndDialog(hDlg, (INT_PTR)weaponId);
+			return TRUE;
+		}
+
+		case WM_SHOWWINDOW:
+		{
+			MessageBeep(MB_ICONINFORMATION);
+			return TRUE;
+		}
 
 	default: break;
 	}

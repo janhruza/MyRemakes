@@ -106,6 +106,76 @@ const Weapon gWeapons[MAX_WEAPONS] =
 	{ W_PIPEBOMB, WPT_THROWN, 1, 25 }
 };
 
+const WCHAR* gVehicleBrands[VB_LAST] =
+{
+	L"Albany",
+	L"Annis",
+	L"Benefactor",
+	L"BF",
+	L"Bravado",
+	L"Brute",
+	L"Buckingham",
+	L"Canis",
+	L"Declasse",
+	L"Dewbauchee",
+	L"Dinka",
+	L"Dundreary",
+	L"Enus",
+	L"Fathom",
+	L"Galliwanter",
+	L"Grotti",
+	L"Hijak",
+	L"Imponte",
+	L"Invetero",
+	L"Karin",
+	L"Lampadati",
+	L"Maibatsu",
+	L"Mammoth",
+	L"MTL",
+	L"Obey",
+	L"Ocelot",
+	L"Overflod",
+	L"Pegassi",
+	L"Pfister",
+	L"Principe",
+	L"Progen",
+	L"Rune",
+	L"Schyster",
+	L"Shitzu",
+	L"Truffade",
+	L"Ubermacht",
+	L"Vapid",
+	L"Vulcar",
+	L"Weeny",
+	L"Western",
+	L"Zirconium"
+};
+
+const WCHAR* gVehicleClasses[VC_LAST] = {
+	L"Boats",
+	L"Commercial",
+	L"Compacts",
+	L"Coupes",
+	L"Cycles",
+	L"Emergency",
+	L"Helicopters",
+	L"Industrial",
+	L"Military",
+	L"Motorcycles",
+	L"Muscle",
+	L"Off Road",
+	L"Open Wheel",
+	L"Planes",
+	L"Sedans",
+	L"Service",
+	L"Sports",
+	L"Sports Classics",
+	L"Super",
+	L"SUV's",
+	L"Utility",
+	L"Vans"
+};
+
 BOOL GlobSetDbPtr(PDatabase ptr)
 {
 	gDatabase = ptr;
