@@ -6,5 +6,8 @@
 
 BOOL WhFitContent(HWND hParent, HWND hControl);
 BOOL WhCenterWindow(HWND hWnd);
+BOOL WhCenterChildWindow(HWND hParent, HWND hChild);
+
+HWND WhGetOwner(HWND hWnd);
 
 #endif

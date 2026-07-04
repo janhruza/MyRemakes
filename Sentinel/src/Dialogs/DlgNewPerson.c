@@ -1,6 +1,7 @@
 #include "..\..\inc\Dialogs\DlgNewPerson.h"
 #include "..\..\inc\Core.h"
 #include "..\..\inc\Globals.h"
+#include "..\..\inc\WindowHelper.h"
 #include "..\..\inc\Engine\Database.h"
 #include "..\..\res\resource.h"
 
@@ -98,7 +99,12 @@ BOOL CALLBACK DlgNewPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 
 		case WM_SHOWWINDOW:
 		{
-			MessageBeep(MB_ICONINFORMATION);
+			if ((BOOL)wParam == TRUE)
+			{
+				WhCenterChildWindow(WhGetOwner(hDlg), hDlg);
+				MessageBeep(MB_ICONINFORMATION);
+			}
+			
 			return TRUE;
 		}
 

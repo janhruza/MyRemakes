@@ -6,6 +6,7 @@
 */
 
 #include "..\..\inc\Dialogs\DlgNewWeapon.h"
+#include "..\..\inc\WindowHelper.h"
 
 #include <Windows.h>
 
@@ -15,19 +16,24 @@ BOOL CALLBACK DlgNewWeaponProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 {
 	switch (uMsg)
 	{
+		case WM_SHOWWINDOW:
+		{
+			if ((BOOL)wParam == TRUE)
+			{
+				WhCenterChildWindow(WhGetOwner(hDlg), hDlg);
+				MessageBeep(MB_ICONINFORMATION);
+			}
+
+			return TRUE;
+		}
+
 		case WM_CLOSE:
 		{
 			EndDialog(hDlg, (INT_PTR)weaponId);
 			return TRUE;
 		}
 
-		case WM_SHOWWINDOW:
-		{
-			MessageBeep(MB_ICONINFORMATION);
-			return TRUE;
-		}
-
-	default: break;
+		default: break;
 	}
 
 	return FALSE;

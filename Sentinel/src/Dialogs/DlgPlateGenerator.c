@@ -1,6 +1,7 @@
 #include "..\..\inc\Dialogs\DlgPlateGenerator.h"
 #include "..\..\res\resource.h"
 #include "..\..\inc\Core.h"
+#include "..\..\inc\WindowHelper.h"
 
 static HWND hLbxHistory = NULL;
 
@@ -110,7 +111,13 @@ BOOL CALLBACK DlgPlateGeneratorProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM 
 
 		case WM_SHOWWINDOW:
 		{
-			MessageBeep(MB_ICONINFORMATION);
+			if ((BOOL)wParam == TRUE)
+			{
+				HWND hParent = WhGetOwner(hDlg);
+				WhCenterChildWindow(hParent, hDlg);
+				MessageBeep(MB_ICONINFORMATION);
+			}
+			
 			return TRUE;
 		}
 

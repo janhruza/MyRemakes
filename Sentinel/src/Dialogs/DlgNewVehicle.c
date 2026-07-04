@@ -8,6 +8,7 @@
 #include "..\..\inc\Dialogs\DlgNewVehicle.h"
 #include "..\..\inc\Core.h"
 #include "..\..\inc\Globals.h"
+#include "..\..\inc\WindowHelper.h"
 #include "..\..\inc\Config.h"
 
 #include <Windows.h>
@@ -117,7 +118,12 @@ BOOL CALLBACK DlgNewVehicleProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 
 		case WM_SHOWWINDOW:
 		{
-			MessageBeep(MB_ICONINFORMATION);
+			if ((BOOL)wParam == TRUE)
+			{
+				WhCenterChildWindow(WhGetOwner(hDlg), hDlg);
+				MessageBeep(MB_ICONINFORMATION);
+			}
+
 			return TRUE;
 		}
 

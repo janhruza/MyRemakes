@@ -41,3 +41,50 @@ BOOL WhCenterWindow(HWND hWnd)
 
 	return MoveWindow(hWnd, x, y, w, h, TRUE);
 }
+
+BOOL WhCenterChildWindow(HWND hParent, HWND hChild) {
+    if (hParent == NULL || hChild == NULL) {
+        SetLastError(ERROR_INVALID_PARAMETER);
+        return FALSE;
+    }
+
+    // Get the bounding rectangle of the parent window in screen coordinates
+    RECT rcParent;
+    if (!GetWindowRect(hParent, &rcParent)) return FALSE;
+
+    // Get the bounding rectangle of the child window in screen coordinates
+    RECT rcChild;
+    if (!GetWindowRect(hChild, &rcChild)) return FALSE;
+
+    // Calculate dimensions of both windows
+    int parentWidth = rcParent.right - rcParent.left;
+    int parentHeight = rcParent.bottom - rcParent.top;
+
+    int childWidth = rcChild.right - rcChild.left;
+    int childHeight = rcChild.bottom - rcChild.top;
+
+    // Calculate the relative center position
+    int relX = (parentWidth - childWidth) / 2;
+    int relY = (parentHeight - childHeight) / 2;
+
+    // Convert to absolute screen coordinates by adding the parent's top-left corner
+    int x = rcParent.left + relX;
+    int y = rcParent.top + relY;
+
+    // Prevent the dialog from being positioned outside the screen boundaries
+    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x + childWidth > screenWidth)   x = screenWidth - childWidth;
+    if (y + childHeight > screenHeight) y = screenHeight - childHeight;
+
+    // Move the child window to the new position
+    return MoveWindow(hChild, x, y, childWidth, childHeight, TRUE);
+}
+
+HWND WhGetOwner(HWND hWnd)
+{
+    return GetWindow(hWnd, GW_OWNER);
+}
