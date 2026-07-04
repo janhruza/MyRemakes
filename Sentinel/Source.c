@@ -4,6 +4,7 @@
 
 #include "inc/Engine/Database.h"
 #include "inc/Dialogs/DlgMainWindow.h"
+#include "inc/Windows/WndMainWindow.h"
 
 int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
@@ -17,7 +18,38 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int
 	}
 
 	// start the application
-	DialogBox(hInstance, MAKEINTRESOURCE(IDD_DLGMAINWINDOW), NULL, DlgMainWindowProc);
+	//DialogBox(hInstance, MAKEINTRESOURCE(IDD_DLGMAINWINDOW), NULL, DlgMainWindowProc);
+
+	if (!CreateMainWindow(hInstance, WndMainWindowProc))
+	{
+		return EXIT_FAILURE;
+	}
+
+	HWND hWnd = CreateWindowEx(
+		0,
+		SENTINEL_CLASS_NAME,
+		SENTINEL_TITLE,
+		WS_BORDER | WS_SYSMENU | WS_CAPTION | WS_MINIMIZEBOX,
+		CW_USEDEFAULT, CW_USEDEFAULT, 640, 480,
+		NULL,
+		NULL,
+		hInstance,
+		NULL
+	);
+
+	if (hWnd == NULL)
+	{
+		return EXIT_FAILURE;
+	}
+
+	ShowWindow(hWnd, nCmdShow);
+
+	MSG msg;
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
 
 	// post exit cleanup
 	BOOL ecode = CoAppCleanup();

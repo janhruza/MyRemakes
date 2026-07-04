@@ -35,7 +35,6 @@
 #define IDC_VEHICLE_BRAND               1035
 #define IDC_VEHICLE_MODEL               1036
 #define IDC_VEHICLE_CLASS               1037
-#define IDC_EDIT3                       1039
 #define IDC_VEHICLE_PRICE               1039
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
@@ -57,13 +56,15 @@
 #define ID_PEOPLE_ADDPEARSON            40018
 #define ID_VEHICLES_ADDVEHICLE          40019
 #define ID_WEAPONS_ADDWEAPON            40020
+#define ID_DATABASE_CRIMES              40021
+#define ID_CRIMES_ADDCRIME              40022
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        114
-#define _APS_NEXT_COMMAND_VALUE         40021
+#define _APS_NEXT_COMMAND_VALUE         40023
 #define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

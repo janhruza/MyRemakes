@@ -7,6 +7,7 @@
 
 #include "..\..\inc\Dialogs\DlgNewWeapon.h"
 #include "..\..\inc\WindowHelper.h"
+#include "..\..\inc\Core.h"
 
 #include <Windows.h>
 
@@ -31,6 +32,26 @@ BOOL CALLBACK DlgNewWeaponProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPara
 		{
 			EndDialog(hDlg, (INT_PTR)weaponId);
 			return TRUE;
+		}
+
+		case WM_COMMAND:
+		{
+			switch (LOWORD(wParam))
+			{
+				case IDOK:
+				{
+					CoNotImplemented(hDlg);
+					return TRUE;
+				}
+
+				case IDCANCEL:
+				{
+					SendMessage(hDlg, WM_CLOSE, 0, 0);
+					return TRUE;
+				}
+
+				default: break;
+			}
 		}
 
 		default: break;

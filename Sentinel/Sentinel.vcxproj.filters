@@ -57,6 +57,9 @@
     <ClCompile Include="src\Engine\Weapon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Windows\WndMainWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -111,6 +114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="inc\Engine\Crime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Windows\WndMainWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

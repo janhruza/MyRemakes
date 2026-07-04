@@ -105,6 +105,11 @@ BOOL CALLBACK DlgMainWindowProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPar
 					return CoDlgNewVehicle(hDlg);
 				}
 
+				case ID_CRIMES_ADDCRIME:
+				{
+					return CoNotImplemented(hDlg);
+				}
+
 				default: return FALSE;
 			}
 		}

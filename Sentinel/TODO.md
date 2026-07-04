@@ -1,6 +1,10 @@
 # Project Sentinel's TODO list
 
 ## User Interface
+General to-dos.
+
+- [ ] Use a custom Window over a dialog as a main window
+
 ### Dialogs
 Representing all in-app modal dialogs.
 
@@ -38,3 +42,4 @@ Representing all custom controls, such as in-app pages, etc.
 - [ ] Vehicles database view
 
 ## Game logic
+General app logic.

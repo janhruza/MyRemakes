@@ -184,6 +184,7 @@
     <ClCompile Include="src\Controls\CtlDbPersons.c" />
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Dialogs\DlgAbout.c" />
+    <ClCompile Include="src\Windows\WndMainWindow.c" />
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -205,6 +206,7 @@
     <ClInclude Include="inc\Engine\Weapon.h" />
     <ClInclude Include="inc\Globals.h" />
     <ClInclude Include="inc\WindowHelper.h" />
+    <ClInclude Include="inc\Windows\WndMainWindow.h" />
     <ClInclude Include="res\resource.h" />
     <ClCompile Include="src\Dialogs\DlgMainWindow.c" />
     <ClCompile Include="src\Dialogs\DlgNewPerson.c" />
