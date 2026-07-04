@@ -7,10 +7,12 @@
 #include "Person.h"
 #include "Vehicle.h"
 #include "Weapon.h"
+#include "Crime.h"
 
 #define MAX_PERSONS		4096
 #define MAX_VEHICLES	1024
 #define MAX_WEAPONS		128
+#define MAX_CRIMES		256
 
 #define GLOBAL_DB_PATH	TEXT("Database.bin")
 
@@ -19,6 +21,7 @@ typedef struct tagDatabase
 	Person Persons[MAX_PERSONS];
 	Vehicle Vehicles[MAX_VEHICLES];
 	Weapon Weapons[MAX_WEAPONS];
+	Crime Crimes[MAX_CRIMES];
 
 } Database, *PDatabase, *DatabasePtr;
 
@@ -36,6 +39,9 @@ BOOL DbRemoveVehicle(PDatabase db, UINT vehicleId);
 
 BOOL DbAddWeapon(PDatabase db, Weapon weapon);
 BOOL DbRemoveWeapon(PDatabase db, UINT weaponId);
+
+BOOL DbAddCrime(PDatabase db, Crime crime);
+BOOL DbRemoveCrime(PDatabase db, UINT crimeId);
 
 #define DbLoadGlobal(db)	DbLoad(db, GLOBAL_DB_PATH)
 #define DbSaveGlobal(db)	DbSave(db, GLOBAL_DB_PATH)

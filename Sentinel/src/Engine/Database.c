@@ -175,3 +175,39 @@ BOOL DbRemoveWeapon(PDatabase db, UINT weaponId)
 
 	return FALSE;
 }
+
+BOOL DbAddCrime(PDatabase db, Crime crime)
+{
+	if (db == NULL) return FALSE;
+	if (crime.Id == 0) return FALSE;
+
+	for (int i = 0; i < MAX_CRIMES; i++)
+	{
+		if (db->Crimes[i].Id == 0)
+		{
+			db->Crimes[i] = crime;
+			DbSaveGlobal(db);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}
+
+BOOL DbRemoveCrime(PDatabase db, UINT crimeId)
+{
+	if (db == NULL) return FALSE;
+	if (crimeId == 0) return FALSE;
+
+	for (int i = 0; i < MAX_CRIMES; i++)
+	{
+		if (db->Crimes[i].Id == crimeId)
+		{
+			memset(&db->Crimes[i], 0, sizeof(Crime));
+			DbSaveGlobal(db);
+			return TRUE;
+		}
+	}
+
+	return FALSE;
+}

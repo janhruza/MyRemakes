@@ -110,6 +110,9 @@
     <ClInclude Include="inc\Dialogs\DlgNewWeapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\Engine\Crime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Resources.rc">

@@ -198,6 +198,7 @@
     <ClInclude Include="inc\Dialogs\DlgNewVehicle.h" />
     <ClInclude Include="inc\Dialogs\DlgNewWeapon.h" />
     <ClInclude Include="inc\Dialogs\DlgPlateGenerator.h" />
+    <ClInclude Include="inc\Engine\Crime.h" />
     <ClInclude Include="inc\Engine\Database.h" />
     <ClInclude Include="inc\Engine\Person.h" />
     <ClInclude Include="inc\Engine\Vehicle.h" />

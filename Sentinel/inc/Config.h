@@ -12,9 +12,11 @@ typedef struct tagConfig
 	int nPersonIdx;
 	int nVehicleIdx;
 	int nWeaponIdx;
+	int nCrimeIdx;
 	int nPersonId;
 	int nVehicleId;
 	int nWeaponId;
+	int nCrimeId;
 
 } Config, * PConfig;
 
