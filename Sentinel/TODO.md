@@ -4,16 +4,37 @@
 ### Dialogs
 Representing all in-app modal dialogs.
 
+#### Database dialogs
+
 - [x] License plate generator
-- [ ] New person dialog
-- [ ] New vehicle dialog
+- [x] New person dialog
+	- [x] UI
+	- [x] Logic
+- [x] New vehicle dialog
+	- [x] UI
+	- [x] Logic
 - [ ] New weapon dialog
+	- [ ] UI
+	- [ ] Logic
+
+- [ ] New crime dialog
+	- [ ] UI
+	- [ ] Logic
+
+#### Person-specific dialogs
+
+- [ ] Register vehicle dialog
+- [ ] Register weapon dialog
+- [ ] Add crime record dialog
 
 ### Controls
 Representing all custom controls, such as in-app pages, etc.
 
 - [ ] Dashboard control
 - [ ] Persons database view
+	- [x] Persons list
+	- [ ] Filter
+	- [x] Context menus
 - [ ] Vehicles database view
 
 ## Game logic
