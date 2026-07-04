@@ -29,6 +29,11 @@ BOOL DbInit(PDatabase ptr)
 		ptr->Weapons[i] = gWeapons[i];
 	}
 
+	for (int i = 0; i < MAX_CRIMES; i++)
+	{
+		memset(&ptr->Crimes[i], 0, sizeof(Crime));
+	}
+
 	return TRUE;
 }
 

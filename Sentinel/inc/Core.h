@@ -8,7 +8,7 @@
 #define LINK_GITHUB		TEXT("https://www.github.com/janhruza/MyRemakes")
 #define CoShowDialog(hParent, dlgId, lpDlgProc) (DialogBox(GetModuleHandle(NULL), MAKEINTRESOURCE(dlgId), hParent, lpDlgProc))
 
-#define MAX_CRIMES	MAX_PATH
+#define MAX_CRIMES	256
 
 #pragma region Structs
 
@@ -71,6 +71,8 @@ BOOL CoDlgVehicleInfo(HWND hParent, VehiclePtr vehicle);
 BOOL CoDlgPersonInfo(HWND hParent, PersonPtr person);
 
 BOOL CoDlgWeaponInfo(HWND hParent, WeaponPtr weapon);
+
+BOOL CoDlgInsights(HWND hParent);
 
 /// <summary>
 /// Initializes everything the Sentinel app needs before functioning properly.

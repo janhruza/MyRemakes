@@ -58,6 +58,8 @@ BOOL ResetConfig(PConfig ptr)
 	ptr->nVehicleIdx = 0;
 	ptr->nWeaponId = 1;
 	ptr->nWeaponIdx = 0;
+	ptr->nCrimeId = 1;
+	ptr->nCrimeIdx = 0;
 
 	return TRUE;
 }

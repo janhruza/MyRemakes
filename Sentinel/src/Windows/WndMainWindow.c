@@ -70,6 +70,21 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 			return 0;
 		}
 
+		case WM_KEYDOWN:
+		{
+			switch (wParam)
+			{
+				case VK_F12:
+				{
+					// view db insights
+					CoDlgInsights(hWnd);
+					return 0;
+				}
+
+				default: return DefWindowProc(hWnd, uMsg, wParam, lParam);
+			}
+		}
+
 		case WM_SYSCOMMAND:
 		{
 			switch (LOWORD(wParam))
@@ -123,12 +138,20 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 
 				case ID_VEHICLES_NEWVEHICLE:
 				{
-					return CoDlgNewVehicle(hWnd);
+					CoDlgNewVehicle(hWnd);
+					return 0;
 				}
 
 				case ID_CRIMES_ADDCRIME:
 				{
-					return CoNotImplemented(hWnd);
+					CoNotImplemented(hWnd);
+					return 0;
+				}
+
+				case ID_DATABASE_INSIGHTS:
+				{
+					CoDlgInsights(hWnd);
+					return 0;
 				}
 
 				default: return FALSE;

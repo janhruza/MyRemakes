@@ -5,6 +5,7 @@
 #include "..\inc\Dialogs\DlgNewPerson.h"
 #include "..\inc\Dialogs\DlgNewVehicle.h"
 #include "..\inc\Dialogs\DlgNewWeapon.h"
+#include "..\inc\Dialogs\DlgInsights.h"
 #include "..\res\resource.h"
 
 #include <stdlib.h>
@@ -184,4 +185,9 @@ int CoDisplayMessage(HWND hParent, UINT uMessageId, UINT uMsgParams)
 	}
 
 	return MessageBox(hParent, text, TEXT("Message"), uMsgParams);
+}
+
+BOOL CoDlgInsights(HWND hParent)
+{
+	return CoShowDialog(hParent, IDD_DLGINSIGHTS, DlgInsightsProc);
 }
