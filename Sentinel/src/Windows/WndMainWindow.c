@@ -33,6 +33,11 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 	{
 		case WM_CREATE:
 		{
+			// enhance the system menu
+			HMENU hMenu = GetSystemMenu(hWnd, FALSE);
+			AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
+			AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
+
 			// test
 			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLPERSONS), hWnd, CtlDbPersonsProc);
 			WhFitContent(hWnd, hCtl);
@@ -41,8 +46,10 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 		}
 
 		case WM_DESTROY:
+		{
 			PostQuitMessage(0);
 			return 0;
+		}
 
 		case WM_SHOWWINDOW:
 		{
@@ -59,6 +66,20 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 		{
 			CoDlgAbout(hWnd);
 			return 0;
+		}
+
+		case WM_SYSCOMMAND:
+		{
+			switch (LOWORD(wParam))
+			{
+				case IDHELP:
+				{
+					SendMessage(hWnd, WM_HELP, 0, 0);
+					return 0;
+				}
+
+				default: return DefWindowProc(hWnd, uMsg, wParam, lParam);
+			}
 		}
 
 		case WM_COMMAND:
