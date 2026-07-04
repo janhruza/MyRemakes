@@ -19,6 +19,10 @@
 #define IDS_MSG_ERR_DTP                 110
 #define IDS_MSG_ERR_COUNTRY             111
 #define IDD_DLGNEWWEAPON                112
+#define IDD_CTLVEHICLES                 113
+#define IDD_CTLWEAPONS                  114
+#define IDD_CTLLANDING                  115
+#define IDD_CTLCRIMES                   116
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
@@ -36,6 +40,21 @@
 #define IDC_VEHICLE_MODEL               1036
 #define IDC_VEHICLE_CLASS               1037
 #define IDC_VEHICLE_PRICE               1039
+#define IDC_FILTER_VEHICLE              1041
+#define IDC_VEHICLES                    1042
+#define IDC_LBL_VEHICLE_COUNT           1043
+#define IDC_LBL_WEAPON_COUNT            1044
+#define IDC_NAV_PERSONS                 1046
+#define IDC_NAV_VEHICLES                1047
+#define IDC_LBL_CRIMES_COUNT            1047
+#define IDC_NAV_WEAPONS                 1048
+#define IDC_CRIMES                      1048
+#define IDC_NAV_CRIMES                  1049
+#define IDC_FILTER_CRIMES               1049
+#define IDC_WEAPONS                     1050
+#define IDC_FILTER_WEAPON               1051
+#define IDC_LBL_TIME                    1052
+#define IDC_SPLIT1                      1053
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -63,9 +82,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        115
+#define _APS_NEXT_RESOURCE_VALUE        116
 #define _APS_NEXT_COMMAND_VALUE         40023
-#define _APS_NEXT_CONTROL_VALUE         1040
+#define _APS_NEXT_CONTROL_VALUE         1054
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

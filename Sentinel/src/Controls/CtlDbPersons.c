@@ -121,12 +121,12 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return DLGC_WANTALLKEYS;
 		}
 
-		case WM_CTLCOLORDLG:
+		/*case WM_CTLCOLORDLG:
 		case WM_CTLCOLORBTN:
 		case WM_CTLCOLORSTATIC:
 		{
 			return (INT_PTR)hBg;
-		}
+		}*/
 
 		case WM_COMMAND:
 		{
