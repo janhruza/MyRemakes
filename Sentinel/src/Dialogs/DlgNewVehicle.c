@@ -66,6 +66,11 @@ BOOL CreateVehicle(HWND hDlg)
 	// copy the model to the vehicle struct
 	wcscpy_s(vehicle.Model, sizeof(vehicle.Model) / sizeof(WCHAR), modelBuffer);
 	vehicleId = vehicle.Id; // set the static vehicleId to the new vehicle's ID
+
+	DatabasePtr db = GlobGetDbPtr();
+	db->Vehicles[config->nVehicleIdx++] = vehicle; // add the vehicle to the database
+	DbSaveGlobal(db);
+
 	return TRUE;
 }
 

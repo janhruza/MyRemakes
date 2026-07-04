@@ -76,7 +76,7 @@ BOOL DbAddPerson(DatabasePtr db, Person person)
 			db->Persons[i] = person;
 
 			// save the DB
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}
@@ -94,7 +94,7 @@ BOOL DbRemovePerson(DatabasePtr db, UINT personId)
 		if (db->Persons[i].Id == personId)
 		{
 			memset(&db->Persons[i], 0, sizeof(Person));
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}
@@ -114,7 +114,7 @@ BOOL DbAddVehicle(PDatabase db, Vehicle vehicle)
 			db->Vehicles[i] = vehicle;
 
 			// save the DB
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}
@@ -132,7 +132,7 @@ BOOL DbRemoveVehicle(PDatabase db, UINT vehicleId)
 		if (db->Vehicles[i].Id == vehicleId)
 		{
 			memset(&db->Vehicles[i], 0, sizeof(Vehicle));
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}
@@ -150,7 +150,7 @@ BOOL DbAddWeapon(PDatabase db, Weapon weapon)
 		if (db->Weapons[i].Id == 0)
 		{
 			db->Weapons[i] = weapon;
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}
@@ -168,7 +168,7 @@ BOOL DbRemoveWeapon(PDatabase db, UINT weaponId)
 		if (db->Weapons[i].Id == weaponId)
 		{
 			memset(&db->Weapons[i], 0, sizeof(Weapon));
-			DbSave(db, GLOBAL_DB_PATH);
+			DbSaveGlobal(db);
 			return TRUE;
 		}
 	}

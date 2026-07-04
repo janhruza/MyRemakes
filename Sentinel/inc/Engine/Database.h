@@ -37,4 +37,7 @@ BOOL DbRemoveVehicle(PDatabase db, UINT vehicleId);
 BOOL DbAddWeapon(PDatabase db, Weapon weapon);
 BOOL DbRemoveWeapon(PDatabase db, UINT weaponId);
 
+#define DbLoadGlobal(db)	DbLoad(db, GLOBAL_DB_PATH)
+#define DbSaveGlobal(db)	DbSave(db, GLOBAL_DB_PATH)
+
 #endif

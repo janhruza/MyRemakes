@@ -66,12 +66,12 @@ BOOL CoInitializeApp(void)
 	if (CoFileExists(GLOBAL_DB_PATH) == FALSE)
 	{
 		DbInit(db);
-		DbSave(db, GLOBAL_DB_PATH);
+		DbSaveGlobal(db);
 	}
 
 	else
 	{
-		DbLoad(db, GLOBAL_DB_PATH);
+		DbLoadGlobal(db);
 	}
 
 	GlobSetDbPtr(db);
@@ -107,7 +107,7 @@ BOOL CoAppCleanup(void)
 		return FALSE;
 	}
 
-	DbSave(db, GLOBAL_DB_PATH);
+	DbSaveGlobal(db);
 	SaveConfig(config);
 
 	return TRUE;
