@@ -43,6 +43,7 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int
 	}
 
 	ShowWindow(hWnd, nCmdShow);
+	UpdateWindow(hWnd);
 
 	MSG msg;
 	while (GetMessage(&msg, NULL, 0, 0))
