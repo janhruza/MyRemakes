@@ -3,7 +3,10 @@
 
 #include <strsafe.h>
 
-BOOL UpdateTime(HWND hCtl)
+#define MY_TIMER_ID		0x1000
+#define	TIMER_FREQ		500
+
+static BOOL UpdateTime(HWND hCtl)
 {
 	HWND hTxt = GetDlgItem(hCtl, IDC_LBL_TIME);
 
@@ -18,6 +21,7 @@ BOOL UpdateTime(HWND hCtl)
 
 static void Timerproc(HWND hWnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime)
 {
+	// 500ms timer
 	UpdateTime(hWnd);
 }
 
@@ -28,8 +32,9 @@ BOOL CALLBACK CtlLandingProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		case WM_INITDIALOG:
 		{
 			// setup timer
-			SetTimer(hCtl, 0x1000, 500, Timerproc);
+			SetTimer(hCtl, MY_TIMER_ID, TIMER_FREQ, Timerproc);
 
+			// display current time
 			UpdateTime(hCtl);
 			return TRUE;
 		}
