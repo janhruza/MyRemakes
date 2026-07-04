@@ -97,6 +97,8 @@ static BOOL RemovePerson(HWND hParent)
 	return FALSE;
 }
 
+HBRUSH hBg;
+
 BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
@@ -108,12 +110,22 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			CreatePersonMenu();
 			CreateBlankMenu();
 			RefreshDbView();
+
+			hBg = GetSysColorBrush(COLOR_WINDOW);
+
 			return TRUE;
 		}
 
 		case WM_GETDLGCODE:
 		{
 			return DLGC_WANTALLKEYS;
+		}
+
+		case WM_CTLCOLORDLG:
+		case WM_CTLCOLORBTN:
+		case WM_CTLCOLORSTATIC:
+		{
+			return (INT_PTR)hBg;
 		}
 
 		case WM_COMMAND:

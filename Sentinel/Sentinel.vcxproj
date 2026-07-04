@@ -226,6 +226,10 @@
     <None Include="res\resource.hm" />
     <None Include="TODO.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\appicon.ico" />
+    <Image Include="res\icon1.ico" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

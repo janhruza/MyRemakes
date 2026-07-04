@@ -15,6 +15,8 @@ BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 	wc.lpszClassName = SENTINEL_CLASS_NAME;
 	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW);
+	/*wc.hIcon = LoadIcon(hInst, MAKEINTRESOURCE(IDI_APP_ICON));
+	wc.hIconSm = LoadIcon(hInst, MAKEINTRESOURCE(IDI_APP_ICON));*/
 	wc.lpszMenuName = MAKEINTRESOURCE(IDR_MAIN_MENU);
 	wc.style = CS_HREDRAW | CS_VREDRAW;
 
