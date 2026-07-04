@@ -63,6 +63,9 @@
     <ClCompile Include="src\Dialogs\DlgInsights.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Controls\CtlLanding.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />

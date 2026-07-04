@@ -43,13 +43,11 @@ static inline BOOL ShowInsights(HWND hDlg)
 		}
 	}
 
-	Crime crime = { 0 };
 	for (int i = 0; i < MAX_CRIMES; i++)
 	{
 		if (db->Crimes[i].Id != 0)
 		{
 			crimes++;
-			crime = db->Crimes[i];
 		}
 	}
 
@@ -59,7 +57,7 @@ static inline BOOL ShowInsights(HWND hDlg)
 	int cID = cfg->nCrimeId;
 
 	WCHAR text[1024] = { 0 };
-	StringCchPrintf(text, 1024, TEXT("Registered objects:\n\nPersons:\t%d\nVehicles:\t%d\nWeapons:\t%d\nCrimes:\t\t%d\n\nNext ID's:\n\nPerson ID:\t%d\nVehicle ID:\t%d\nWeapon ID:\t%d\nCrime ID:\t%d"), persons, vehicles, weapons, crimes, pID, vID, wID, cID);
+	StringCchPrintf(text, 1024, TEXT("Registered objects and next IDs:\n\nPersons:\t%d\tPerson ID:\t%d\nVehicles:\t%d\tVehicle ID:\t%d\nWeapons:\t%d\tWeapon ID:\t%d\nCrimes:\t\t%d\tCrime ID:\t%d"), persons, pID, vehicles, vID, weapons, wID, crimes, cID);
 
 	SetWindowText(hTxt, text);
 

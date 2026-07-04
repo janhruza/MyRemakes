@@ -4,7 +4,7 @@
 #include "..\..\inc\Core.h"
 #include <windows.h>
 
-#include "..\..\inc\Controls\CtlDbPersons.h"
+#include "..\..\inc\Controls\CtlLanding.h"
 
 BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 {
@@ -41,7 +41,7 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 			AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
 
 			// test
-			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLPERSONS), hWnd, CtlDbPersonsProc);
+			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLLANDING), hWnd, CtlLandingProc);
 			WhFitContent(hWnd, hCtl);
 			ShowWindow(hCtl, SW_SHOW);
 			return 0;
