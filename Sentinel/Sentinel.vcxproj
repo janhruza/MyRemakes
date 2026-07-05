@@ -233,6 +233,10 @@
     <None Include="res\resource.hm" />
     <None Include="TODO.md" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Images\IMG_ADD.BMP" />
+    <Image Include="res\images\IMG_REMOVE.BMP" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

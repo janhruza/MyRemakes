@@ -29,6 +29,16 @@ BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 	return TRUE;
 }
 
+void LoadMenuImages(HWND hWnd)
+{
+	HMENU hMenu = GetMenu(hWnd);
+	HBITMAP hImg = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_ADD), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
+	WhSetItemImage(hMenu, ID_PLAYERS_NEWPLAYER, hImg);
+	WhSetItemImage(hMenu, ID_VEHICLES_NEWVEHICLE, hImg);
+	WhSetItemImage(hMenu, ID_WEAPONS_ADDNEWWEAPON, hImg);
+	WhSetItemImage(hMenu, ID_CRIMES_ADDCRIME, hImg);
+}
+
 LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch (uMsg)
@@ -36,9 +46,12 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 		case WM_CREATE:
 		{
 			// enhance the system menu
-			HMENU hMenu = GetSystemMenu(hWnd, FALSE);
-			AppendMenu(hMenu, MF_SEPARATOR, 0, NULL);
-			AppendMenu(hMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
+			HMENU hSysMenu = GetSystemMenu(hWnd, FALSE);
+			AppendMenu(hSysMenu, MF_SEPARATOR, 0, NULL);
+			AppendMenu(hSysMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
+
+			// load menu item images
+			LoadMenuImages(hWnd);
 
 			// test
 			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLLANDING), hWnd, CtlLandingProc);

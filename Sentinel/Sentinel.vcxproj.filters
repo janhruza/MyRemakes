@@ -153,4 +153,12 @@
       <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\Images\IMG_ADD.BMP">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\images\IMG_REMOVE.BMP">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

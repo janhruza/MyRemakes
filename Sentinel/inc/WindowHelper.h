@@ -10,4 +10,6 @@ BOOL WhCenterChildWindow(HWND hParent, HWND hChild);
 
 HWND WhGetOwner(HWND hWnd);
 
+BOOL WhSetItemImage(HMENU hMenu, UINT uId, HBITMAP hImage);
+
 #endif

@@ -88,3 +88,19 @@ HWND WhGetOwner(HWND hWnd)
 {
     return GetWindow(hWnd, GW_OWNER);
 }
+
+BOOL WhSetItemImage(HMENU hMenu, UINT uId, HBITMAP hImage)
+{
+    if (hMenu == NULL || hImage == NULL)
+    {
+        SetLastError(E_INVALIDARG);
+        return FALSE;
+    }
+
+    MENUITEMINFO info;
+    info.cbSize = sizeof(MENUITEMINFO);
+    info.fMask = MIIM_BITMAP;
+    info.hbmpItem = hImage;
+
+    return SetMenuItemInfo(hMenu, uId, FALSE, &info);
+}

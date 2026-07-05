@@ -2,6 +2,7 @@
 // Microsoft Visual C++ generated include file.
 // Used by Resources.rc
 //
+#define IDI_IMG_ADD                     5
 #define IDD_DLGNEWVEHICLE               9
 #define IDR_MAIN_MENU                   101
 #define IDD_DLGABOUT                    101
@@ -24,14 +25,15 @@
 #define IDD_CTLLANDING                  115
 #define IDD_CTLCRIMES                   116
 #define IDD_DLGINSIGHTS                 117
+#define IDB_IMG_ADD                     119
+#define IDB_IMG_REMOVE                  120
+#define IDI_ICON1                       120
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
-#define IDC_LIST3                       1019
 #define IDC_HISTORY                     1019
 #define IDC_TXT_USERNAME                1022
 #define IDC_DTP_REGDATE                 1024
-#define IDC_COMBO1                      1025
 #define IDC_CBX_COUNTRY                 1025
 #define IDC_TXT_FILTER                  1027
 #define IDC_LBX_RESULTS                 1029
@@ -80,7 +82,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        119
+#define _APS_NEXT_RESOURCE_VALUE        121
 #define _APS_NEXT_COMMAND_VALUE         40024
 #define _APS_NEXT_CONTROL_VALUE         1061
 #define _APS_NEXT_SYMED_VALUE           101
