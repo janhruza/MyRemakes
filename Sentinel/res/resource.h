@@ -28,6 +28,8 @@
 #define IDB_IMG_ADD                     119
 #define IDB_IMG_REMOVE                  120
 #define IDI_ICON1                       120
+#define IDB_BITMAP1                     121
+#define IDB_IMG_HELP                    121
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
@@ -82,7 +84,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        121
+#define _APS_NEXT_RESOURCE_VALUE        122
 #define _APS_NEXT_COMMAND_VALUE         40024
 #define _APS_NEXT_CONTROL_VALUE         1061
 #define _APS_NEXT_SYMED_VALUE           101

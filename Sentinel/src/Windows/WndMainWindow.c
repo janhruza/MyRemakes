@@ -29,14 +29,17 @@ BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 	return TRUE;
 }
 
-void LoadMenuImages(HWND hWnd)
+static void LoadMenuImages(HWND hWnd)
 {
 	HMENU hMenu = GetMenu(hWnd);
-	HBITMAP hImg = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_ADD), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
-	WhSetItemImage(hMenu, ID_PLAYERS_NEWPLAYER, hImg);
-	WhSetItemImage(hMenu, ID_VEHICLES_NEWVEHICLE, hImg);
-	WhSetItemImage(hMenu, ID_WEAPONS_ADDNEWWEAPON, hImg);
-	WhSetItemImage(hMenu, ID_CRIMES_ADDCRIME, hImg);
+	HBITMAP imgAdd = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_ADD), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
+	HBITMAP imgHelp = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_HELP), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
+
+	WhSetItemImage(hMenu, ID_PLAYERS_NEWPLAYER, imgAdd);
+	WhSetItemImage(hMenu, ID_VEHICLES_NEWVEHICLE, imgAdd);
+	WhSetItemImage(hMenu, ID_WEAPONS_ADDNEWWEAPON, imgAdd);
+	WhSetItemImage(hMenu, ID_CRIMES_ADDCRIME, imgAdd);
+	WhSetItemImage(hMenu, IDHELP, imgHelp);
 }
 
 LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

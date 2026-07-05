@@ -160,5 +160,11 @@
     <Image Include="res\images\IMG_REMOVE.BMP">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\images\bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\images\IMG_HELP.BMP">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
