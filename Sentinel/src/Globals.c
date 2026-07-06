@@ -1,4 +1,5 @@
 #include "..\inc\Globals.h"
+#include "..\res\resource.h"
 
 DatabasePtr gDatabase = NULL;
 PConfig gConfig = NULL;
@@ -197,3 +198,13 @@ PConfig GlobGetConfigPtr(void)
 {
 	return gConfig;
 }
+
+#pragma region Cutom control handles
+
+HWND gCtlLanding = NULL;
+HWND gCtlPersons = NULL;
+HWND gCtlVehicles = NULL;
+HWND gCtlWeapons = NULL;
+HWND gCtlCrimes = NULL;
+
+#pragma endregion

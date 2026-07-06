@@ -4,7 +4,7 @@
 #include "..\..\inc\Core.h"
 #include <windows.h>
 
-#include "..\..\inc\Controls\CtlLanding.h"
+#include "..\..\inc\Controls\CtlDbPersons.h"
 
 BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 {
@@ -32,14 +32,27 @@ BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 static void LoadMenuImages(HWND hWnd)
 {
 	HMENU hMenu = GetMenu(hWnd);
-	HBITMAP imgAdd = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_ADD), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
+	/*HBITMAP imgAdd = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_ADD), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
 	HBITMAP imgHelp = (HBITMAP)LoadImage(GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_IMG_HELP), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
 
 	WhSetItemImage(hMenu, ID_PLAYERS_NEWPLAYER, imgAdd);
 	WhSetItemImage(hMenu, ID_VEHICLES_NEWVEHICLE, imgAdd);
 	WhSetItemImage(hMenu, ID_WEAPONS_ADDNEWWEAPON, imgAdd);
 	WhSetItemImage(hMenu, ID_CRIMES_ADDCRIME, imgAdd);
-	WhSetItemImage(hMenu, IDHELP, imgHelp);
+	WhSetItemImage(hMenu, IDHELP, imgHelp);*/
+
+	WhSetItemImageResource(hMenu, ID_PLAYERS_NEWPLAYER, IDB_IMG_ADD);
+	WhSetItemImageResource(hMenu, ID_VEHICLES_NEWVEHICLE, IDB_IMG_ADD);
+	WhSetItemImageResource(hMenu, ID_WEAPONS_ADDNEWWEAPON, IDB_IMG_ADD);
+	WhSetItemImageResource(hMenu, ID_CRIMES_ADDCRIME, IDB_IMG_ADD);
+	WhSetItemImageResource(hMenu, IDHELP, IDB_IMG_ADD);
+}
+
+static void CreateTestControl(HWND hParent)
+{
+	HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLPERSONS), hParent, CtlDbPersonsProc);
+	WhFitContent(hParent, hCtl);
+	ShowWindow(hCtl, SW_SHOW);
 }
 
 LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -57,9 +70,8 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 			LoadMenuImages(hWnd);
 
 			// test
-			HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLLANDING), hWnd, CtlLandingProc);
-			WhFitContent(hWnd, hCtl);
-			ShowWindow(hCtl, SW_SHOW);
+			CreateTestControl(hWnd);
+
 			return 0;
 		}
 

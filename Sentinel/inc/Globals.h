@@ -22,6 +22,16 @@ extern const WCHAR* gVehicleClasses[VC_LAST];
 // global list of weapons
 extern const Weapon gWeapons[MAX_WEAPONS];
 
+#pragma region Cutom control handles
+
+extern HWND gCtlLanding;
+extern HWND gCtlPersons;
+extern HWND gCtlVehicles;
+extern HWND gCtlWeapons;
+extern HWND gCtlCrimes;
+
+#pragma endregion
+
 BOOL GlobSetDbPtr(PDatabase ptr);
 DatabasePtr GlobGetDbPtr(void);
 

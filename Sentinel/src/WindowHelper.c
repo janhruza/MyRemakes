@@ -97,10 +97,30 @@ BOOL WhSetItemImage(HMENU hMenu, UINT uId, HBITMAP hImage)
         return FALSE;
     }
 
-    MENUITEMINFO info;
+    MENUITEMINFO info = { 0 };
     info.cbSize = sizeof(MENUITEMINFO);
     info.fMask = MIIM_BITMAP;
     info.hbmpItem = hImage;
 
     return SetMenuItemInfo(hMenu, uId, FALSE, &info);
+}
+
+BOOL WhSetItemImageResource(HMENU hMenu, UINT uId, UINT resourceId)
+{
+    if (hMenu == NULL)
+    {
+        SetLastError(E_INVALIDARG);
+        return FALSE;
+    }
+
+    HINSTANCE hInst = GetModuleHandle(NULL);
+    HBITMAP hImg = (HBITMAP)LoadImage(hInst, MAKEINTRESOURCE(resourceId), IMAGE_BITMAP, 16, 16, LR_LOADTRANSPARENT);
+
+    if (hImg == NULL)
+    {
+        SetLastError(E_INVALIDARG);
+        return FALSE;
+    }
+
+    return WhSetItemImage(hMenu, uId, hImg);
 }
