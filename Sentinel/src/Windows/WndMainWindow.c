@@ -45,7 +45,7 @@ static void LoadMenuImages(HWND hWnd)
 	WhSetItemImageResource(hMenu, ID_VEHICLES_NEWVEHICLE, IDB_IMG_ADD);
 	WhSetItemImageResource(hMenu, ID_WEAPONS_ADDNEWWEAPON, IDB_IMG_ADD);
 	WhSetItemImageResource(hMenu, ID_CRIMES_ADDCRIME, IDB_IMG_ADD);
-	WhSetItemImageResource(hMenu, IDHELP, IDB_IMG_ADD);
+	WhSetItemImageResource(hMenu, IDHELP, IDB_IMG_HELP);
 }
 
 static void CreateTestControl(HWND hParent)
