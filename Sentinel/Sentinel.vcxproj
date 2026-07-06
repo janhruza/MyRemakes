@@ -236,7 +236,9 @@
   <ItemGroup>
     <Image Include="res\images\bitmap1.bmp" />
     <Image Include="res\Images\IMG_ADD.BMP" />
+    <Image Include="res\images\IMG_CLOSE.BMP" />
     <Image Include="res\images\IMG_HELP.BMP" />
+    <Image Include="res\images\IMG_INSIGHTS.BMP" />
     <Image Include="res\images\IMG_REMOVE.BMP" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
