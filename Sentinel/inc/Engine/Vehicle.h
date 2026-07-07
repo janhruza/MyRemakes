@@ -4,7 +4,8 @@
 
 #include <wtypes.h>
 
-#define VC_MODEL_LEN	33	// 32 + null terminator
+#define VC_MODEL_LEN	33		// 32 + null terminator
+#define VC_MAXLEN		1024	// max brand + model name
 
 typedef enum tagVehicleClass {
 	VC_RESERVED = 0,

@@ -46,6 +46,8 @@ static BOOL RefreshVehicles(HWND hCtl)
 		Vehicle vehicle = db->Vehicles[i];
 		if (vehicle.Id != 0)
 		{
+			// TODO add brand too
+			// set the item content
 			int idx = ListBox_AddString(hLbx, vehicle.Model);
 			ListBox_SetItemData(hLbx, idx, vehicle.Id);
 			count++;
@@ -126,7 +128,25 @@ BOOL CALLBACK CtlVehiclesProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam
 				}
 
 				int idx = ListBox_GetCurSel(hLbx);
-				HWND hMenu = idx != LB_ERR ? hVehicleMenu : hBlankMenu;
+				HWND hMenu = NULL;
+
+				if (idx != LB_ERR)
+				{
+					// update the menu item text
+					WCHAR text[VC_MAXLEN] = { 0 };
+					ListBox_GetText(hLbx, idx, text);
+					WCHAR buf[VC_MAXLEN + 10] = { 0 };
+					StringCchPrintf(buf, 512, TEXT("About %s"), text);
+					ModifyMenu(hVehicleMenu, MENU_ABOUT_VEHICLE, MF_BYCOMMAND, MENU_ABOUT_VEHICLE, buf);
+
+					hMenu = hVehicleMenu;
+				}
+
+				else
+				{
+					hMenu = hBlankMenu;
+				}
+
 				return TrackPopupMenu(hMenu, TPM_LEFTALIGN, x, y, 0, hCtl, NULL);
 			}
 
