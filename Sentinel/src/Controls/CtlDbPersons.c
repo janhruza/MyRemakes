@@ -3,6 +3,8 @@
 #include "..\..\inc\Core.h"
 #include "..\..\inc\Globals.h"
 
+#include "..\..\inc\WindowHelper.h"
+
 #include <Windows.h>
 #include <windowsx.h>
 #include <strsafe.h>
@@ -30,6 +32,11 @@ static BOOL CreatePersonMenu(void)
 	AppendMenu(hPersonMenu, MF_STRING, PERSON_REMOVE, TEXT("Delete Person"));
 	AppendMenu(hPersonMenu, MF_SEPARATOR, 0, NULL);
 	AppendMenu(hPersonMenu, MF_STRING, IDRETRY, TEXT("Refresh"));
+
+	WhSetItemImageResource(hPersonMenu, PERSON_ADD_RECORD, IDB_IMG_ADD);
+	WhSetItemImageResource(hPersonMenu, PERSON_REGISTER_VEHICLE, IDB_IMG_ADD);
+	WhSetItemImageResource(hPersonMenu, PERSON_REGISTER_WEAPON, IDB_IMG_ADD);
+	WhSetItemImageResource(hPersonMenu, PERSON_REMOVE, IDB_IMG_REMOVE);
 
 	return TRUE;
 }
