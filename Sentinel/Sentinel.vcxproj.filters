@@ -66,6 +66,9 @@
     <ClCompile Include="src\Controls\CtlLanding.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Controls\CtlVehicles.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
@@ -158,9 +161,6 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\images\IMG_REMOVE.BMP">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\images\bitmap1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\images\IMG_HELP.BMP">

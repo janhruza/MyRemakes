@@ -4,7 +4,7 @@
 #include "..\..\inc\Core.h"
 #include <windows.h>
 
-#include "..\..\inc\Controls\CtlDbPersons.h"
+#include "..\..\inc\Controls\CtlVehicles.h"
 
 BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 {
@@ -52,7 +52,7 @@ static void LoadMenuImages(HWND hWnd)
 
 static void CreateTestControl(HWND hParent)
 {
-	HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLPERSONS), hParent, CtlDbPersonsProc);
+	HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLVEHICLES), hParent, CtlVehiclesProc);
 	WhFitContent(hParent, hCtl);
 	ShowWindow(hCtl, SW_SHOW);
 }
