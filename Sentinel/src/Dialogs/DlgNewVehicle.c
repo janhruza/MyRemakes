@@ -19,7 +19,7 @@
 
 static UINT vehicleId = 0;
 
-BOOL CreateVehicle(HWND hDlg)
+static BOOL CreateVehicle(HWND hDlg)
 {
 	// get control handles
 	HWND hCbxBrand = GetDlgItem(hDlg, IDC_VEHICLE_BRAND);
@@ -57,7 +57,7 @@ BOOL CreateVehicle(HWND hDlg)
 
 	// create the vehicle in the database (not implemented)
 	PConfig config = GlobGetConfigPtr();
-	Vehicle vehicle;
+	Vehicle vehicle = { 0 };
 	vehicle.Id = config->nVehicleId + 1; // increment the vehicle ID
 	vehicle.Manufacturer = brandIndex;
 	vehicle.Class = classIndex;
