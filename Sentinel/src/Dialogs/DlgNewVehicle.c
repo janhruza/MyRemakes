@@ -58,7 +58,7 @@ static BOOL CreateVehicle(HWND hDlg)
 	// create the vehicle in the database (not implemented)
 	PConfig config = GlobGetConfigPtr();
 	Vehicle vehicle = { 0 };
-	vehicle.Id = config->nVehicleId + 1; // increment the vehicle ID
+	vehicle.Id = config->nVehicleId++; // increment the vehicle ID
 	vehicle.Manufacturer = brandIndex;
 	vehicle.Class = classIndex;
 	vehicle.Price = price;

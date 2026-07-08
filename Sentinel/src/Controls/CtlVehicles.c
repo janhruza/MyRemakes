@@ -46,9 +46,10 @@ static BOOL RefreshVehicles(HWND hCtl)
 		Vehicle vehicle = db->Vehicles[i];
 		if (vehicle.Id != 0)
 		{
-			// TODO add brand too
-			// set the item content
-			int idx = ListBox_AddString(hLbx, vehicle.Model);
+			// gets the brand + model name
+			WCHAR name[VC_MAXLEN] = { 0 };
+			StringCchPrintf(name, VC_MAXLEN, TEXT("%s %s"), gVehicleBrands[vehicle.Manufacturer], vehicle.Model);
+			int idx = ListBox_AddString(hLbx, name);
 			ListBox_SetItemData(hLbx, idx, vehicle.Id);
 			count++;
 		}
