@@ -6,6 +6,13 @@
 #include "..\inc\Dialogs\DlgNewVehicle.h"
 #include "..\inc\Dialogs\DlgNewWeapon.h"
 #include "..\inc\Dialogs\DlgInsights.h"
+
+#include "..\inc\Controls\CtlLanding.h"
+#include "..\inc\Controls\CtlDbPersons.h"
+#include "..\inc\Controls\CtlVehicles.h"
+#include "..\inc\Controls\CtlWeapons.h"
+#include "..\inc\Controls\CtlCrimes.h"
+
 #include "..\res\resource.h"
 
 #include <stdlib.h>
@@ -190,4 +197,18 @@ int CoDisplayMessage(HWND hParent, UINT uMessageId, UINT uMsgParams)
 BOOL CoDlgInsights(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGINSIGHTS, DlgInsightsProc);
+}
+
+BOOL CoInitGlobControls(HWND hParent)
+{
+	if (hParent == NULL) return FALSE;
+
+	HINSTANCE hInst = GetModuleHandle(NULL);
+	gCtlLanding = CreateDialog(hInst, MAKEINTRESOURCE(IDD_CTLLANDING), hParent, CtlLandingProc);
+	gCtlPersons = CreateDialog(hInst, MAKEINTRESOURCE(IDD_CTLPERSONS), hParent, CtlDbPersonsProc);
+	gCtlVehicles = CreateDialog(hInst, MAKEINTRESOURCE(IDD_CTLVEHICLES), hParent, CtlVehiclesProc);
+	gCtlWeapons = CreateDialog(hInst, MAKEINTRESOURCE(IDD_CTLWEAPONS), hParent, CtlWeaponsProc);
+	gCtlCrimes = CreateDialog(hInst, MAKEINTRESOURCE(IDD_CTLCRIMES), hParent, CtlCrimesProc);
+
+	return TRUE;
 }

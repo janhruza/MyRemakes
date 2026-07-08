@@ -2,9 +2,16 @@
 #include "..\..\res\resource.h"
 #include "..\..\inc\WindowHelper.h"
 #include "..\..\inc\Core.h"
+#include "..\..\inc\Globals.h"
 #include <windows.h>
 
-#include "..\..\inc\Controls\CtlVehicles.h"
+typedef struct tagNavigation
+{
+	HWND hCtl;
+
+} Navigation;
+
+static Navigation nav = { 0 };
 
 BOOL CreateMainWindow(HINSTANCE hInst, WNDPROC lpfnWndProc)
 {
@@ -50,11 +57,48 @@ static void LoadMenuImages(HWND hWnd)
 	WhSetItemImageResource(hMenu, ID_DATABASE_INSIGHTS, IDB_IMG_INSIGHTS);
 }
 
-static void CreateTestControl(HWND hParent)
+static UINT uMenuIds[] = { ID_PAGES_HOME, ID_PAGES_PERSONS, ID_PAGES_VEHICLES, ID_PAGES_WEAPONS, ID_PAGES_CRIMES };
+
+inline static void UncheckAllNavItems(HWND hWnd)
 {
-	HWND hCtl = CreateDialog(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_CTLVEHICLES), hParent, CtlVehiclesProc);
-	WhFitContent(hParent, hCtl);
+	HMENU hMenu = GetMenu(hWnd);
+	for (int i = 0; i < ARRAYSIZE(uMenuIds); i++)
+	{
+		CheckMenuItem(hMenu, uMenuIds[i], MF_BYCOMMAND | MF_UNCHECKED);
+	}
+}
+
+static UINT GetCtlId(HWND hCtl)
+{
+	if (hCtl == gCtlLanding) return ID_PAGES_HOME;
+	else if (hCtl == gCtlPersons) return ID_PAGES_PERSONS;
+	else if (hCtl == gCtlVehicles) return ID_PAGES_VEHICLES;
+	else if (hCtl == gCtlWeapons) return ID_PAGES_WEAPONS;
+	else if (hCtl == gCtlCrimes) return ID_PAGES_CRIMES;
+	else return -1;
+}
+
+static BOOL NavToCtl(HWND hWnd, HWND hCtl)
+{
+	if (hCtl == NULL) return FALSE;
+	if (nav.hCtl != NULL)
+	{
+		ShowWindow(nav.hCtl, SW_HIDE);
+	}
+
+	WhFitContent(hWnd, hCtl);
 	ShowWindow(hCtl, SW_SHOW);
+	nav.hCtl = hCtl;
+
+	// additionally update the check mark status
+	UncheckAllNavItems(hWnd);
+	UINT uId = GetCtlId(hCtl);
+	if (uId != -1)
+	{
+		CheckMenuItem(GetMenu(hWnd), uId, MF_BYCOMMAND | MF_CHECKED);
+	}
+
+	return TRUE;
 }
 
 LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -68,11 +112,14 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 			AppendMenu(hSysMenu, MF_SEPARATOR, 0, NULL);
 			AppendMenu(hSysMenu, MF_STRING, IDHELP, TEXT("About\tF1"));
 
+			// load all controls
+			CoInitGlobControls(hWnd);
+
 			// load menu item images
 			LoadMenuImages(hWnd);
 
-			// test
-			CreateTestControl(hWnd);
+			// set the initial page
+			NavToCtl(hWnd, gCtlLanding);
 
 			return 0;
 		}
@@ -181,6 +228,36 @@ LRESULT CALLBACK WndMainWindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM l
 				case ID_DATABASE_INSIGHTS:
 				{
 					CoDlgInsights(hWnd);
+					return 0;
+				}
+
+				case ID_PAGES_HOME:
+				{
+					NavToCtl(hWnd, gCtlLanding);
+					return 0;
+				}
+
+				case ID_PAGES_PERSONS:
+				{
+					NavToCtl(hWnd, gCtlPersons);
+					return 0;
+				}
+
+				case ID_PAGES_VEHICLES:
+				{
+					NavToCtl(hWnd, gCtlVehicles);
+					return 0;
+				}
+
+				case ID_PAGES_WEAPONS:
+				{
+					NavToCtl(hWnd, gCtlWeapons);
+					return 0;
+				}
+
+				case ID_PAGES_CRIMES:
+				{
+					NavToCtl(hWnd, gCtlCrimes);
 					return 0;
 				}
 

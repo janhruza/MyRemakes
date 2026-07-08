@@ -181,9 +181,11 @@
   <ItemGroup>
     <ClCompile Include="Source.c" />
     <ClCompile Include="src\Config.c" />
+    <ClCompile Include="src\Controls\CtlCrimes.c" />
     <ClCompile Include="src\Controls\CtlDbPersons.c" />
     <ClCompile Include="src\Controls\CtlLanding.c" />
     <ClCompile Include="src\Controls\CtlVehicles.c" />
+    <ClCompile Include="src\Controls\CtlWeapons.c" />
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Dialogs\DlgAbout.c" />
     <ClCompile Include="src\Dialogs\DlgInsights.c" />

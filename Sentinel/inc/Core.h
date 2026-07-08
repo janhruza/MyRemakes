@@ -89,4 +89,11 @@ BOOL CoAppCleanup(void);
 int CoDisplayError(HWND hParent, UINT uUD);
 int CoDisplayMessage(HWND hParent, UINT uMessageId, UINT uMsgParams);
 
+/// <summary>
+/// Initializes all controls and their handles. These controls will have their parent set to the desired value in hParent.
+/// </summary>
+/// <param name="hParent">Controls parent window.</param>
+/// <returns>Operation result.</returns>
+BOOL CoInitGlobControls(HWND hParent);
+
 #endif
