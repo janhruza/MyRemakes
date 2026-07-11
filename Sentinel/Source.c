@@ -11,9 +11,10 @@ int wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int
 	if (CoInitializeApp() == FALSE)
 	{
 		// unable to initialize
-		WCHAR text[MAX_PATH];
+		/*WCHAR text[MAX_PATH];
 		LoadString(hInstance, IDS_MSG_ERR_INIT, text, MAX_PATH);
-		MessageBox(NULL, text, TEXT("Error"), MB_OK | MB_ICONERROR);
+		MessageBox(NULL, text, TEXT("Error"), MB_OK | MB_ICONERROR);*/
+		CoDisplayError(NULL, IDS_MSG_ERR_INIT);
 		return EXIT_FAILURE;
 	}
 
