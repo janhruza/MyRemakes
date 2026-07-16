@@ -7,6 +7,106 @@ PConfig gConfig = NULL;
 CrimeInfo gCrimes[MAX_CRIMES] = { 0 };
 WCHAR* gCountries[MAX_COUNTRIES] = { 0 };
 
+WCHAR* gWeaponNames[W_COUNT] =
+{
+	L"Unknown",
+
+	// MELEE
+	L"Knife",
+	L"Nightstick",
+	L"Hammer",
+	L"Bat",
+	L"Golf Club",
+	L"Crowbar",
+	L"Machete",
+	L"Switchblade",
+	L"Battleaxe",
+	L"Stone Hatchet",
+
+	// HANDGUNS
+	L"Pistol",
+	L"Pistol Mk II",
+	L"Combat Pistol",
+	L"AP Pistol",
+	L"Stun Gun",
+	L"Pistol .50",
+	L"SNS Pistol",
+	L"SNS Pistol Mk II",
+	L"Heavy Pistol",
+	L"Vintage Pistol",
+	L"Marksman Pistol",
+	L"Revolver",
+	L"Revolver Mk II",
+	L"Up-n-Atomizer",
+
+	// SMG
+	L"Micro SMG",
+	L"SMG",
+	L"SMG Mk II",
+	L"Assault SMG",
+	L"Combat PDW",
+	L"Machine Pistol",
+	L"Mini SMG",
+	L"Tactical SMG",
+
+	// SHOTGUNS
+	L"Pump Shotgun",
+	L"Pump Shotgun Mk II",
+	L"Sawed-Off Shotgun",
+	L"Assault Shotgun",
+	L"Bullpup Shotgun",
+	L"Heavy Shotgun",
+	L"Double Barrel Shotgun",
+	L"Sweeper Shotgun",
+
+	// RIFLES
+	L"Assault Rifle",
+	L"Assault Rifle Mk II",
+	L"Carbine Rifle",
+	L"Carbine Rifle Mk II",
+	L"Advanced Rifle",
+	L"Special Carbine",
+	L"Special Carbine Mk II",
+	L"Bullpup Rifle",
+	L"Bullpup Rifle Mk II",
+	L"Compact Rifle",
+	L"Military Rifle",
+	L"Heavy Rifle",
+	L"Service Rifle",
+
+	// MG
+	L"MG",
+	L"Combat MG",
+	L"Combat MG Mk II",
+	L"Gusenberg",
+
+	// SNIPER
+	L"Sniper Rifle",
+	L"Heavy Sniper",
+	L"Heavy Sniper Mk II",
+	L"Marksman Rifle",
+	L"Marksman Rifle Mk II",
+	L"Precision Rifle",
+
+	// HEAVY
+	L"RPG",
+	L"Grenade Launcher",
+	L"Minigun",
+	L"Firework Launcher",
+	L"Homing Launcher",
+	L"Railgun",
+	L"Compact Launcher",
+	L"Widowmaker",
+
+	// THROWN
+	L"Grenade",
+	L"Sticky Bomb",
+	L"Proximity Mine",
+	L"Molotov",
+	L"Teargas",
+	L"Pipe Bomb"
+};
+
 const Weapon gWeapons[MAX_WEAPONS] =
 {
 	{ W_FIRST, WPT_FIRST, 0, 0 },

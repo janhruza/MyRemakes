@@ -59,6 +59,10 @@
 #define IDC_LBL_TIME                    1052
 #define IDC_LBL_INSIGHTS                1060
 #define IDC_TXT_NAME                    1062
+#define IDC_CBX_WEAPON_TYPE             1067
+#define IDC_TXT_WEAPON_CAPACITY         1068
+#define IDC_TXT_WEAPON_MAXAMMO          1069
+#define IDC_LBL_STATS                   1070
 #define IDC_LBX_VEHICLES                1065
 #define IDC_LIST2                       1066
 #define IDC_LBX_CRIMES                  1066
