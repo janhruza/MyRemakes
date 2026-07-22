@@ -32,6 +32,7 @@
 #define IDB_IMG_CLOSE                   122
 #define IDB_IMG_INSIGHTS                123
 #define IDD_DLGABOUTPERSON              124
+#define IDD_ABOUTPERSON                 126
 #define IDC_LICENSE                     1002
 #define IDC_RBKEEPFORMAT                1017
 #define IDC_RBCUSTOM                    1018
@@ -59,13 +60,15 @@
 #define IDC_LBL_TIME                    1052
 #define IDC_LBL_INSIGHTS                1060
 #define IDC_TXT_NAME                    1062
+#define IDC_LBX_VEHICLES                1065
+#define IDC_LIST2                       1066
+#define IDC_LBX_CRIMES                  1066
 #define IDC_CBX_WEAPON_TYPE             1067
 #define IDC_TXT_WEAPON_CAPACITY         1068
 #define IDC_TXT_WEAPON_MAXAMMO          1069
 #define IDC_LBL_STATS                   1070
-#define IDC_LBX_VEHICLES                1065
-#define IDC_LIST2                       1066
-#define IDC_LBX_CRIMES                  1066
+#define IDC_LIST1                       1070
+#define IDC_SYSLINK1                    1071
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -99,9 +102,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        126
+#define _APS_NEXT_RESOURCE_VALUE        128
 #define _APS_NEXT_COMMAND_VALUE         40029
-#define _APS_NEXT_CONTROL_VALUE         1067
+#define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
