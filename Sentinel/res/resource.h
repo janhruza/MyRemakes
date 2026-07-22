@@ -67,8 +67,9 @@
 #define IDC_TXT_WEAPON_CAPACITY         1068
 #define IDC_TXT_WEAPON_MAXAMMO          1069
 #define IDC_LBL_STATS                   1070
-#define IDC_LIST1                       1070
 #define IDC_SYSLINK1                    1071
+#define IDC_LNK_EXTRAS                  1071
+#define IDC_DATA                        1072
 #define ID_HELP_ABOUT                   40001
 #define ID_FILE_CLOSE                   40002
 #define ID_PLAYERS_NEWPLAYER            40003
@@ -104,7 +105,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        128
 #define _APS_NEXT_COMMAND_VALUE         40029
-#define _APS_NEXT_CONTROL_VALUE         1072
+#define _APS_NEXT_CONTROL_VALUE         1073
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
