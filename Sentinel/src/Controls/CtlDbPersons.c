@@ -158,7 +158,21 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 				case PERSON_DETAILS:
 				{
-					CoNotImplemented(hCtl);
+					// get the person data
+
+					int idx = ListBox_GetCurSel(hLbx);
+					if (idx == LB_ERR) return FALSE;
+
+					DatabasePtr db = GlobGetDbPtr();
+					PersonPtr person = &db->Persons[idx];
+					if (person == NULL)
+					{
+						return FALSE;
+					}
+
+					CoDlgPersonInfo(hCtl, person);
+
+					//CoNotImplemented(hCtl);
 					return TRUE;
 				}
 

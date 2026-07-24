@@ -6,6 +6,7 @@
 #include "..\inc\Dialogs\DlgNewVehicle.h"
 #include "..\inc\Dialogs\DlgNewWeapon.h"
 #include "..\inc\Dialogs\DlgInsights.h"
+#include "..\inc\Dialogs\Param\DlgABoutPerson.h"
 
 #include "..\inc\Controls\CtlLanding.h"
 #include "..\inc\Controls\CtlDbPersons.h"
@@ -168,6 +169,17 @@ BOOL CoDlgNewVehicle(HWND hParent)
 BOOL CoDlgNewWeapon(HWND hParent)
 {
 	return CoShowDialog(hParent, IDD_DLGNEWWEAPON, DlgNewWeaponProc);
+}
+
+BOOL CoDlgPersonInfo(HWND hParent, PersonPtr person)
+{
+	if (hParent == NULL || person == NULL)
+	{
+		return FALSE;
+	}
+
+	DialogBoxParam(GetModuleHandle(NULL), MAKEINTRESOURCE(IDD_ABOUTPERSON), hParent, DlgAboutPersonProc, person);
+	return TRUE;
 }
 
 int CoDisplayError(HWND hParent, UINT uID)

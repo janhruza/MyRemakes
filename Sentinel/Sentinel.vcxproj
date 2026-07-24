@@ -189,6 +189,7 @@
     <ClCompile Include="src\Core.c" />
     <ClCompile Include="src\Dialogs\DlgAbout.c" />
     <ClCompile Include="src\Dialogs\DlgInsights.c" />
+    <ClCompile Include="src\Dialogs\Param\DlgPersonAbout.c" />
     <ClCompile Include="src\Windows\WndMainWindow.c" />
   </ItemGroup>
   <ItemGroup>

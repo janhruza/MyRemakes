@@ -75,6 +75,9 @@
     <ClCompile Include="src\Controls\CtlCrimes.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Dialogs\Param\DlgPersonAbout.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Manifest Include="app.manifest" />
