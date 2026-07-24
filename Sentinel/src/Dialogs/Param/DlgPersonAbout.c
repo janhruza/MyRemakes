@@ -6,6 +6,8 @@
 #include <Windows.h>
 #include <strsafe.h>
 
+#define DATE_SIZE 16
+
 static BOOL DateToString(SYSTEMTIME date, LPWSTR buf, size_t bufsize)
 {
 	return SUCCEEDED(StringCchPrintf(buf, bufsize, TEXT("%02d\\%02d\\%04d"), date.wMonth, date.wDay, date.wYear));
@@ -19,13 +21,13 @@ static BOOL DisplayPersonInfoText(HWND hStatic, PersonPtr person)
 	WCHAR* label = TEXT("ID:\t\t%d\nName:\t\t%s\nLevel:\t\t%d\nLast seen:\t%s\nRegistered\t%s\nNationality:\t%s");
 	WCHAR text[1024] = { 0 };
 
-	WCHAR dSeen[32];
-	WCHAR dReg[32];
+	WCHAR sSeen[DATE_SIZE];
+	WCHAR sReg[DATE_SIZE];
 
-	DateToString(person->LastSeen, dSeen, 32);
-	DateToString(person->CreationDate, dReg, 32);
+	DateToString(person->LastSeen, sSeen, DATE_SIZE);
+	DateToString(person->CreationDate, sReg, DATE_SIZE);
 
-	HRESULT hr = StringCchPrintf(text, 1024, label, person->Id, person->Name, person->Level, dSeen, dReg, gCountries[person->Nationality]);
+	HRESULT hr = StringCchPrintf(text, 1024, label, person->Id, person->Name, person->Level, sSeen, sReg, gCountries[person->Nationality]);
 	if (SUCCEEDED(hr))
 	{
 		return SetWindowText(hStatic, text);
