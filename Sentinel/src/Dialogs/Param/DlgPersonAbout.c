@@ -1,6 +1,7 @@
 #include "..\..\..\inc\Dialogs\Param\DlgAboutPerson.h"
 #include "..\..\..\inc\Engine\Person.h"
 #include "..\..\..\inc\Globals.h"
+#include "..\..\..\inc\WindowHelper.h"
 #include "..\..\..\res\resource.h"
 
 #include <Windows.h>
@@ -53,6 +54,20 @@ BOOL CALLBACK DlgAboutPersonProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lPa
 			PersonPtr person = (PersonPtr)lParam;
 			HWND hStatic = GetDlgItem(hDlg, IDC_DATA);
 			DisplayPersonInfoText(hStatic, person);
+			return TRUE;
+		}
+
+		case WM_SHOWWINDOW:
+		{
+			if ((BOOL)wParam == TRUE)
+			{
+				// center the dialog
+				HWND owner = GetWindow(hDlg, GW_OWNER);
+				WhCenterChildWindow(owner, hDlg);
+
+				MessageBeep(MB_ICONINFORMATION);
+			}
+
 			return TRUE;
 		}
 

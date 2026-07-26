@@ -57,7 +57,7 @@ static inline BOOL ShowInsights(HWND hDlg)
 	int cID = cfg->nCrimeId;
 
 	WCHAR text[1024] = { 0 };
-	StringCchPrintf(text, 1024, TEXT("Registered objects and next IDs:\n\nPersons:\t%d\tPerson ID:\t%d\nVehicles:\t%d\tVehicle ID:\t%d\nWeapons:\t%d\tWeapon ID:\t%d\nCrimes:\t\t%d\tCrime ID:\t%d"), persons, pID, vehicles, vID, weapons, wID, crimes, cID);
+	StringCchPrintf(text, 1024, TEXT("Registered objects and next IDs:\n\nPersons:\t\t%d\tPerson ID:\t%d\nVehicles:\t\t%d\tVehicle ID:\t%d\nWeapons:\t%d\tWeapon ID:\t%d\nCrimes:\t\t%d\tCrime ID:\t%d"), persons, pID, vehicles, vID, weapons, wID, crimes, cID);
 
 	SetWindowText(hTxt, text);
 
