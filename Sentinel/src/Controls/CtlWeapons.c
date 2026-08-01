@@ -104,6 +104,16 @@ BOOL CALLBACK CtlWeaponsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return TRUE;
 		}
 
+		case WM_SHOWWINDOW:
+		{
+			if ((BOOL)wParam == TRUE)
+			{
+				RefreshWeapons(hCtl);
+			}
+
+			return TRUE;
+		}
+
 		case WM_CONTEXTMENU:
 		{
 			if ((HWND)wParam == hLbx)

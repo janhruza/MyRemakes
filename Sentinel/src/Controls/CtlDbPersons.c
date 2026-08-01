@@ -128,6 +128,16 @@ BOOL CtlDbPersonsProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			return DLGC_WANTALLKEYS;
 		}
 
+		case WM_SHOWWINDOW:
+		{
+			if ((BOOL)wParam == TRUE)
+			{
+				RefreshDbView();
+			}
+
+			return TRUE;
+		}
+
 		/*case WM_CTLCOLORDLG:
 		case WM_CTLCOLORBTN:
 		case WM_CTLCOLORSTATIC:

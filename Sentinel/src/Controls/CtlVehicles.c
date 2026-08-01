@@ -110,6 +110,16 @@ BOOL CALLBACK CtlVehiclesProc(HWND hCtl, UINT uMsg, WPARAM wParam, LPARAM lParam
 			return TRUE;
 		}
 
+		case WM_SHOWWINDOW:
+		{
+			if ((BOOL)wParam == TRUE)
+			{
+				RefreshVehicles(hCtl);
+			}
+
+			return TRUE;
+		}
+
 		case WM_CONTEXTMENU:
 		{
 			if ((HWND)wParam == hLbx)
